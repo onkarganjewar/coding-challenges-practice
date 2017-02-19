@@ -135,7 +135,7 @@ public class DoublyLL {
 	}
 
 
-	//Reversing the linked list using iterative method
+	//Reversing the linked list using recursion
 	public void reverse_rec(Node n)
 	{
 		Node current = n;
