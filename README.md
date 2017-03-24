@@ -9,3 +9,6 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L89)
 3. Merge given two sorted arrays?
   [Answer](../master/Challenges/src/Solution.java#L108)
+4. Java 1-D Array (part 2) game
+  [Question](https://www.hackerrank.com/challenges/java-1d-array)
+  [Answer](../master/Challenges/src/Solution.java#L156)
