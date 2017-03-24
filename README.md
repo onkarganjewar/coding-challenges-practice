@@ -11,4 +11,6 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L108)
 4. Java 1-D Array (part 2) game
   [Question](https://www.hackerrank.com/challenges/java-1d-array)
-  [Answer](../master/Challenges/src/Solution.java#L156)
+  [Answer](../master/Challenges/src/Solution.java#L159)
+5. Find the number occuring odd number of times? [Question](http://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/)
+  [Answer](../master/Challenges/src/Solution.java#L182)

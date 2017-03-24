@@ -127,7 +127,7 @@ public class Solution {
 			A[k--] = B[j--];
 
 	}
-	
+
 	/**
 	 * You are playing a game on your cell phone. You are given an array of
 	 * length n, indexed from 0 to n-1. Each element of the array is either 0 or
@@ -147,9 +147,12 @@ public class Solution {
 	 * You can't move backward from position . If you move to any position
 	 * greater than n-1, you win the game.
 	 * 
-	 * @param m Jump length
-	 * @param arr Input array
-	 * @param i Starting position
+	 * @param m
+	 *            Jump length
+	 * @param arr
+	 *            Input array
+	 * @param i
+	 *            Starting position
 	 * @return
 	 */
 	@SuppressWarnings("unused")
@@ -168,5 +171,23 @@ public class Solution {
 		return isSolvable(array, m, i - 1) || isSolvable(array, m, i + 1) || isSolvable(array, m, i + m);
 	}
 
+	/**
+	 * Given an array of positive integers. All numbers occur even number of
+	 * times except one number which occurs odd number of times. Find the number
+	 * in O(n) time & constant space
+	 * 
+	 * @param arr
+	 * @return
+	 */
+	private static int getOddOccuringElement(int[] arr) {
+		int result = 0;
+		int res[] = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			int num = arr[i];
+			result ^= num;
+			res[i] = result;
+		}
+		return result;
+	}
 
 }
