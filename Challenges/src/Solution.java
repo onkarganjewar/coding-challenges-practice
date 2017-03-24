@@ -16,8 +16,8 @@ public class Solution {
 	}
 
 	/**
-	 * A dummy method to accept input from stdin in a format most commonly used in
-	 * challenge questions at Hackerrank
+	 * A dummy method to accept input from stdin in a format most commonly used
+	 * in challenge questions at Hackerrank
 	 * 
 	 * @throws IOException
 	 */
@@ -77,6 +77,28 @@ public class Solution {
 				max = arr[i];
 		}
 		return (max - min);
+	}
+
+	/**
+	 * Compute the largest possible difference between any two elements within
+	 * an array such that larger element always appears after the smaller
+	 * element.
+	 * 
+	 * @param arr
+	 */
+	private static int computeMaxDiff(int[] arr) {
+		int diff, maxDiff, min = Integer.MAX_VALUE;
+		diff = maxDiff = Integer.MIN_VALUE;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] < min)
+				min = arr[i];
+
+			// diff = Math.abs(arr[i]) - Math.abs(min);
+			diff = arr[i] - min;
+			if (diff > maxDiff)
+				maxDiff = diff;
+		}
+		return maxDiff;
 	}
 
 }
