@@ -1,2 +1,2 @@
 # Data-Structures
-Programs implemented in Java to understand various data structures 
+Programs implemented in Java that contains solutions to various coding challenges on Hackerrank/GeeksForGeeks. 
