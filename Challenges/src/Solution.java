@@ -1,11 +1,5 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.io.*;
+import java.util.*;
 
 /**
  * Class containing solutions for various Hackerrank/GeeksForGeeks coding
@@ -194,8 +188,6 @@ public class Solution {
 		return result;
 	}
 
-	
-
 	/**
 	 * Find all the palindromes from a given string. Given a string, find all
 	 * possible palindromic partitions of given string. Ex. "abba" --> bb, abba,
@@ -234,7 +226,6 @@ public class Solution {
 		return palindromeOutputs.size();
 	}
 
-
 	public static List<String> centerCombinations(String string, int center) {
 		List<String> result = new ArrayList<>();
 
@@ -254,7 +245,6 @@ public class Solution {
 		}
 		return result;
 	}
-
 
 	/**
 	 * Given an array with elements, can you sort this array in ascending order
@@ -317,7 +307,6 @@ public class Solution {
 		return "NO";
 	}
 
-
 	/**
 	 * A Discrete Mathematics professor has a class of students. Frustrated with
 	 * their lack of discipline, he decides to cancel class if fewer than K
@@ -344,7 +333,6 @@ public class Solution {
 			return "YES";
 		return "NO";
 	}
-
 
 	/**
 	 * The Utopian Tree goes through 2 cycles of growth every year. Each spring,
@@ -376,7 +364,6 @@ public class Solution {
 		}
 		return height;
 	}
-
 
 	/**
 	 * Get all the possible combinations of words from a given string
@@ -415,7 +402,6 @@ public class Solution {
 		charArray[start] = temp;
 		return String.valueOf(charArray);
 	}
-
 
 	/**
 	 * You are given a square map of size . Each cell of the map has a value
@@ -476,4 +462,71 @@ public class Solution {
 		}
 	}
 
+	/**
+	 * Write a program which prints the time in words for the input given in the
+	 * format mentioned above.
+	 * 
+	 * @param hh
+	 *            Represents the hours
+	 * @param mm
+	 *            Represents the minutes
+	 * @return Time in a human readable string
+	 */
+
+	public static String getTime(int hh, int mm) {
+
+		String[] lowDigits = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+				"eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+		String[] tens = { "", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+		// 678
+		String output = "";
+		if (mm == 15 || mm == 30 || mm == 45 || mm == 00) {
+			switch (mm) {
+			case 15:
+				output += "quarter past " + lowDigits[hh];
+				break;
+			case 30:
+				output += "half past " + lowDigits[hh];
+				break;
+			case 45:
+				output += "quarter to " + lowDigits[hh + 1];
+				break;
+			case 00:
+				output += lowDigits[hh] += " o' clock";
+				break;
+			default:
+				output += "ERROR";
+				break;
+			}
+		} else if (mm < 20) {
+			int rmn = mm % 10;
+			if (mm == 1)
+				output += lowDigits[mm] + " minute past " + lowDigits[hh];
+			else
+				output += lowDigits[mm] + " minutes past " + lowDigits[hh];
+		} else if (mm < 30 && mm > 20) {
+			int div = mm / 10;
+			if (div > 0)
+				output += tens[div] + " ";
+			int rmn = mm % 10;
+			output += lowDigits[rmn];
+			output += " minutes past " + lowDigits[hh];
+		} else if (mm > 30 && mm < 60) {
+			mm = 60 - mm;
+			if (mm < 20) {
+				int rmn = mm % 10;
+				output += lowDigits[mm];
+				output += " minutes to " + lowDigits[hh + 1];
+				return output;
+			}
+			int div = mm / 10;
+			if (div > 0)
+				output += tens[div] + " ";
+			int rmn = mm % 10;
+			output += lowDigits[rmn];
+			output += " minutes to " + lowDigits[hh + 1];
+		}
+		// System.out.println("Ouput is "+output);
+		return output;
+	}
 }
