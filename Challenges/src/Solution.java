@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Class containing solutions for various Hackerrank/GeeksForGeeks coding
  * challenges
- * 
+ *
  * @author Onkar Ganjewar
  */
 public class Solution {
@@ -16,7 +16,7 @@ public class Solution {
 	/**
 	 * A dummy method to accept input from stdin in a format most commonly used
 	 * in challenge questions at Hackerrank
-	 * 
+	 *
 	 * @throws IOException
 	 */
 	private static void hackerRankStdInput() throws IOException {
@@ -60,7 +60,7 @@ public class Solution {
 
 	/**
 	 * Find largest possible difference between any two elements within an array
-	 * 
+	 *
 	 * @param arr
 	 * @return
 	 */
@@ -81,7 +81,7 @@ public class Solution {
 	 * Compute the largest possible difference between any two elements within
 	 * an array such that larger element always appears after the smaller
 	 * element.
-	 * 
+	 *
 	 * @param arr
 	 */
 	private static int computeMaxDiff(int[] arr) {
@@ -144,7 +144,7 @@ public class Solution {
 	 * <br>
 	 * You can't move backward from position . If you move to any position
 	 * greater than n-1, you win the game.
-	 * 
+	 *
 	 * @param m
 	 *            Jump length
 	 * @param arr
@@ -173,7 +173,7 @@ public class Solution {
 	 * Given an array of positive integers. All numbers occur even number of
 	 * times except one number which occurs odd number of times. Find the number
 	 * in O(n) time & constant space
-	 * 
+	 *
 	 * @param arr
 	 * @return
 	 */
@@ -192,7 +192,7 @@ public class Solution {
 	 * Find all the palindromes from a given string. Given a string, find all
 	 * possible palindromic partitions of given string. Ex. "abba" --> bb, abba,
 	 * a, b
-	 * 
+	 *
 	 * @param input
 	 * @return no of combinations of all the palindrome substrings from a given
 	 *         string.
@@ -249,9 +249,9 @@ public class Solution {
 	/**
 	 * Given an array with elements, can you sort this array in ascending order
 	 * using only one of the following operations?
-	 * 
+	 *
 	 * Swap two elements OR Reverse one sub-segment.
-	 * 
+	 *
 	 * @param arr
 	 * @param size
 	 */
@@ -311,10 +311,10 @@ public class Solution {
 	 * A Discrete Mathematics professor has a class of students. Frustrated with
 	 * their lack of discipline, he decides to cancel class if fewer than K
 	 * students are present when class starts.
-	 * 
+	 *
 	 * Given the arrival time of each student, determine if the class is
 	 * canceled.
-	 * 
+	 *
 	 * @param students
 	 * @param threshold
 	 */
@@ -337,10 +337,10 @@ public class Solution {
 	/**
 	 * The Utopian Tree goes through 2 cycles of growth every year. Each spring,
 	 * it doubles in height. Each summer, its height increases by 1 meter.
-	 * 
+	 *
 	 * Laura plants a Utopian Tree sapling with a height of 1 meter at the onset
 	 * of spring. How tall will her tree be after growth cycles?
-	 * 
+	 *
 	 * @param cycles
 	 */
 	private static int utopianTree(int cycles) {
@@ -367,7 +367,7 @@ public class Solution {
 
 	/**
 	 * Get all the possible combinations of words from a given string
-	 * 
+	 *
 	 * @param str
 	 */
 	private static Set<String> stringPermutations(String str, int start, int end, Set<String> output) {
@@ -386,7 +386,7 @@ public class Solution {
 
 	/**
 	 * Swap characters
-	 * 
+	 *
 	 * @param str
 	 * @param start
 	 *            position 1
@@ -409,7 +409,7 @@ public class Solution {
 	 * if this cell is not on the border of the map and each cell adjacent to it
 	 * has strictly smaller depth. Two cells are adjacent if they have a common
 	 * side (edge).
-	 * 
+	 *
 	 * You need to find all the cavities on the map and depict them with the
 	 * uppercase character X.
 	 */
@@ -465,7 +465,7 @@ public class Solution {
 	/**
 	 * Write a program which prints the time in words for the input given in the
 	 * format mentioned above.
-	 * 
+	 *
 	 * @param hh
 	 *            Represents the hours
 	 * @param mm
@@ -529,4 +529,96 @@ public class Solution {
 		// System.out.println("Ouput is "+output);
 		return output;
 	}
+
+	/**
+	 * Converts the given number to its readable English text in the range of
+	 * 1-1000.
+	 *
+	 * @param num
+	 */
+	private static String convertNumberToWord(int num) {
+		String[] lowDigits = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", " nine", " ten",
+				" eleven", " twelve", " thirteen", " fourteen", " fifteen", " sixteen", " seventeen", " eighteen",
+				" nineteen" };
+		String[] tens = { "", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+		// 678
+		String output = "";
+		if (num > 100 && num < 1000) {
+			int div = num / 100;
+			output = lowDigits[div] + " hundred ";
+			int rem = num % (div * 100);
+			int mo = rem / 10;
+			if (mo > 0)
+				output += tens[mo] + " ";
+
+			int ld = rem % 10;
+			output += lowDigits[ld];
+			System.out.println(output);
+		} else if (num < 100 && num > 0) {
+			int div = num / 10;
+			if (div > 1)
+				output += tens[div] + " ";
+			int rmn = num % 20;
+			output += lowDigits[rmn] + " ";
+			System.out.println("Output is " + output);
+		} else if (num == 100 || num == 0) {
+			switch (num) {
+			case 100:
+				output += "one hundred";
+				break;
+			case 0:
+				output += "zero";
+				break;
+			default:
+				output += "none";
+				break;
+			}
+		}
+		System.out.println("Output is " + output);
+		return output;
+	}
+
+	/**
+	 * Sort the array using counting sort algorithm. <br>
+	 * Time complexity - O(n + k)
+	 *
+	 * @param arr Array to be sorted
+	 * @return
+	 */
+	@SuppressWarnings("unused")
+	private static int[] countingSort(int[] arr) {
+		int max = 7;
+		int size = arr.length;
+		// Create an empty array to store indexes count
+		int[] indexesCount = new int[max + 1];
+		for (int i : indexesCount) {
+			indexesCount[i] = 0;
+		}
+
+		for (int j = 0; j < arr.length; j++) {
+			System.out.println(arr[j]);
+			++indexesCount[arr[j]];
+		}
+
+		// int[] sumCount = new int[max + 1];
+		for (int k = 1; k < max + 1; k++) {
+			// sumCount[k] = indexesCount[k] + sumCount[k - 1];
+			indexesCount[k] += indexesCount[k - 1];
+		}
+
+		int[] outArr = new int[size];
+		for (int l = 0; l < arr.length; l++) {
+			System.out.print("--->Index is = " + indexesCount[arr[l]]);
+			outArr[indexesCount[arr[l]] - 1] = arr[l];
+			indexesCount[arr[l]]--;
+		}
+		int var = 4;
+		System.out.println("Variable value is = " + Integer.toString(var));
+		for (int m : outArr) {
+			System.out.println(m);
+		}
+
+		return outArr;
+	}
+	
 }

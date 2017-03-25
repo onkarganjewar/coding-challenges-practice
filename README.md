@@ -28,3 +28,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L416)
 12. Time In Words. [Question](https://www.hackerrank.com/challenges/the-time-in-words)
   [Answer](../master/Challenges/src/Solution.java#L476)
+13. Convert the given number to its readable English text in the range of 1-1000. [Answer](../master/Challenges/src/Solution.java#L539)
+14. Counting sort. [Answer](../master/Challenges/src/Solution.java#L589) 
