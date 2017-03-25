@@ -13,7 +13,7 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Question](https://www.hackerrank.com/challenges/java-1d-array)
   [Answer](../master/Challenges/src/Solution.java#L159)
 5. Find the number occurring odd number of times? [Question](http://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/)
-  [Answer](../master/Challenges/src/Solution.java#L185)
+  [Answer](../master/Challenges/src/Solution.java#L186)
 6. Find all distinct palindromic sub-strings of a given string? [Question](http://www.geeksforgeeks.org/find-number-distinct-palindromic-sub-strings-given-string/)
   [Answer](../master/Challenges/src/Solution.java#L208)
 7. Sort an array using only two operations. [Question](https://www.hackerrank.com/challenges/almost-sorted)
