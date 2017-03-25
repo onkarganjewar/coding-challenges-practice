@@ -1,7 +1,11 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * Class containing solutions for various Hackerrank/GeeksForGeeks coding
@@ -188,6 +192,288 @@ public class Solution {
 			res[i] = result;
 		}
 		return result;
+	}
+
+	
+
+	/**
+	 * Find all the palindromes from a given string. Given a string, find all
+	 * possible palindromic partitions of given string. Ex. "abba" --> bb, abba,
+	 * a, b
+	 * 
+	 * @param input
+	 * @return no of combinations of all the palindrome substrings from a given
+	 *         string.
+	 */
+	public static int palindromePermutations(final String str) {
+		String input = str;
+		List<String> palindromeOutputs = new ArrayList<String>();
+		int len = str.length();
+		int i = 0, j = len;
+		boolean flag = false;
+		char[] charArr = new char[str.length()];
+		charArr = str.toCharArray();
+		for (i = 0; i < len; i++) {
+			// Check with keeping current char at center
+			char current = charArr[i];
+			if (i > 0)
+				palindromeOutputs.addAll(centerCombinations(str, i));
+			if (i < len - 1)
+				palindromeOutputs.addAll(rightCombinations(str, i));
+		}
+		/*
+		 * while (i < j) { String inp = input.substring(i, j); flag =
+		 * checkPalindrome(inp); if (flag) palindromeOutputs.add(inp); i++; j--;
+		 * }
+		 */
+
+		for (char c : charArr) {
+			palindromeOutputs.add(Character.toString(c));
+		}
+
+		return palindromeOutputs.size();
+	}
+
+
+	public static List<String> centerCombinations(String string, int center) {
+		List<String> result = new ArrayList<>();
+
+		while (string.charAt(center - 1) == string.charAt(center + 1)) {
+			result.add(string.substring(center - 1, center + 2));
+			center++;
+		}
+		return result;
+	}
+
+	public static List<String> rightCombinations(String string, int right) {
+		List<String> result = new ArrayList<>();
+
+		while (string.charAt(right) == string.charAt(right + 1)) {
+			result.add(string.substring(right, right + 2));
+			right++;
+		}
+		return result;
+	}
+
+
+	/**
+	 * Given an array with elements, can you sort this array in ascending order
+	 * using only one of the following operations?
+	 * 
+	 * Swap two elements OR Reverse one sub-segment.
+	 * 
+	 * @param arr
+	 * @param size
+	 */
+	private static String almostSorted(int[] a, int size) {
+		int i, j;
+		List<Integer> unsortedList = new ArrayList<>();
+		i = j = 0;
+		int temp;
+		int sorted = 0;
+		int unSorted = 0;
+		int[] unSortArr = new int[size];
+		int broken = 0;
+		int count = 0;
+		while (i < size) {
+			while (a[i] < a[i + 1]) {
+				sorted++;
+				i++;
+			}
+			j = i;
+			while (a[i] > a[i + 1]) {
+				unSorted++;
+				unSortArr[i] = a[i];
+				unsortedList.add(a[i]);
+				if (i >= (size - 2))
+					break;
+				else
+					i++;
+			}
+			// if (unSorted > 0)
+			// unSorted++;
+			while (((j + 1) != (i - 1)) && (unSorted > 0)) {
+				if (a[j] > a[i]) {
+					temp = a[i];
+					a[i] = a[j];
+					a[j] = temp;
+					unSorted -= 2;
+				}
+				j++;
+				i--;
+			}
+			if (!unsortedList.isEmpty())
+				unsortedList.add(a[i]);
+			broken++;
+			Collections.reverse(unsortedList);
+			// for (int k = 0; k<size-1; k++) {
+			// if (a[k] < a[k+1])
+			// count++;
+			// }
+			int total = sorted + unSorted;
+			if (size == count)
+				return "YES";
+		}
+		return "NO";
+	}
+
+
+	/**
+	 * A Discrete Mathematics professor has a class of students. Frustrated with
+	 * their lack of discipline, he decides to cancel class if fewer than K
+	 * students are present when class starts.
+	 * 
+	 * Given the arrival time of each student, determine if the class is
+	 * canceled.
+	 * 
+	 * @param students
+	 * @param threshold
+	 */
+	private static String angryProf(int[] students, int threshold) {
+		List<Integer> earlyStudents = new ArrayList<>();
+		List<Integer> lateStudents = new ArrayList<>();
+
+		for (int i : students) {
+			if (i > 0)
+				lateStudents.add(i);
+			else
+				earlyStudents.add(i);
+		}
+
+		if (earlyStudents.size() < threshold)
+			return "YES";
+		return "NO";
+	}
+
+
+	/**
+	 * The Utopian Tree goes through 2 cycles of growth every year. Each spring,
+	 * it doubles in height. Each summer, its height increases by 1 meter.
+	 * 
+	 * Laura plants a Utopian Tree sapling with a height of 1 meter at the onset
+	 * of spring. How tall will her tree be after growth cycles?
+	 * 
+	 * @param cycles
+	 */
+	private static int utopianTree(int cycles) {
+		int height = 1;
+		// Laura plants a Utopian Tree sapling with a height of 1 meter at the
+		// onset of Spring. So, the initial height () of the tree remains
+		// unchanged.
+		if (cycles == 0)
+			return 1;
+		while (cycles > 0) {
+			// Each spring it doubles it's height
+			if (cycles > 0) {
+				height *= 2;
+				cycles--;
+			}
+			// Each summer it's height increases by 1m
+			if (cycles > 0) {
+				height += 1;
+				cycles--;
+			}
+		}
+		return height;
+	}
+
+
+	/**
+	 * Get all the possible combinations of words from a given string
+	 * 
+	 * @param str
+	 */
+	private static Set<String> stringPermutations(String str, int start, int end, Set<String> output) {
+		if (start == end) {
+			output.add(str);
+			System.out.println(str);
+		} else {
+			for (int i = start; i <= end; i++) {
+				str = swap(str, start, i);
+				stringPermutations(str, start + 1, end, output);
+				// str = swap(str, start, i);
+			}
+		}
+		return output;
+	}
+
+	/**
+	 * Swap characters
+	 * 
+	 * @param str
+	 * @param start
+	 *            position 1
+	 * @param i
+	 *            position 2
+	 * @return swapped string
+	 */
+	private static String swap(String str, int start, int i) {
+		char temp;
+		char[] charArray = str.toCharArray();
+		temp = charArray[i];
+		charArray[i] = charArray[start];
+		charArray[start] = temp;
+		return String.valueOf(charArray);
+	}
+
+
+	/**
+	 * You are given a square map of size . Each cell of the map has a value
+	 * denoting its depth. We will call a cell of the map a cavity if and only
+	 * if this cell is not on the border of the map and each cell adjacent to it
+	 * has strictly smaller depth. Two cells are adjacent if they have a common
+	 * side (edge).
+	 * 
+	 * You need to find all the cavities on the map and depict them with the
+	 * uppercase character X.
+	 */
+	private static void cavityMap() {
+
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		int j = 0;
+		String[] grid = new String[n];
+		int[][] gridArr = new int[n][n];
+		for (int grid_i = 0; grid_i < n; grid_i++) {
+			grid[grid_i] = in.next();
+			for (int i = 0; i < n; i++) {
+				String parts = grid[grid_i].substring(i, i + 1);
+				gridArr[j][i] = Integer.parseInt(parts);
+				// System.out.println("Parts are"+parts);
+			}
+			j++;
+		}
+
+		for (int i = 0; i < n; i++) {
+			for (j = 0; j < n; j++) {
+				if (i != 0 && i != n - 1 && j != 0 && j != n - 1) {
+					if (gridArr[i][j] > gridArr[i + 1][j] && gridArr[i][j] > gridArr[i - 1][j]
+							&& gridArr[i][j] > gridArr[i][j + 1] && gridArr[i][j] > gridArr[i][j - 1])
+						gridArr[i][j] = 111;
+				}
+			}
+			// System.out.println();
+		}
+
+		String[][] outputStr = new String[n][n];
+		int aa = outputStr.length;
+
+		for (int i = 0; i < n; i++) {
+			for (j = 0; j < n; j++) {
+				outputStr[i][j] = Integer.toString(gridArr[i][j]);
+				// System.out.print(gridArr[i][j]+" ");
+				if (gridArr[i][j] == 111)
+					outputStr[i][j] = "X";
+			}
+			// System.out.println();
+		}
+
+		for (int i = 0; i < n; i++) {
+			for (j = 0; j < n; j++) {
+				System.out.print(outputStr[i][j]);
+			}
+			System.out.println();
+		}
 	}
 
 }
