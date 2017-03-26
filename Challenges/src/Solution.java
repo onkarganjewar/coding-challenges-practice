@@ -582,7 +582,8 @@ public class Solution {
 	 * Sort the array using counting sort algorithm. <br>
 	 * Time complexity - O(n + k)
 	 *
-	 * @param arr Array to be sorted
+	 * @param arr
+	 *            Array to be sorted
 	 * @return
 	 */
 	@SuppressWarnings("unused")
@@ -619,6 +620,30 @@ public class Solution {
 		}
 
 		return outArr;
+	}
+
+	/**
+	 * Gaming array challenge on HackerRank.
+	 * 
+	 * @param arr
+	 *            Initial gaming array
+	 * @return False, if Andy wins the game <br>
+	 *         True, if Bob wins the game
+	 */
+	@SuppressWarnings("unused")
+	private static boolean gamingArray(Integer[] arr) {
+		int maxSoFar = 0;
+		int maxChange = 0;
+
+		for (int k = 0; k < arr.length; k++) {
+			if (arr[k] > maxSoFar) {
+				maxSoFar = arr[k];
+				// Count how many times the max has changed
+				maxChange++;
+			}
+		}
+		// System.out.println("Max changed thus far " + maxChange);
+		return ((maxChange % 2 == 0) ? false : true);
 	}
 	
 }
