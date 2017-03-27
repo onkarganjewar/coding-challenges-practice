@@ -702,4 +702,58 @@ public class Solution {
 		}
 		return bribeCount;
 	}
+
+	/**
+	 * A binary gap within a positive integer N is any maximal sequence of
+	 * consecutive zeros that is surrounded by ones at both ends in the binary
+	 * representation of N. <br>
+	 * 
+	 * For example, number 9 has binary representation 1001 and contains a
+	 * binary gap of length 2. <br>
+	 * 
+	 * Write a function returns the length of its longest binary gap. The
+	 * function should return 0 if N doesn't contain a binary gap. <br>
+	 * 
+	 * For example, given N = 1041 the function should return 5, <br>
+	 * because N has binary representation 10000010001 and so its longest binary
+	 * gap is of length 5. <br>
+	 * 
+	 * <br>
+	 * Sample test cases: <br>
+	 * 328, 16, 1024, 6, 20, 51712, 561892, 5, 7, 9 <br>
+	 * <br>
+	 * Assume that: <br>
+	 * 
+	 * N is an integer within the range [1..2,147,483,647]. <br>
+	 * <br>
+	 * Complexity: <br>
+	 * 
+	 * expected worst-case time complexity is O(log(N)). <br>
+	 * expected worst-case space complexity is O(1). <br>
+	 * 
+	 * @param num
+	 *            Input decimal number
+	 * @return length of the longest binary gap
+	 */
+	@SuppressWarnings("unused")
+	private static int binaryGap(int N) {
+
+		String binRep = Integer.toBinaryString(N);
+		int prevIndex, nextIndex, maxCount;
+		int count = maxCount = prevIndex = nextIndex = 0;
+		if (binRep.indexOf("0") != -1) {
+			while (true) {
+				nextIndex = binRep.indexOf("1", prevIndex + 1);
+				if (nextIndex != -1) {
+					count = nextIndex - prevIndex;
+					if (count > maxCount)
+						maxCount = count;
+				} else
+					break;
+				prevIndex = nextIndex;
+			}
+		}
+		return ((maxCount != 0) ? --maxCount : maxCount);
+	}
+
 }

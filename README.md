@@ -34,3 +34,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L634)
 16. New year chaos. [Question](https://www.hackerrank.com/challenges/new-year-chaos)
   [Answer](../master/Challenges/src/Solution.java#L673)
+17. Binary Gap. [Question](https://codility.com/programmers/lessons/1-iterations/binary_gap/)
+  [Answer](../master/Challenges/src/Solution.java#L736)
