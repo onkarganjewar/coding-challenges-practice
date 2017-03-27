@@ -645,5 +645,61 @@ public class Solution {
 		// System.out.println("Max changed thus far " + maxChange);
 		return ((maxChange % 2 == 0) ? false : true);
 	}
-	
+
+	/**
+	 * 2 <br>
+	 * 8 <br>
+	 * 5 1 2 3 7 8 6 4 <br>
+	 * 8 <br>
+	 * 1 2 5 3 7 8 6 4 <br>
+	 * 
+	 * There are people queued up, and each person wears a sticker indicating
+	 * their initial position in the queue (i.e.: 1,2, .. n-1, n with the first
+	 * number denoting the frontmost position).
+	 * 
+	 * Any person in the queue can bribe the person directly in front of them to
+	 * swap positions. If two people swap positions, they still wear the same
+	 * sticker denoting their original place in line. One person can bribe at
+	 * most two other persons.
+	 * 
+	 * Fascinated by this chaotic queue, you decide you must know the minimum
+	 * number of bribes that took place to get the queue into its current state!
+	 * 
+	 * @param arr
+	 *            Person queue
+	 * @return
+	 */
+
+	private static int calcBribeCount(Integer[] arr) {
+		int bribeCount = 0;
+		int n = arr.length;
+		int currentVal = n;
+
+		while (currentVal != 1) {
+			int j = currentVal - 1;
+			// Find index of current value
+			while (arr[j] != currentVal && (j >= 0)) {
+				j--;
+			}
+			int cvIndex = j;
+			int cvBribe = 0;
+			// If current person out of place
+			while (cvIndex != (currentVal - 1)) {
+				// swap (arr[cvIndex], arr[cvIndex+1]);
+				int temp;
+				temp = arr[cvIndex];
+				arr[cvIndex] = arr[cvIndex + 1];
+				arr[cvIndex + 1] = temp;
+
+				cvBribe++;
+				cvIndex++;
+				// One person can bribe at most two other persons.
+				if (cvBribe > 2)
+					return -1; // Too chaotic
+			}
+			currentVal--;
+			bribeCount += cvBribe;
+		}
+		return bribeCount;
+	}
 }
