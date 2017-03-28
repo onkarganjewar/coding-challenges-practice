@@ -177,13 +177,13 @@ public class Solution {
 	 * @param arr
 	 * @return
 	 */
-	private static int getOddOccuringElement(int[] arr) {
+	private static int getOddOccurringElement(int[] arr) {
 		int result = 0;
-		int res[] = new int[arr.length];
+//		int res[] = new int[arr.length];
 		for (int i = 0; i < arr.length; i++) {
-			int num = arr[i];
-			result ^= num;
-			res[i] = result;
+//			int num = arr[i];
+			result ^= arr[i];
+//			res[i] = result;
 		}
 		return result;
 	}
@@ -743,6 +743,8 @@ public class Solution {
 		int count = maxCount = prevIndex = nextIndex = 0;
 		if (binRep.indexOf("0") != -1) {
 			while (true) {
+				// Find the next occurrence of "1" to calculate end point of
+				// binary gap
 				nextIndex = binRep.indexOf("1", prevIndex + 1);
 				if (nextIndex != -1) {
 					count = nextIndex - prevIndex;
