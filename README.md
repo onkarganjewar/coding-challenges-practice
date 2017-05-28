@@ -36,3 +36,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L673)
 17. Binary Gap. [Question](https://codility.com/programmers/lessons/1-iterations/binary_gap/)
   [Answer](../master/Challenges/src/Solution.java#L739)
+18. Extra Long Factorials. [Question](https://www.hackerrank.com/challenges/extra-long-factorials)
+  [Answer](../master/Challenges/src/Solution.java#L762)
