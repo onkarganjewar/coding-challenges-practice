@@ -757,12 +757,10 @@ public class Solution {
 		}
 		return ((maxCount != 0) ? --maxCount : maxCount);
 	}
-	
+
 	// Extra Long Factorials
 	public static BigInteger factorial(int n) {
 	    BigInteger inp = BigInteger.valueOf(n);
-
-
 	    if (inp.equals(BigInteger.ZERO))
 	        return BigInteger.ONE;
 	    // BigInteger one = new BigInteger("1");
