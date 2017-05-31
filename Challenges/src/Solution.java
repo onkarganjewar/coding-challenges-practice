@@ -1,4 +1,5 @@
 import java.io.*;
+import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -766,6 +767,29 @@ public class Solution {
 	    // BigInteger one = new BigInteger("1");
 	    BigInteger prev = inp.subtract(BigInteger.ONE);
 	    return inp.multiply(factorial((prev.intValue())));
+	}
+
+	/**
+	 * Returns the minimum number of delete operations required to have all the array's elements same.
+	 * @param arr Input array
+	 * @return The number of deletions required
+	 */
+	private static int equalizeArray(int[] arr) {
+	
+		TreeMap<Integer, Integer> freqMap = new TreeMap<Integer, Integer>();
+		int maxCount = 0;
+		int arrSize = arr.length;
+		for (int i = 0; i < arrSize; i++) {
+			int count = 0;
+			if (freqMap.containsKey(arr[i]))
+				count = freqMap.get(arr[i]);
+			freqMap.put(arr[i], ++count);
+			if (maxCount < count)
+				maxCount = count;
+		}
+		// In order to equalize an array we would have to delete all the elements except the highest occurring elements of the array
+		int maxDel = arrSize - maxCount;
+		return maxDel;
 	}
 
 }
