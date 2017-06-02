@@ -40,3 +40,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L762)
 19. Equalize Array. [Question](https://www.hackerrank.com/challenges/equality-in-a-array)
   [Answer](../master/Challenges/src/Solution.java#L777)
+20. Run Length Encoding of String. [Question](http://practice.geeksforgeeks.org/problems/run-length-encoding/1)
+  [Answer](../master/Challenges/src/Solution.java#L806)

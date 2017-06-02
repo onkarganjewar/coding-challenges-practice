@@ -180,11 +180,11 @@ public class Solution {
 	 */
 	private static int getOddOccurringElement(int[] arr) {
 		int result = 0;
-//		int res[] = new int[arr.length];
+		// int res[] = new int[arr.length];
 		for (int i = 0; i < arr.length; i++) {
-//			int num = arr[i];
+			// int num = arr[i];
 			result ^= arr[i];
-//			res[i] = result;
+			// res[i] = result;
 		}
 		return result;
 	}
@@ -761,21 +761,24 @@ public class Solution {
 
 	// Extra Long Factorials
 	public static BigInteger factorial(int n) {
-	    BigInteger inp = BigInteger.valueOf(n);
-	    if (inp.equals(BigInteger.ZERO))
-	        return BigInteger.ONE;
-	    // BigInteger one = new BigInteger("1");
-	    BigInteger prev = inp.subtract(BigInteger.ONE);
-	    return inp.multiply(factorial((prev.intValue())));
+		BigInteger inp = BigInteger.valueOf(n);
+		if (inp.equals(BigInteger.ZERO))
+			return BigInteger.ONE;
+		// BigInteger one = new BigInteger("1");
+		BigInteger prev = inp.subtract(BigInteger.ONE);
+		return inp.multiply(factorial((prev.intValue())));
 	}
 
 	/**
-	 * Returns the minimum number of delete operations required to have all the array's elements same.
-	 * @param arr Input array
+	 * Returns the minimum number of delete operations required to have all the
+	 * array's elements same.
+	 * 
+	 * @param arr
+	 *            Input array
 	 * @return The number of deletions required
 	 */
 	private static int equalizeArray(int[] arr) {
-	
+
 		TreeMap<Integer, Integer> freqMap = new TreeMap<Integer, Integer>();
 		int maxCount = 0;
 		int arrSize = arr.length;
@@ -787,9 +790,45 @@ public class Solution {
 			if (maxCount < count)
 				maxCount = count;
 		}
-		// In order to equalize an array we would have to delete all the elements except the highest occurring elements of the array
+		// In order to equalize an array we would have to delete all the
+		// elements except the highest occurring elements of the array
 		int maxDel = arrSize - maxCount;
 		return maxDel;
+	}
+
+	/**
+	 * Function to calculate the run length encoded string for the given string.
+	 * 
+	 * @param input
+	 *            Input string
+	 * @return Run length encoded string
+	 */
+	private static String runLengthEncoding(String str) {
+
+		char first = str.charAt(0);
+		StringBuffer sb = new StringBuffer();
+		// System.out.println("Input String = " + str);
+		int counter = 1;
+		if (str.length() < 2) {
+			sb.append(first);
+			sb.append(counter);
+			return sb.toString();
+		}
+
+		for (int i = 1; i < str.length(); i++) {
+			if (str.charAt(i) == first)
+				++counter;
+			else {
+				sb.append(str.charAt(i - 1));
+				sb.append(counter);
+				first = str.charAt(i);
+				counter = 1;
+			}
+		}
+		sb.append(str.charAt(str.length() - 1));
+		sb.append(counter);
+
+		return sb.toString();
 	}
 
 }
