@@ -772,7 +772,7 @@ public class Solution {
 	/**
 	 * Returns the minimum number of delete operations required to have all the
 	 * array's elements same.
-	 * 
+	 *
 	 * @param arr
 	 *            Input array
 	 * @return The number of deletions required
@@ -798,7 +798,7 @@ public class Solution {
 
 	/**
 	 * Function to calculate the run length encoded string for the given string.
-	 * 
+	 *
 	 * @param input
 	 *            Input string
 	 * @return Run length encoded string
@@ -814,7 +814,6 @@ public class Solution {
 			sb.append(counter);
 			return sb.toString();
 		}
-
 		for (int i = 1; i < str.length(); i++) {
 			if (str.charAt(i) == first)
 				++counter;
@@ -831,4 +830,76 @@ public class Solution {
 		return sb.toString();
 	}
 
+	/**
+	 * Returns a string lexicographically bigger than input string.
+	 * @param str Input string
+	 * @return Lexicographically higher string
+	 */
+	private static String findNextHighestPerm(String str) {
+		// Consider input = d, k, h, c ==>> 4, 11, 8, 3
+		char[] strChars = str.toCharArray();
+		int end = strChars.length - 1;
+		// Iterate the longest increasing suffix from the end
+		// i.e. 11<--8<--3
+		// Get the index of smallest character after the sequence such that
+		// char[smallest] < char[smallest + 1]
+		// i.e. 4 < 11
+		while ((end > 0) && (strChars[end] <= strChars[end - 1])) {
+			end--;
+		}
+		// If string is already in descending order then return
+		if (end <= 0)
+			return "no answer";
+
+		// pivot becomes index of second smallest character i.e d or 4
+		int pivot = end - 1;
+		int i = str.length() - 1;
+		// d, k, h, c
+		// Find the second highest character after pivot
+	    while (str.charAt(i) <= str.charAt(pivot)) {
+	        i--;
+	    }
+
+		// Swap pivot with the next highest element than it from the end i.e. 4
+		// <--> 8
+		// 4, 11, 8, 3 --> d, k, h, c
+		char temp = strChars[pivot];
+		strChars[pivot] = strChars[i];
+		strChars[i] = temp;
+		// 8, 11, 4, 3 --> h, k, d, c
+
+		// Sort the characters after pivot(0) --> k, d, c in ascending order
+		// Reverse the suffix sequence
+		i = str.length() - 1;
+		while (end < i) {
+	      temp = strChars[end];
+	      strChars[end] = strChars[i];
+	      strChars[i] = temp;
+	      end++;
+	      i--;
+	  }
+	  // output string ==>> h, c, d, k
+	  return new String(strChars);
+
+	/* StringBuffer sb = new StringBuffer();
+	for (int ii = pivot + 1; ii < strChars.length; ii++) {
+		sb.append(strChars[ii]);
+	}
+	// k, d, c
+	char[] sorted = sb.toString().toCharArray();
+	Arrays.sort(sorted);
+	// c, d, k
+	// Clear the stringbuffer object
+	sb.setLength(0);
+	
+	// Start adding the chars in sb
+	// Add the elements till pivot ==> h
+	for (int ii = 0; ii <= pivot; ii++) {
+		sb.append(strChars[ii]);
+	}
+	// Append sorted chars after pivot ==> c, d, k
+	sb.append(sorted);
+	return sb.toString();
+	*/
+	}
 }

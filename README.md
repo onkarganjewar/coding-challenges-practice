@@ -42,3 +42,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L777)
 20. Run Length Encoding. [Question](http://practice.geeksforgeeks.org/problems/run-length-encoding/1)
   [Answer](../master/Challenges/src/Solution.java#L806)
+21. Bigger is greater. [Question](https://www.hackerrank.com/challenges/bigger-is-greater)
+  [Answer](../master/Challenges/src/Solution.java#L838)
