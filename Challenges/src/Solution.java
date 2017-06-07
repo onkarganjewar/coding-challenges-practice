@@ -832,7 +832,9 @@ public class Solution {
 
 	/**
 	 * Returns a string lexicographically bigger than input string.
-	 * @param str Input string
+	 * 
+	 * @param str
+	 *            Input string
 	 * @return Lexicographically higher string
 	 */
 	private static String findNextHighestPerm(String str) {
@@ -856,9 +858,9 @@ public class Solution {
 		int i = str.length() - 1;
 		// d, k, h, c
 		// Find the second highest character after pivot
-	    while (str.charAt(i) <= str.charAt(pivot)) {
-	        i--;
-	    }
+		while (str.charAt(i) <= str.charAt(pivot)) {
+			i--;
+		}
 
 		// Swap pivot with the next highest element than it from the end i.e. 4
 		// <--> 8
@@ -872,34 +874,13 @@ public class Solution {
 		// Reverse the suffix sequence
 		i = str.length() - 1;
 		while (end < i) {
-	      temp = strChars[end];
-	      strChars[end] = strChars[i];
-	      strChars[i] = temp;
-	      end++;
-	      i--;
-	  }
-	  // output string ==>> h, c, d, k
-	  return new String(strChars);
-
-	/* StringBuffer sb = new StringBuffer();
-	for (int ii = pivot + 1; ii < strChars.length; ii++) {
-		sb.append(strChars[ii]);
-	}
-	// k, d, c
-	char[] sorted = sb.toString().toCharArray();
-	Arrays.sort(sorted);
-	// c, d, k
-	// Clear the stringbuffer object
-	sb.setLength(0);
-	
-	// Start adding the chars in sb
-	// Add the elements till pivot ==> h
-	for (int ii = 0; ii <= pivot; ii++) {
-		sb.append(strChars[ii]);
-	}
-	// Append sorted chars after pivot ==> c, d, k
-	sb.append(sorted);
-	return sb.toString();
-	*/
+			temp = strChars[end];
+			strChars[end] = strChars[i];
+			strChars[i] = temp;
+			end++;
+			i--;
+		}
+		// output string ==>> h, c, d, k
+		return new String(strChars);
 	}
 }
