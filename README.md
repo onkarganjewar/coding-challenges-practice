@@ -44,3 +44,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L806)
 21. Bigger is greater. [Question](https://www.hackerrank.com/challenges/bigger-is-greater)
   [Answer](../master/Challenges/src/Solution.java#L838)
+22. Reverse words in a string and capitalize the first letter. [Question](https://www.hackerrank.com/contests/codejam/challenges/reverse-words)
+  [Answer](../master/Challenges/src/Solution.java#L896)

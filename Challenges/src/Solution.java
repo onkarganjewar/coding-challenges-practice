@@ -883,4 +883,108 @@ public class Solution {
 		// output string ==>> h, c, d, k
 		return new String(strChars);
 	}
+
+	/**
+	 * Reverses the words in the given string and capitalize first letter of
+	 * each word. <br>
+	 * For ex. "Hello World" --> "OlleH DlroW"
+	 * 
+	 * @param string
+	 *            Input sequence of words
+	 * @return String with reversed words
+	 */
+	private static String reverseWordsInText(String string) {
+		String[] splits = string.split(" ");
+		StringBuffer sb = new StringBuffer();
+		// Preserve the order of input words
+		for (String string2 : splits) {
+			// Capitalize first letter of reversed string ==> OlleH
+			sb.append((reverseString(string2).substring(0, 1).toUpperCase()));
+			// Append the remaining characters keeping the order(lower/upper) of
+			// letters as is ==> lleH
+			sb.append(reverseString(string2).substring(1));
+			sb.append(" ");
+		}
+
+		// If we want to reverse the order of words as well in the output string
+		// for (int s=splits.length-1 ; s>=0; s--) {
+		// sb.append(reverseString(splits[s]));
+		// sb.append(" ");
+		// }
+		return sb.toString();
+	}
+
+	/**
+	 * Reverse the given string in O(n) time.
+	 * 
+	 * @param str
+	 *            Input string
+	 * @return Reversed string
+	 */
+	private static String reverseString(String str) {
+
+		char[] strChars = str.toCharArray();
+		int l = 0;
+		int r = strChars.length - 1;
+
+		while (l < r) {
+			// swap (strChars[l], strChars[r]);
+			char temp = strChars[l];
+			strChars[l] = strChars[r];
+			strChars[r] = temp;
+			l++;
+			r--;
+		}
+		StringBuffer sb = new StringBuffer();
+		sb.append(strChars);
+		return sb.toString();
+	}
+
+	/**
+	 * Sherlock and the valid string<br>
+	 * <b>INCOMPLETE SOLUTION <br>
+	 * Failed 4 test cases out of 15 on Hackerrank</b> <blockquote>Failing for
+	 * test case "aabcd" ==> should return "NO" instead of "YES"</blockquote>
+	 * 
+	 * @param s
+	 *            Input string
+	 * @return "YES" or "NO"
+	 */
+	private static String isValid(String s) {
+
+		String sToLower = s.toLowerCase();
+		char[] letters = sToLower.toCharArray();
+		int[] count = new int[124];
+		for (int i : count) {
+			count[i] = 0;
+		}
+
+		for (char l : letters) {
+			int ascii = l;
+			++count[ascii];
+		}
+
+		List<Integer> numbers = new ArrayList<Integer>();
+		for (int i = 97; i < 123; i++) {
+			if (count[i] != 0) {
+				numbers.add(count[i]);
+			}
+		}
+
+		Set<Integer> uniqKeys = new TreeSet<Integer>(numbers);
+		Integer[] intArr = new Integer[uniqKeys.size()];
+		if (uniqKeys.size() == 2) {
+			uniqKeys.toArray();
+			intArr = uniqKeys.toArray(intArr);
+			int diff = Math.abs(intArr[0] - intArr[1]);
+			if (diff > 1)
+				return "NO";
+		}
+
+		if (uniqKeys.size() > 2)
+			return "NO";
+
+		return "YES";
+	}
+
 }
