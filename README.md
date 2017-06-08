@@ -46,3 +46,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L838)
 22. Reverse words in a string and capitalize the first letter. [Question](https://www.hackerrank.com/contests/codejam/challenges/reverse-words)
   [Answer](../master/Challenges/src/Solution.java#L896)
+23. Sherlock and the Valid String. [Question](https://www.hackerrank.com/challenges/sherlock-and-valid-string)
+  [Answer](../master/Challenges/src/Solution.java#L954)
