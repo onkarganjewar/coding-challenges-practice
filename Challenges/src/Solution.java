@@ -974,17 +974,13 @@ public class Solution {
 		Set<Integer> uniqKeys = new TreeSet<Integer>(numbers);
 		Integer[] intArr = new Integer[uniqKeys.size()];
 		if (uniqKeys.size() == 2) {
-			uniqKeys.toArray();
 			intArr = uniqKeys.toArray(intArr);
 			int diff = Math.abs(intArr[0] - intArr[1]);
 			if (diff > 1)
 				return "NO";
 		}
 
-		if (uniqKeys.size() > 2)
-			return "NO";
-
-		return "YES";
+		return (uniqKeys.size() > 2) ? "NO" : "YES";
 	}
 
 }
