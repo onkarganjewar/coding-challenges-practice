@@ -48,3 +48,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L896)
 23. Sherlock and the Valid String. [Question](https://www.hackerrank.com/challenges/sherlock-and-valid-string)
   [Answer](../master/Challenges/src/Solution.java#L954)
+24. Balanced Brackets. [Question](https://www.hackerrank.com/challenges/balanced-brackets)
+  [Answer](../master/Challenges/src/Solution.java#L994)

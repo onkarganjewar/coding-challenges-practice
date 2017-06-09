@@ -983,4 +983,57 @@ public class Solution {
 		return (uniqKeys.size() > 2) ? "NO" : "YES";
 	}
 
+	/**
+	 * Check whether given parenthesis expression is balanced or not.
+	 * 
+	 * @param exp
+	 *            Input expression string
+	 * @return "YES", if it is balanced <br>
+	 *         "NO", if it is not
+	 */
+	private static String parenthesisChecker(String exp) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(exp);
+		Stack<Character> stack = new Stack<Character>();
+
+		for (int i = 0; i < sb.length(); i++) {
+			Character c = sb.charAt(i);
+			if (c == '{' || c == '(' || c == '[') {
+				stack.push(c);
+			}
+
+			else if (c == '}' || c == ')' || c == ']') {
+				if (stack.isEmpty()) {
+					return "NO";
+				} else if (!matchOpeningPair(c, stack.pop())) {
+					return "NO";
+				} else
+					continue;
+			}
+		}
+		if (stack.isEmpty())
+			return "YES";
+		return "NO";
+	}
+
+	private static boolean matchOpeningPair(Character c, Character peek) {
+
+		switch (c) {
+		case '}':
+			if (peek == '{')
+				return true;
+			break;
+
+		case ')':
+			if (peek == '(')
+				return true;
+			break;
+
+		case ']':
+			if (peek == '[')
+				return true;
+			break;
+		}
+		return false;
+	}
 }
