@@ -50,5 +50,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L954)
 24. Balanced Brackets. [Question](https://www.hackerrank.com/challenges/balanced-brackets)
   [Answer](../master/Challenges/src/Solution.java#L994)
-25. Stack maximum element. [Question](https://www.hackerrank.com/challenges/maximum-element)
+25. Maximum Element of Stack. [Question](https://www.hackerrank.com/challenges/maximum-element)
   [Answer](../master/Challenges/src/Solution.java#L1039)
