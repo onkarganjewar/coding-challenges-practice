@@ -1018,22 +1018,13 @@ public class Solution {
 
 	private static boolean matchOpeningPair(Character c, Character peek) {
 
-		switch (c) {
-		case '}':
-			if (peek == '{')
-				return true;
-			break;
-
-		case ')':
-			if (peek == '(')
-				return true;
-			break;
-
-		case ']':
-			if (peek == '[')
-				return true;
-			break;
-		}
-		return false;
+		if (c == '}' && peek == '{') {
+			return true;
+		} else if (c == ')' && peek == '(') {
+			return true;
+		} else if (c == ']' && peek == '[') {
+			return true;
+		} else
+			return false;
 	}
 }
