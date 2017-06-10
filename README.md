@@ -52,3 +52,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L994)
 25. Maximum Element of Stack. [Question](https://www.hackerrank.com/challenges/maximum-element)
   [Answer](../master/Challenges/src/Solution.java#L1039)
+26. Anagrams. [Question](https://www.hackerrank.com/challenges/anagram)
+  [Answer](../master/Challenges/src/Solution.java#L1084)

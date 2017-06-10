@@ -1067,4 +1067,48 @@ public class Solution {
 			return Integer.MIN_VALUE;
 		return s.peek();
 	}
+	
+	/**
+	 * <b>Calculate no of operations required to make two strings anagrams.</b> 
+	 * <br>Split the given string in half, compare two halves (S1, S2) <br> 
+	 * <br>For ex. abcb == ab + cb <br>
+	 * changes required = 1 (replace a from S1 with c) <br><br>
+	 * xaxbbbxx == "xaxb" + "bbxx". <br>
+	 * changes required = 1 (Replace 'a' from S1 with 'b' so that S1 = "xbxb"
+	 * <br>
+	 * and we can rearrange its letter to "bbxx" in order to get S2.)
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public static int anagram(String s) {
+		// Remove the matching characters from both strings.
+		// Distinct(remaining) characters from first string will be the answer
+		// (i.e. no of changes required).
+		int count = 0;
+		if (s.length() % 2 != 0) { // If the string is of odd length then it's
+									// not anagram ==> aba
+			return -1;
+		}
+		int half = s.length() / 2;
+
+		// "aaabbb" == "aaa" + "bbb"
+		String S1 = s.substring(0, half);
+		String S2 = s.substring(half, s.length());
+		int[] charCount = new int[26];
+		// Increment the index of character count
+		// "aaa" --> charCount[96] = 3
+		for (char c : S1.toCharArray())
+			++charCount[c - 'a'];
+		// Decrement the character count index only when it's already present
+		// i.e. greater than 0
+		// "bbb" --> charCount[97] = 0
+		for (char c : S2.toCharArray())
+			// Decrement only when character has appeared before
+			charCount[c - 'a'] = (charCount[c - 'a'] > 0) ? charCount[c - 'a'] - 1 : 0;
+		// Count the charCount array == 3 + 0 = 3
+		for (int i : charCount)
+			count += i;
+		return count; // 3
+	}
 }
