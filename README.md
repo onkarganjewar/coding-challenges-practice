@@ -54,3 +54,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L1039)
 26. Anagrams. [Question](https://www.hackerrank.com/challenges/anagram)
   [Answer](../master/Challenges/src/Solution.java#L1084)
+27. Arrays: Left Rotation. [Question](https://www.hackerrank.com/challenges/ctci-array-left-rotation)
+  [Answer](../master/Challenges/src/Solution.java#L1127)

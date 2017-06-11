@@ -1027,52 +1027,57 @@ public class Solution {
 		} else
 			return false;
 	}
-	
+
 	/**
-	 * Get the maximum element from the stack. <br> Hackerrank Problem: <br> 3 choices --
-	 * <br> 1. Push element
-	 * <br> 2. Pop element
-	 * <br> 3. Print max element of stack at that point 
+	 * Get the maximum element from the stack. <br>
+	 * Hackerrank Problem: <br>
+	 * 3 choices -- <br>
+	 * 1. Push element <br>
+	 * 2. Pop element <br>
+	 * 3. Print max element of stack at that point
 	 * 
 	 */
 	public static void stackMaxElement() {
 		Scanner sc = new Scanner(System.in);
-	    int n = sc.nextInt();
-	    Stack<Integer> stack = new Stack<Integer>();
-	    Stack<Integer> maxStack = new Stack<Integer>();
-	        
-	    while (n > 0) {
-	        int choice = sc.nextInt();
-	        if (choice == 1) {
-	            Integer val = sc.nextInt();
-	            if (val >= getStackMax(maxStack))
-	            	maxStack.push(val);
-	            stack.push(val);
-	        } else if (choice == 2) {
-	             Integer value = stack.pop();
-	             if (value == getStackMax(maxStack)) 
-	                	maxStack.pop();
-	        } else if (choice == 3) {
-	            if (!maxStack.isEmpty()) {
-	                System.out.println(getStackMax(maxStack));
-	            }
-	        }
-	        n--;
-	    }
-	    sc.close();
-    }
-	
+		int n = sc.nextInt();
+		Stack<Integer> stack = new Stack<Integer>();
+		Stack<Integer> maxStack = new Stack<Integer>();
+
+		while (n > 0) {
+			int choice = sc.nextInt();
+			if (choice == 1) {
+				Integer val = sc.nextInt();
+				if (val >= getStackMax(maxStack))
+					maxStack.push(val);
+				stack.push(val);
+			} else if (choice == 2) {
+				Integer value = stack.pop();
+				if (value == getStackMax(maxStack))
+					maxStack.pop();
+			} else if (choice == 3) {
+				if (!maxStack.isEmpty()) {
+					System.out.println(getStackMax(maxStack));
+				}
+			}
+			n--;
+		}
+		sc.close();
+	}
+
 	private static Integer getStackMax(Stack<Integer> s) {
-		if (s.isEmpty()) 
+		if (s.isEmpty())
 			return Integer.MIN_VALUE;
 		return s.peek();
 	}
-	
+
 	/**
-	 * <b>Calculate no of operations required to make two strings anagrams.</b> 
-	 * <br>Split the given string in half, compare two halves (S1, S2) <br> 
-	 * <br>For ex. abcb == ab + cb <br>
-	 * changes required = 1 (replace a from S1 with c) <br><br>
+	 * <b>Calculate no of operations required to make two strings anagrams.</b>
+	 * <br>
+	 * Split the given string in half, compare two halves (S1, S2) <br>
+	 * <br>
+	 * For ex. abcb == ab + cb <br>
+	 * changes required = 1 (replace a from S1 with c) <br>
+	 * <br>
 	 * xaxbbbxx == "xaxb" + "bbxx". <br>
 	 * changes required = 1 (Replace 'a' from S1 with 'b' so that S1 = "xbxb"
 	 * <br>
@@ -1110,5 +1115,31 @@ public class Solution {
 		for (int i : charCount)
 			count += i;
 		return count; // 3
+	}
+
+	/**
+	 * Left rotate the given array for k no of times
+	 * @param a Input array 
+	 * @param n Length of array
+	 * @param k Rotate count
+	 * @return Rotated array
+	 */
+	public static int[] arrayLeftRotation(int[] a, int n, int k) {
+		// Iterate for k no of rotations
+		for (int i = 0; i < k; i++) {
+			int ii = 0;
+			// Store first element of array before rotation
+			int temp = a[ii];
+			int j = 0;
+			// Rotate elements one time except the last element
+			while (j < n - 1) {
+				a[j] = a[j + 1];
+				j++;
+			}
+			// Replace the last element of array with first
+			a[n - 1] = temp;
+			ii++;
+		}
+		return a;
 	}
 }
