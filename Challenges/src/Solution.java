@@ -11,7 +11,7 @@ import java.util.*;
 public class Solution {
 
 	public static void main(String[] args) throws Exception {
-		hackerRankStdInput();
+		isPrime(13);
 	}
 
 	/**
@@ -780,6 +780,10 @@ public class Solution {
 	private static int equalizeArray(int[] arr) {
 
 		TreeMap<Integer, Integer> freqMap = new TreeMap<Integer, Integer>();
+		HashMap<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+		List<Integer> arrList = new ArrayList<Integer>();
+		Integer[] aa = new Integer[arrList.size()];
+		Arrays.sort(arrList.toArray(aa));
 		int maxCount = 0;
 		int arrSize = arr.length;
 		for (int i = 0; i < arrSize; i++) {
@@ -1179,5 +1183,25 @@ public class Solution {
 		}
 
 		return "NO";
+	}
+
+	/**
+	 * Check if the given number is prime or not in O(N ^ 1/2) time.
+	 * 
+	 * @param n
+	 *            Input number
+	 * @return true, if given no is prime
+	 */
+	public static boolean isPrime(int n) {
+		if (n < 2) {
+			return false;
+		}
+		int sqrt = (int) Math.sqrt(n);
+		for (int i = 2; i <= sqrt; i++) {
+			if (n % i == 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
