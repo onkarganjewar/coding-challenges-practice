@@ -1119,9 +1119,13 @@ public class Solution {
 
 	/**
 	 * Left rotate the given array for k no of times
-	 * @param a Input array 
-	 * @param n Length of array
-	 * @param k Rotate count
+	 * 
+	 * @param a
+	 *            Input array
+	 * @param n
+	 *            Length of array
+	 * @param k
+	 *            Rotate count
 	 * @return Rotated array
 	 */
 	public static int[] arrayLeftRotation(int[] a, int n, int k) {
@@ -1141,5 +1145,39 @@ public class Solution {
 			ii++;
 		}
 		return a;
+	}
+
+	/**
+	 * Check if two string contains anything in them common.
+	 * 
+	 * @param s1
+	 *            String 1
+	 * @param s2
+	 *            String 2
+	 * @return "YES", if there's any character common in them <br>
+	 *         "NO", if there's nothing common in two strings
+	 */
+	@SuppressWarnings("unused")
+	private static String twoStrings(String s1, String s2) {
+
+		char[] s1Arr = s1.toCharArray();
+		char[] s2Arr = s2.toCharArray();
+		int[] indexes = new int[127];
+		for (int j : indexes)
+			j = 0;
+		for (int i = 0; i < s1Arr.length; i++)
+			indexes[s1Arr[i]]++;
+
+		for (int j = 0; j < s2Arr.length; j++) {
+			if (indexes[s2Arr[j]] > 0)
+				indexes[s2Arr[j]] = indexes[s2Arr[j]] - 2;
+		}
+
+		for (int k = 0; k < indexes.length; k++) {
+			if (indexes[k] < 0)
+				return "YES";
+		}
+
+		return "NO";
 	}
 }
