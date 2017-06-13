@@ -1186,7 +1186,10 @@ public class Solution {
 	}
 
 	/**
-	 * Check if the given number is prime or not in O(N ^ 1/2) time.
+	 * Check if the given number is prime or not in O(N ^ 1/2) time. <b> The
+	 * algorithm determines whether or not a single number, n, is prime or not.
+	 * Each time the algorithm is run, its runtime is <i>with respect to n.</i>
+	 * <b>
 	 * 
 	 * @param n
 	 *            Input number

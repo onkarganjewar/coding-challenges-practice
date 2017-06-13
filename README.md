@@ -59,4 +59,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 28. Two Strings. [Question](https://www.hackerrank.com/challenges/two-strings)
   [Answer](../master/Challenges/src/Solution.java#L1165)
 29. Time Complexity: Primality. [Question](https://www.hackerrank.com/challenges/ctci-big-o)
-  [Answer](../master/Challenges/src/Solution.java#L1195)
+  [Answer](../master/Challenges/src/Solution.java#L1198)
