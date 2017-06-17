@@ -60,3 +60,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L1165)
 29. Time Complexity: Primality. [Question](https://www.hackerrank.com/challenges/ctci-big-o)
   [Answer](../master/Challenges/src/Solution.java#L1198)
+30. Making Anagrams. [Question](https://www.hackerrank.com/challenges/making-anagrams)
+  [Answer](../master/Challenges/src/Solution.java#L1218)

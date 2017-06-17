@@ -1207,4 +1207,27 @@ public class Solution {
 		}
 		return true;
 	}
+
+	/**
+	 * Find out the no of deletions required to make two strings anagrams
+	 * 
+	 * @param s1
+	 * @param s2
+	 * @return No of deletions required
+	 */
+	static int makingAnagrams(String s1, String s2) {
+		int charCount[] = new int[26];
+		for (int i = 0; i < s1.length(); i++)
+			charCount[s1.charAt(i) - 97]++; // charCount[s1.charAt(i) - 'a']++
+		// (since letters are all lower cases)
+		// To store the count of letter a means subtract 97
+		// from character and
+		// add one to it's array values
+		for (int i = 0; i < s2.length(); i++)
+			charCount[s2.charAt(i) - 97]--;
+		int count = 0;
+		for (int i = 0; i < 26; i++)
+			count += Math.abs(charCount[i]);
+		return count;
+	}
 }
