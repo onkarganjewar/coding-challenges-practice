@@ -836,7 +836,7 @@ public class Solution {
 
 	/**
 	 * Returns a string lexicographically bigger than input string.
-	 * 
+	 *
 	 * @param str
 	 *            Input string
 	 * @return Lexicographically higher string
@@ -892,7 +892,7 @@ public class Solution {
 	 * Reverses the words in the given string and capitalize first letter of
 	 * each word. <br>
 	 * For ex. "Hello World" --> "OlleH DlroW"
-	 * 
+	 *
 	 * @param string
 	 *            Input sequence of words
 	 * @return String with reversed words
@@ -920,7 +920,7 @@ public class Solution {
 
 	/**
 	 * Reverse the given string in O(n) time.
-	 * 
+	 *
 	 * @param str
 	 *            Input string
 	 * @return Reversed string
@@ -949,7 +949,7 @@ public class Solution {
 	 * <b>INCOMPLETE SOLUTION <br>
 	 * Failed 4 test cases out of 15 on Hackerrank</b> <blockquote>Failing for
 	 * test case "aabcd" ==> should return "NO" instead of "YES"</blockquote>
-	 * 
+	 *
 	 * @param s
 	 *            Input string
 	 * @return "YES" or "NO"
@@ -989,7 +989,7 @@ public class Solution {
 
 	/**
 	 * Check whether given parenthesis expression is balanced or not.
-	 * 
+	 *
 	 * @param exp
 	 *            Input expression string
 	 * @return "YES", if it is balanced <br>
@@ -1039,7 +1039,7 @@ public class Solution {
 	 * 1. Push element <br>
 	 * 2. Pop element <br>
 	 * 3. Print max element of stack at that point
-	 * 
+	 *
 	 */
 	public static void stackMaxElement() {
 		Scanner sc = new Scanner(System.in);
@@ -1086,7 +1086,7 @@ public class Solution {
 	 * changes required = 1 (Replace 'a' from S1 with 'b' so that S1 = "xbxb"
 	 * <br>
 	 * and we can rearrange its letter to "bbxx" in order to get S2.)
-	 * 
+	 *
 	 * @param s
 	 * @return
 	 */
@@ -1123,7 +1123,7 @@ public class Solution {
 
 	/**
 	 * Left rotate the given array for k no of times
-	 * 
+	 *
 	 * @param a
 	 *            Input array
 	 * @param n
@@ -1153,7 +1153,7 @@ public class Solution {
 
 	/**
 	 * Check if two string contains anything in them common.
-	 * 
+	 *
 	 * @param s1
 	 *            String 1
 	 * @param s2
@@ -1190,7 +1190,7 @@ public class Solution {
 	 * algorithm determines whether or not a single number, n, is prime or not.
 	 * Each time the algorithm is run, its runtime is <i>with respect to n.</i>
 	 * <b>
-	 * 
+	 *
 	 * @param n
 	 *            Input number
 	 * @return true, if given no is prime
@@ -1210,7 +1210,7 @@ public class Solution {
 
 	/**
 	 * Find out the no of deletions required to make two strings anagrams
-	 * 
+	 *
 	 * @param s1
 	 * @param s2
 	 * @return No of deletions required
@@ -1234,7 +1234,7 @@ public class Solution {
 	/**
 	 * Given a string, find the length of the longest substring without
 	 * repeating characters.
-	 * 
+	 *
 	 * @param s
 	 *            Input string
 	 * @return Length of substring
@@ -1250,7 +1250,7 @@ public class Solution {
 				max = Math.max(max, set.size());
 			} else {
 				// Remove the char from start in the set and
-				// decrement the deletion pointer
+				// increment the deletion pointer
 				set.remove(s.charAt(del++));
 			}
 		}
