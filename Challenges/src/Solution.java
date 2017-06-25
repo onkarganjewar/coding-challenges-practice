@@ -1230,4 +1230,30 @@ public class Solution {
 			count += Math.abs(charCount[i]);
 		return count;
 	}
+
+	/**
+	 * Given a string, find the length of the longest substring without
+	 * repeating characters.
+	 * 
+	 * @param s
+	 *            Input string
+	 * @return Length of substring
+	 */
+	public static int lengthOfLongestSubstring(String s) {
+		int ins = 0, del = 0, max = 0;
+		Set<Character> set = new HashSet<>();
+		while (ins < s.length()) {
+			// If char not present in the set
+			if (!set.contains(s.charAt(ins))) {
+				// Add the char and increment the insert pointer
+				set.add(s.charAt(ins++));
+				max = Math.max(max, set.size());
+			} else {
+				// Remove the char from start in the set and
+				// decrement the deletion pointer
+				set.remove(s.charAt(del++));
+			}
+		}
+		return max;
+	}
 }

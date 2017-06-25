@@ -62,3 +62,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L1198)
 30. Making Anagrams. [Question](https://www.hackerrank.com/challenges/making-anagrams)
   [Answer](../master/Challenges/src/Solution.java#L1218)
+31. Longest substring w/o repeating chars. [Question](https://leetcode.com/problems/longest-substring-without-repeating-characters)
+  [Answer](../master/Challenges/src/Solution.java#L1242)
