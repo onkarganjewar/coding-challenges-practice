@@ -70,3 +70,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L1327)
 35. Search an element in a sorted rotated array. [Question](https://leetcode.com/problems/search-in-rotated-sorted-array)
   [Answer](../master/Challenges/src/Solution.java#L1347)
+36. Find minimum in a sorted rotated array. [Question](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array)
+  [Answer](../master/Challenges/src/Solution.java#L1377)

@@ -1366,4 +1366,29 @@ public class Solution {
 			return searchUtil(a, mid + 1, hi, key);
 		return searchUtil(a, lo, mid - 1, key);
 	}
+
+	/**
+	 * Find minimum in rotated sorted array
+	 * 
+	 * @param nums
+	 *            Input array
+	 * @return Minimum key value
+	 */
+	public int findMin(int[] nums) {
+		int start = 0, end = nums.length - 1;
+		while (start < end) {
+			// [1, 2, 3, 4, 5]
+			if (nums[start] < nums[end])
+				return nums[start];
+
+			int mid = (start + end) / 2;
+			// [4, 5, 6, 7, 1, 2, 3]
+			if (nums[mid] > nums[end])
+				start = mid + 1;
+			else
+				// [4, 5, 1, 2, 3]
+				end = mid;
+		}
+		return nums[start];
+	}
 }
