@@ -66,3 +66,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L1235)
 32. Longest palindromic substring. [Question](https://leetcode.com/problems/longest-palindromic-substring)
   [Answer](../master/Challenges/src/Solution.java#L1265)
+34. Remove duplicates from sorted array. [Question](https://leetcode.com/problems/remove-duplicates-from-sorted-array)
+  [Answer](../master/Challenges/src/Solution.java#L1327) 

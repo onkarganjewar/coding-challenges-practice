@@ -1277,7 +1277,7 @@ public class Solution {
 			}
 		}
 		return res;
-		
+
 		/// Alternative solution [Editorial]
 		// int start = 0, end = 0;
 		// for (int i = 0; i < s.length(); i++) {
@@ -1301,13 +1301,37 @@ public class Solution {
 		}
 		return true;
 	}
-	
+
 	private static int expandAroundCenter(String s, int left, int right) {
-	    int L = left, R = right;
-	    while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
-	        L--;
-	        R++;
-	    }
-	    return R - L - 1;
+		int L = left, R = right;
+		while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
+			L--;
+			R++;
+		}
+		return R - L - 1;
+	}
+
+	/**
+	 * Given a sorted array, remove the duplicates in place such that each
+	 * element appear only once and return the new length.
+	 * 
+	 * Do not allocate extra space for another array, you must do this in place
+	 * with constant memory.
+	 * 
+	 * <blockquote> Time Complexity = O(n), Space Complexity = O(1)
+	 * </blockquote>
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public int removeDuplicates(int[] nums) {
+		if (nums.length == 0)
+			return 0;
+		int j = 1;
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i] != nums[i - 1])
+				nums[j++] = nums[i];
+		}
+		return j;
 	}
 }
