@@ -1334,4 +1334,36 @@ public class Solution {
 		}
 		return j;
 	}
+
+	/**
+	 * Search an element in a sorted rotated array.
+	 * 
+	 * @param nums
+	 *            Array
+	 * @param target
+	 *            Search key
+	 * @return index of the given key
+	 */
+	public static int search(int[] nums, int target) {
+		return searchUtil(nums, 0, nums.length - 1, target);
+	}
+
+	public static int searchUtil(int[] a, int lo, int hi, int key) {
+		if (lo > hi)
+			return -1;
+		int mid = (lo + hi) / 2;
+		if (a[mid] == key)
+			return mid;
+
+		if (a[lo] <= a[mid]) {
+			if ((key <= a[mid]) && (key >= a[lo]))
+				return searchUtil(a, lo, mid - 1, key);
+			else
+				return searchUtil(a, mid + 1, hi, key);
+		}
+
+		if ((key >= a[mid]) && (key <= a[hi]))
+			return searchUtil(a, mid + 1, hi, key);
+		return searchUtil(a, lo, mid - 1, key);
+	}
 }
