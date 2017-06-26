@@ -199,26 +199,18 @@ public class Solution {
 	 *         string.
 	 */
 	public static int palindromePermutations(final String str) {
-		String input = str;
-		List<String> palindromeOutputs = new ArrayList<String>();
+		Set<String> palindromeOutputs = new HashSet<String>();
 		int len = str.length();
-		int i = 0, j = len;
-		boolean flag = false;
+		int i = 0; 
 		char[] charArr = new char[str.length()];
 		charArr = str.toCharArray();
 		for (i = 0; i < len; i++) {
 			// Check with keeping current char at center
-			char current = charArr[i];
 			if (i > 0)
 				palindromeOutputs.addAll(centerCombinations(str, i));
-			if (i < len - 1)
+			if (i < (len - 1))
 				palindromeOutputs.addAll(rightCombinations(str, i));
 		}
-		/*
-		 * while (i < j) { String inp = input.substring(i, j); flag =
-		 * checkPalindrome(inp); if (flag) palindromeOutputs.add(inp); i++; j--;
-		 * }
-		 */
 
 		for (char c : charArr) {
 			palindromeOutputs.add(Character.toString(c));
@@ -230,7 +222,7 @@ public class Solution {
 	public static List<String> centerCombinations(String string, int center) {
 		List<String> result = new ArrayList<>();
 
-		while (string.charAt(center - 1) == string.charAt(center + 1)) {
+		while (((center - 1) >= 0) && ((center + 1) < string.length()) && (string.charAt(center - 1) == string.charAt(center + 1))) {
 			result.add(string.substring(center - 1, center + 2));
 			center++;
 		}
@@ -240,7 +232,7 @@ public class Solution {
 	public static List<String> rightCombinations(String string, int right) {
 		List<String> result = new ArrayList<>();
 
-		while (string.charAt(right) == string.charAt(right + 1)) {
+		while (((right + 1) < string.length()) && (string.charAt(right) == string.charAt(right + 1))) {
 			result.add(string.substring(right, right + 2));
 			right++;
 		}
