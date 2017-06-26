@@ -64,3 +64,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L1218)
 31. Longest substring w/o repeating chars. [Question](https://leetcode.com/problems/longest-substring-without-repeating-characters)
   [Answer](../master/Challenges/src/Solution.java#L1242)
+32. Longest palindromic substring. [Question](https://leetcode.com/problems/longest-palindromic-substring)
+  [Answer](../master/Challenges/src/Solution.java#L1265)

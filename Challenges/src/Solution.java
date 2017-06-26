@@ -201,7 +201,7 @@ public class Solution {
 	public static int palindromePermutations(final String str) {
 		Set<String> palindromeOutputs = new HashSet<String>();
 		int len = str.length();
-		int i = 0; 
+		int i = 0;
 		char[] charArr = new char[str.length()];
 		charArr = str.toCharArray();
 		for (i = 0; i < len; i++) {
@@ -222,7 +222,8 @@ public class Solution {
 	public static List<String> centerCombinations(String string, int center) {
 		List<String> result = new ArrayList<>();
 
-		while (((center - 1) >= 0) && ((center + 1) < string.length()) && (string.charAt(center - 1) == string.charAt(center + 1))) {
+		while (((center - 1) >= 0) && ((center + 1) < string.length())
+				&& (string.charAt(center - 1) == string.charAt(center + 1))) {
 			result.add(string.substring(center - 1, center + 2));
 			center++;
 		}
@@ -1247,5 +1248,66 @@ public class Solution {
 			}
 		}
 		return max;
+	}
+
+	/**
+	 * Find the longest palindromic substring in s. <br>
+	 * Explanation:
+	 * https://discuss.leetcode.com/topic/21848/ac-relatively-short-and-very-clear-java-solution
+	 * <br>
+	 * Editorial:
+	 * <b>https://leetcode.com/articles/longest-palindromic-substring/#approach-4-expand-around-center-accepted</b>
+	 * 
+	 * @param s
+	 *            Input string
+	 * @return Longest palindromic substring
+	 */
+	public static String longestPalindrome(String s) {
+		String res = "";
+		int currLength = 0;
+		for (int i = 0; i < s.length(); i++) {
+			// Expand with keeping char as center (odd length substring)
+			if (isPalindrome(s, i - currLength - 1, i)) {
+				res = s.substring(i - currLength - 1, i + 1);
+				currLength = currLength + 2;
+			} else if (isPalindrome(s, i - currLength, i)) {
+				// right combinations (even length substring)
+				res = s.substring(i - currLength, i + 1);
+				currLength = currLength + 1;
+			}
+		}
+		return res;
+		
+		/// Alternative solution [Editorial]
+		// int start = 0, end = 0;
+		// for (int i = 0; i < s.length(); i++) {
+		// int len1 = expandAroundCenter(s, i, i);
+		// int len2 = expandAroundCenter(s, i, i + 1);
+		// int len = Math.max(len1, len2);
+		// if (len > end - start) {
+		// start = i - (len - 1) / 2;
+		// end = i + len / 2;
+		// }
+		// }
+		// return s.substring(start, end + 1);
+	}
+
+	public static boolean isPalindrome(String s, int begin, int end) {
+		if (begin < 0)
+			return false;
+		while (begin < end) {
+			if (s.charAt(begin++) != s.charAt(end--))
+				return false;
+		}
+		return true;
+	}
+	
+	private static int expandAroundCenter(String s, int left, int right) {
+	    int L = left, R = right;
+	    while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
+	        L--;
+	        R++;
+	    }
+	    return R - L - 1;
 	}
 }
