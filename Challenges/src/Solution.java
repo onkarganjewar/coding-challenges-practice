@@ -1257,7 +1257,7 @@ public class Solution {
 	 * <br>
 	 * Editorial:
 	 * <b>https://leetcode.com/articles/longest-palindromic-substring/#approach-4-expand-around-center-accepted</b>
-	 * 
+	 *
 	 * @param s
 	 *            Input string
 	 * @return Longest palindromic substring
@@ -1314,13 +1314,13 @@ public class Solution {
 	/**
 	 * Given a sorted array, remove the duplicates in place such that each
 	 * element appear only once and return the new length.
-	 * 
+	 *
 	 * Do not allocate extra space for another array, you must do this in place
 	 * with constant memory.
-	 * 
+	 *
 	 * <blockquote> Time Complexity = O(n), Space Complexity = O(1)
 	 * </blockquote>
-	 * 
+	 *
 	 * @param nums
 	 * @return
 	 */
@@ -1337,7 +1337,7 @@ public class Solution {
 
 	/**
 	 * Search an element in a sorted rotated array.
-	 * 
+	 *
 	 * @param nums
 	 *            Array
 	 * @param target
@@ -1369,7 +1369,7 @@ public class Solution {
 
 	/**
 	 * Find minimum in rotated sorted array
-	 * 
+	 *
 	 * @param nums
 	 *            Input array
 	 * @return Minimum key value
@@ -1390,5 +1390,55 @@ public class Solution {
 				end = mid;
 		}
 		return nums[start];
+	}
+
+	/**
+	 * Given an integer n, generate the nth term of the count-and-say sequence.
+	 * The count-and-say sequence is the sequence of integers with the first
+	 * five terms as following:<br>
+	 * <b> 1. 1 <br>
+	 * </b> <code> 1 is read off as "one 1" or 11. </code> <br>
+	 * <b> 2. 11 <br>
+	 * </b> <code> 11 is read off as "two 1s" or 21. </code> <br>
+	 * <b> 3. 21 <br>
+	 * </b> <code> 21 is read off as "one 2, then one 1" or 1211. </code> <br>
+	 * <b> 4. 1211 <br>
+	 * </b>
+	 * <code> 1211 is read off as "one 1, one 2, then two 1" or 111221. </code>
+	 * <br>
+	 * <b> 5. 111221 </b> <br>
+	 *
+	 * @param n
+	 * @return Nth count-and-say sequence string
+	 */
+	public static String countAndSay(int n) {
+		String s = "1";
+		if (n == 1)
+			return "1";
+		StringBuilder res = new StringBuilder();
+		char prev = '1';
+		int count = 0;
+		for (int i = 1; i < n; i++) {
+			count = 0;
+			res.setLength(0);
+			for (int jj = 0; jj < s.length(); jj++) {
+				if (s.charAt(jj) == prev)
+					count++;
+				else {
+					if (count == 0) {
+						prev = s.charAt(jj);
+						count = 1;
+						continue;
+					}
+					res.append(count).append(prev);
+					count = 1;
+					prev = s.charAt(jj);
+				}
+			}
+			res.append(count).append(prev);
+			// System.out.println(res);
+			s = res.toString();
+		}
+		return res.toString();
 	}
 }
