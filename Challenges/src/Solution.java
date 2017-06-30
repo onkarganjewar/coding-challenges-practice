@@ -1257,7 +1257,7 @@ public class Solution {
 	 * <br>
 	 * Editorial:
 	 * <b>https://leetcode.com/articles/longest-palindromic-substring/#approach-4-expand-around-center-accepted</b>
-	 *
+	 * 
 	 * @param s
 	 *            Input string
 	 * @return Longest palindromic substring
@@ -1314,13 +1314,13 @@ public class Solution {
 	/**
 	 * Given a sorted array, remove the duplicates in place such that each
 	 * element appear only once and return the new length.
-	 *
+	 * 
 	 * Do not allocate extra space for another array, you must do this in place
 	 * with constant memory.
-	 *
+	 * 
 	 * <blockquote> Time Complexity = O(n), Space Complexity = O(1)
 	 * </blockquote>
-	 *
+	 * 
 	 * @param nums
 	 * @return
 	 */
@@ -1337,7 +1337,7 @@ public class Solution {
 
 	/**
 	 * Search an element in a sorted rotated array.
-	 *
+	 * 
 	 * @param nums
 	 *            Array
 	 * @param target
@@ -1369,7 +1369,7 @@ public class Solution {
 
 	/**
 	 * Find minimum in rotated sorted array
-	 *
+	 * 
 	 * @param nums
 	 *            Input array
 	 * @return Minimum key value
@@ -1407,7 +1407,7 @@ public class Solution {
 	 * <code> 1211 is read off as "one 1, one 2, then two 1" or 111221. </code>
 	 * <br>
 	 * <b> 5. 111221 </b> <br>
-	 *
+	 * 
 	 * @param n
 	 * @return Nth count-and-say sequence string
 	 */
@@ -1439,6 +1439,6 @@ public class Solution {
 			// System.out.println(res);
 			s = res.toString();
 		}
-		return res.toString();
+		return s;
 	}
 }
