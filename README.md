@@ -74,3 +74,5 @@ Programs implemented in Java that contains solutions to various coding challenge
   [Answer](../master/Challenges/src/Solution.java#L1377)
 37. Generate count-and-say sequence. [Question](https://leetcode.com/problems/count-and-say)
 [Answer](../master/Challenges/src/Solution.java#L1414)
+38. First missing positive Integer. [Question](https://leetcode.com/problems/first-missing-positive/)
+[Answer](../master/Challenges/src/Solution.java#L1451)

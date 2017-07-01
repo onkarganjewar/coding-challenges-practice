@@ -1441,4 +1441,36 @@ public class Solution {
 		}
 		return s;
 	}
+
+	/**
+	 * Given an unsorted integer array, find the first missing positive integer.
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static int firstMissingPositive(int[] nums) {
+		int i = 0;
+		int n = nums.length;
+		// 3, 4, -1, 1
+		for (i = 0; i < n; ++i) {
+			// Iterate until array elements are in their position
+			// 1, -1, 3, 4 i.e. 1, 2, 3, 4
+			while ((nums[i] <= n) && (nums[i] > 0) && (nums[i] != nums[nums[i] - 1])) {
+				swap(nums, i, nums[i] - 1);
+			}
+		}
+		i = 0;
+		for (i = 0; i < n; i++) {
+			if ((nums[i] != i + 1)) {
+				break;
+			}
+		}
+		return i + 1;
+	}
+
+	public static void swap(int[] a, int n1, int n2) {
+		int temp = a[n1];
+		a[n1] = a[n2];
+		a[n2] = temp;
+	}
 }
