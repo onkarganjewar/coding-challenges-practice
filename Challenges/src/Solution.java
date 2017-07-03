@@ -1473,4 +1473,43 @@ public class Solution {
 		a[n1] = a[n2];
 		a[n2] = temp;
 	}
+
+	/**
+	 * Check if there exists a pair of squares that equals the given number.
+	 * <br>
+	 * For ex. <br>
+	 * num1*num1 + num2*num2 = c <br>
+	 * <b>1*1 + 2*2 = 5 </b><br>
+	 * 
+	 * @param c
+	 *            Given number
+	 * @return true, if there exists a pair of such squares
+	 */
+	public boolean judgeSquareSum(int c) {
+		double sqrt = Math.sqrt(c);
+		int x = (int) sqrt;
+
+		// Check if given number is a perfect square
+		if (Math.pow(sqrt, 2) == Math.pow(x, 2)) {
+			return true;
+		}
+
+		int limit = (int) Math.sqrt(c);
+		int[] squares = new int[limit];
+
+		// Calculate squares of all the numbers until squareroot digit
+		for (int i = 0; i < limit; i++) {
+			squares[i] = (i + 1) * (i + 1);
+		}
+
+		for (int i = limit - 1; i >= 0; i--) {
+			int target = c - squares[i];
+			// Scan and compare if remainder exists in squares array
+			int pos = Arrays.binarySearch(squares, 0, i + 1, target);
+			if (pos >= 0) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

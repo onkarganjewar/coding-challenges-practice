@@ -76,3 +76,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L1414)
 38. First missing positive Integer. [Question](https://leetcode.com/problems/first-missing-positive/)
 [Answer](../master/Challenges/src/Solution.java#L1451)
+39. Sum of square numbers. [Question](https://leetcode.com/problems/sum-of-square-numbers/)
+[Answer](../master/Challenges/src/Solution.java#L1488)
