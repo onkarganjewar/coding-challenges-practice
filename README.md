@@ -78,3 +78,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L1451)
 39. Sum of square numbers. [Question](https://leetcode.com/problems/sum-of-square-numbers/)
 [Answer](../master/Challenges/src/Solution.java#L1488)
+39. Maximum Product of Three Numbers. [Question](https://leetcode.com/problems/maximum-product-of-three-numbers/)
+[Answer](../master/Challenges/src/Solution.java#L1523)

@@ -1512,4 +1512,22 @@ public class Solution {
 		}
 		return false;
 	}
+
+	/**
+	 * Find the maximum product of 3 numbers in an array of mixed(+/-) integers.
+	 * 
+	 * @param nums
+	 *            Integer array
+	 * @return Max product
+	 */
+	public static int maximumProduct(int[] nums) {
+		Arrays.sort(nums);
+		int len = nums.length;
+		Integer pSum = 1, nSum = 1;
+		// All positive numbers
+		pSum = nums[len - 1] * nums[len - 2] * nums[len - 3];
+		// Positive and/or negative numbers
+		nSum = nums[0] * nums[1] * nums[len - 1];
+		return Math.max(pSum, nSum);
+	}
 }
