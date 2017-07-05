@@ -1584,4 +1584,35 @@ public class Solution {
 		}
 		return sb.reverse().toString();
 	}
+
+	/**
+	 * Given an array of n integers where n > 1, nums, return an array output
+	 * such that output[i] is equal to the product of all the elements of nums
+	 * except nums[i].
+	 * 
+	 * Solve it without division and in O(n).
+	 * 
+	 * For example, given [1,2,3,4], return [24,12,8,6].
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static int[] productExceptSelf(int[] nums) {
+		int[] res = new int[nums.length];
+		int temp = 1;
+
+		// Scan array to right and store results
+		for (int i = 0; i < nums.length; i++) {
+			res[i] = temp;
+			temp *= nums[i];
+		}
+
+		temp = 1;
+		// Scan array to left and update results
+		for (int i = nums.length - 1; i >= 0; i--) {
+			res[i] *= temp;
+			temp *= nums[i];
+		}
+		return res;
+	}
 }
