@@ -1662,4 +1662,39 @@ public class Solution {
 		return -1;
 	}
 
+	/**
+	 * Given a digit string, return all possible letter combinations that the
+	 * number could represent.
+	 * 
+	 * @param digits
+	 * @return
+	 */
+	public static List<String> letterCombinations(String digits) {
+		String[] mappings = { "0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+		LinkedList<String> queue = new LinkedList<String>();
+		if (digits.length() < 1)
+			return queue;
+
+		queue.add("");
+		for (int i = 0; i < digits.length(); i++) {
+			int num = Character.getNumericValue(digits.charAt(i));
+			if (num < 2) {
+				queue.clear();
+				return queue;
+			}
+
+			// Iterate until each char is appended to the last combination
+			while (queue.peek().length() == i) {
+				// Get the front of the queue
+				String temp = queue.poll();
+
+				// Append the chars to front of the queue
+				for (char c : mappings[num].toCharArray()) {
+					queue.offer(temp + c);
+				}
+			}
+		}
+		return queue;
+	}
+
 }
