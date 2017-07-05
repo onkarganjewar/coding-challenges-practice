@@ -86,3 +86,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L1577)
 42. Product of Array Except Self. [Question](https://leetcode.com/problems/product-of-array-except-self/)
 [Answer](../master/Challenges/src/Solution.java#L1600)
+43. Search for a Range. [Question](https://leetcode.com/problems/search-for-a-range/)
+[Answer](../master/Challenges/src/Solution.java#L1632)

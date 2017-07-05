@@ -1615,4 +1615,51 @@ public class Solution {
 		}
 		return res;
 	}
+
+	/**
+	 * Given an array of integers sorted in ascending order, find the starting
+	 * and ending position of a given target value.
+	 * 
+	 * Your algorithm's runtime complexity must be in the order of O(log n).
+	 * 
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
+	public static int[] searchRange(int[] nums, int target) {
+		int[] res = new int[2];
+
+		res[0] = binarySearchFirst(nums, 0, nums.length - 1, target);
+		res[1] = binarySearchLast(nums, 0, nums.length - 1, target);
+		return res;
+	}
+
+	public static int binarySearchFirst(int[] arr, int lo, int hi, int key) {
+		if (lo <= hi) {
+			int mid = lo + (hi - lo) / 2;
+
+			if (arr[mid] == key && (mid == 0 || arr[mid - 1] < key))
+				return mid;
+			else if (key > arr[mid])
+				return binarySearchFirst(arr, mid + 1, hi, key);
+			else
+				return binarySearchFirst(arr, lo, mid - 1, key);
+		}
+		return -1;
+	}
+
+	public static int binarySearchLast(int[] arr, int lo, int hi, int key) {
+		if (lo <= hi) {
+			int mid = lo + (hi - lo) / 2;
+
+			if (arr[mid] == key && (mid == arr.length - 1 || arr[mid + 1] > key))
+				return mid;
+			else if (key < arr[mid])
+				return binarySearchLast(arr, lo, mid - 1, key);
+			else
+				return binarySearchLast(arr, mid + 1, hi, key);
+		}
+		return -1;
+	}
+
 }
