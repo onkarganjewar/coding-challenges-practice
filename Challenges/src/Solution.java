@@ -1579,7 +1579,7 @@ public class Solution {
 
 		while (n > 0) {
 			n--;
-			sb.append((char) ('A' + (n % 26)));
+			sb.append((char) (65 + (n % 26)));
 			n /= 26;
 		}
 		return sb.reverse().toString();
