@@ -80,3 +80,7 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L1488)
 39. Maximum Product of Three Numbers. [Question](https://leetcode.com/problems/maximum-product-of-three-numbers/)
 [Answer](../master/Challenges/src/Solution.java#L1537)
+40. Excel Sheet Column Number. [Question](https://leetcode.com/problems/excel-sheet-column-number/)
+[Answer](../master/Challenges/src/Solution.java#L1559)
+41. Excel Sheet Column Title. [Question](https://leetcode.com/problems/excel-sheet-column-title/)
+[Answer](../master/Challenges/src/Solution.java#L1577)
