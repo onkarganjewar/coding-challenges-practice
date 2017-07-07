@@ -91,6 +91,6 @@ Programs implemented in Java that contains solutions to various coding challenge
 43. Letter Combinations of a Phone Number. [Question](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 [Answer](../master/Challenges/src/Solution.java#L1672)
 44. Maximum Subarray Sum. [Question](https://leetcode.com/problems/maximum-subarray/)
-[Answer](../master/Challenges/src/Solution.java#L1713)
+[Answer](../master/Challenges/src/Solution.java#L1710)
 45. Maximum Subarray Product. [Question](https://leetcode.com/problems/maximum-product-subarray/)
 [Answer](../master/Challenges/src/Solution.java#L1730)
