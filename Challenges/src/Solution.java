@@ -1716,4 +1716,32 @@ public class Solution {
 		}
 		return maxSum;
 	}
+
+	/**
+	 * Find the contiguous subarray within an array (containing at least one
+	 * number) which has the largest product.
+	 * 
+	 * For example, given the array [2,3,-2,4], the contiguous subarray [2,3]
+	 * has the largest product = 6.
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static int maxProduct(int[] nums) {
+		int prevMax, max = nums[0];
+		int currMax = nums[0], currMin = nums[0];
+
+		for (int i = 1; i < nums.length; i++) {
+			// carry on previous max product
+			prevMax = currMax;
+			currMax = Math.max(Math.max(currMax * nums[i], currMin * nums[i]), nums[i]);
+
+			// product of previous max and current number can be minimum when
+			// negative integers are present
+			// [-2, 1, -3, 4]
+			currMin = Math.min(Math.min(currMin * nums[i], prevMax * nums[i]), nums[i]);
+			max = Math.max(max, currMax);
+		}
+		return max;
+	}
 }

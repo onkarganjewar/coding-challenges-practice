@@ -92,3 +92,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L1672)
 44. Maximum Subarray Sum. [Question](https://leetcode.com/problems/maximum-subarray/)
 [Answer](../master/Challenges/src/Solution.java#L1713)
+45. Maximum Subarray Product. [Question](https://leetcode.com/problems/maximum-product-subarray/)
+[Answer](../master/Challenges/src/Solution.java#L1730)
