@@ -1734,7 +1734,7 @@ public class Solution {
 		for (int i = 1; i < nums.length; i++) {
 			// carry on previous max product
 			prevMax = currMax;
-			currMax = Math.max(Math.max(currMax * nums[i], currMin * nums[i]), nums[i]);
+			currMax = Math.max(Math.max(prevMax * nums[i], currMin * nums[i]), nums[i]);
 
 			// product of previous max and current number can be minimum when
 			// negative integers are present
