@@ -1833,4 +1833,54 @@ public class Solution {
 		}
 		return count;
 	}
+
+	/**
+	 * Given a 2d grid map of '1's (land) and '0's (water), count the number of
+	 * islands. <br>
+	 * An island is surrounded by water and is formed by connecting adjacent
+	 * lands <b>horizontally or vertically</b>. <br>
+	 * You may assume all four edges of the grid are all surrounded by water.
+	 * 
+	 * <br>
+	 * <br>
+	 * Example 1: <br>
+	 * 11110<br>
+	 * 11010<br>
+	 * 11000<br>
+	 * 00000<br>
+	 * Answer: 1
+	 * 
+	 * @param grid
+	 * @return
+	 */
+	public static int numIslands(char[][] grid) {
+		int rows = grid.length;
+		if (rows == 0)
+			return 0;
+		int cols = grid[0].length;
+		int count = 0;
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				// Check for island
+				if (grid[i][j] == '1') {
+					checkIslands(grid, i, j);
+					++count;
+				}
+			}
+		}
+		return count;
+	}
+
+	// Visit all the connected islands of the given/found island recursively
+	public static void checkIslands(char[][] grid, int i, int j) {
+		if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] != '1')
+			return;
+
+		// Mark the visited neighbor as false/water
+		grid[i][j] = '0';
+		checkIslands(grid, i, j + 1); // right
+		checkIslands(grid, i + 1, j); // down
+		checkIslands(grid, i - 1, j); // up
+		checkIslands(grid, i, j - 1); // left
+	}
 }

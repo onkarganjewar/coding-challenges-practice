@@ -100,3 +100,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L1786)
 48. Battleships in a Board. [Question](https://leetcode.com/problems/battleships-in-a-board/)
 [Answer](../master/Challenges/src/Solution.java#L1815)
+49. Number of Islands. [Question](https://leetcode.com/problems/number-of-islands/)
+[Answer](../master/Challenges/src/Solution.java#L1856)
