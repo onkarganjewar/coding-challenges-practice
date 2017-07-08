@@ -1744,4 +1744,30 @@ public class Solution {
 		}
 		return max;
 	}
+
+	/**
+	 * Calculate the sum of two integers a and b, but you are not allowed to use
+	 * the operator + and - i.e. w/o arithmetic operators
+	 * 
+	 * @param a
+	 *            Number 1
+	 * @param b
+	 *            Number 2
+	 * @return Sum of both the numbers
+	 */
+	public static int getSumWOarithmeticOps(int a, int b) {
+		while (b != 0) {
+			// generate all the carry
+			int c = a & b; // 0001 --> TT for AND is
+			// 0&0 = 0, 0&1 = 0, 1&0 = 0, 1&1 = 1
+
+			// add all the bits & store the sum in a
+			a = a ^ b; // 0110 --> TT for XOR is
+			// 0^0 = 0, 0^1 = 1, 1^0 = 1, 1^1 = 0
+
+			// shift the carry one bit to left
+			b = c << 1;
+		}
+		return a;
+	}
 }
