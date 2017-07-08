@@ -96,3 +96,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L1730)
 46. Sum of Two Integers. [Question](https://leetcode.com/problems/sum-of-two-integers/)
 [Answer](../master/Challenges/src/Solution.java#L1758)
+47. Hamming Distance. [Question](https://leetcode.com/problems/hamming-distance/)
+[Answer](../master/Challenges/src/Solution.java#L1786)
