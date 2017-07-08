@@ -1863,7 +1863,7 @@ public class Solution {
 			for (int j = 0; j < cols; j++) {
 				// Check for island
 				if (grid[i][j] == '1') {
-					checkIslands(grid, i, j);
+					checkIslandsDFS(grid, i, j);
 					++count;
 				}
 			}
@@ -1872,7 +1872,7 @@ public class Solution {
 	}
 
 	// Visit all the connected islands of the given/found island recursively
-	public static void checkIslands(char[][] grid, int i, int j) {
+	public static void checkIslandsDFS(char[][] grid, int i, int j) {
 		// if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length ||
 		// grid[i][j] != '1')
 		// return;
