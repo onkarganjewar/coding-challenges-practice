@@ -1873,14 +1873,16 @@ public class Solution {
 
 	// Visit all the connected islands of the given/found island recursively
 	public static void checkIslands(char[][] grid, int i, int j) {
-		if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] != '1')
-			return;
-
-		// Mark the visited neighbor as false/water
-		grid[i][j] = '0';
-		checkIslands(grid, i, j + 1); // right
-		checkIslands(grid, i + 1, j); // down
-		checkIslands(grid, i - 1, j); // up
-		checkIslands(grid, i, j - 1); // left
+		// if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length ||
+		// grid[i][j] != '1')
+		// return;
+		if (i >= 0 && j >= 0 && i < grid.length && j < grid[0].length && grid[i][j] == '1') {
+			// Mark the visited neighbor as false/water
+			grid[i][j] = '0';
+			checkIslands(grid, i, j + 1); // right
+			checkIslands(grid, i + 1, j); // down
+			checkIslands(grid, i - 1, j); // up
+			checkIslands(grid, i, j - 1); // left
+		}
 	}
 }
