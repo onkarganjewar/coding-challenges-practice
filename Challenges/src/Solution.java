@@ -1709,7 +1709,7 @@ public class Solution {
 	 */
 	public static int maxSumSubArray(int[] nums) {
 		int maxSoFar = nums[0], maxEndingHere = nums[0];
-		
+
 		for (int i = 1; i < nums.length; ++i) {
 			maxEndingHere = Math.max(maxEndingHere + nums[i], nums[i]);
 			maxSoFar = Math.max(maxSoFar, maxEndingHere);
@@ -1770,7 +1770,6 @@ public class Solution {
 		}
 		return a;
 	}
-	
 
 	/**
 	 * The Hamming distance between two integers is the number of positions at
@@ -1792,4 +1791,46 @@ public class Solution {
 		return count;
 	}
 
+	/**
+	 * Given an 2D board, count how many battleships are in it. The battleships
+	 * are represented with 'X's, empty slots are represented with '.'s. You may
+	 * assume the following rules:
+	 * 
+	 * <li>You receive a valid board, made of only battleships or empty slots.
+	 * 
+	 * <li>Battleships can only be placed horizontally or vertically. <br>
+	 * In other words, they can only be made of the shape <code><b>1xN (1 row, N
+	 * columns)</b> or <b>Nx1 (N rows, 1 column),</b>
+	 * where N can be of any size.</code>
+	 * <li>At least one horizontal or vertical cell separates between two
+	 * battleships - <strong>
+	 * <ul>
+	 * there are no adjacent battleships.
+	 * </ul>
+	 * </strong>
+	 * 
+	 * @param board
+	 * @return
+	 */
+	public static int countBattleships(char[][] board) {
+
+		int rows = board.length;
+		int cols = board[0].length;
+		int count = 0;
+		// iterate over all the cells
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				// Search for the head of the battleship
+				if (board[i][j] == 'X') {
+					// there should not be another ship before the head i.e.
+					// nothing should be on the left or up of the head
+
+					if ((i == 0 || board[i - 1][j] != 'X') // up
+							&& (j == 0 || board[i][j - 1] != 'X')) // left
+						count++;
+				}
+			}
+		}
+		return count;
+	}
 }

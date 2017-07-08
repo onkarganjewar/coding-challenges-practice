@@ -98,3 +98,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L1758)
 47. Hamming Distance. [Question](https://leetcode.com/problems/hamming-distance/)
 [Answer](../master/Challenges/src/Solution.java#L1786)
+48. Battleships in a Board. [Question](https://leetcode.com/problems/battleships-in-a-board/)
+[Answer](../master/Challenges/src/Solution.java#L1815)
