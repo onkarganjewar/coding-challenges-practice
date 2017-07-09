@@ -106,3 +106,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L1903)
 52. Jump Game II. [Question](https://leetcode.com/problems/jump-game-ii/)
 [Answer](../master/Challenges/src/Solution.java#L1937)
+52. Permutations II. [Question](https://leetcode.com/problems/permutations-ii/)
+[Answer](../master/Challenges/src/Solution.java#L1967)

@@ -1950,4 +1950,42 @@ public class Solution {
 		}
 		return count;
 	}
+
+	/**
+	 * Given a collection of numbers that might contain duplicates, return all
+	 * possible <b>unique</b> permutations.
+	 * 
+	 * <br>
+	 * For example, <b>[1,1,2]</b> have the following unique permutations: <br>
+	 * <b>[ [1,1,2],<br>
+	 * [1,2,1], <br>
+	 * [2,1,1] ]</b>
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static List<List<Integer>> permuteUnique(int[] nums) {
+		List<List<Integer>> res = new ArrayList<List<Integer>>();
+		Set<List<Integer>> set = permuteDFS(nums, new HashSet<List<Integer>>(), 0, nums.length - 1);
+		res.addAll(set);
+		return res;
+	}
+
+	private static Set<List<Integer>> permuteDFS(int[] arr, Set<List<Integer>> tempSet, int begin, int end) {
+		if (begin >= end) {
+			List<Integer> list = new ArrayList<Integer>();
+			for (int i : arr) {
+				list.add(i);
+			}
+			tempSet.add(list);
+		}
+
+		for (int i = begin; i <= end; i++) {
+			swap(arr, begin, i);
+			permuteDFS(arr, tempSet, begin + 1, end);
+			swap(arr, begin, i);
+		}
+		return tempSet;
+	}
+
 }
