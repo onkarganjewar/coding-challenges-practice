@@ -1879,10 +1879,10 @@ public class Solution {
 		if (i >= 0 && j >= 0 && i < grid.length && j < grid[0].length && grid[i][j] == '1') {
 			// Mark the visited neighbor as false/water
 			grid[i][j] = '0';
-			checkIslands(grid, i, j + 1); // right
-			checkIslands(grid, i + 1, j); // down
-			checkIslands(grid, i - 1, j); // up
-			checkIslands(grid, i, j - 1); // left
+			checkIslandsDFS(grid, i, j + 1); // right
+			checkIslandsDFS(grid, i + 1, j); // down
+			checkIslandsDFS(grid, i - 1, j); // up
+			checkIslandsDFS(grid, i, j - 1); // left
 		}
 	}
 }
