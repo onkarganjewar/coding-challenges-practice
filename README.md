@@ -102,3 +102,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L1815)
 49. Number of Islands. [Question](https://leetcode.com/problems/number-of-islands/)
 [Answer](../master/Challenges/src/Solution.java#L1856)
+50. Jump Game. [Question](https://leetcode.com/problems/jump-game/)
+[Answer](../master/Challenges/src/Solution.java#L1903)

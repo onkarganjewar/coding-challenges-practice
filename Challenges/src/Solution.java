@@ -1468,7 +1468,7 @@ public class Solution {
 		return i + 1;
 	}
 
-	public static void swap(int[] a, int n1, int n2) {
+	private static void swap(int[] a, int n1, int n2) {
 		int temp = a[n1];
 		a[n1] = a[n2];
 		a[n2] = temp;
@@ -1884,5 +1884,35 @@ public class Solution {
 			checkIslandsDFS(grid, i - 1, j); // up
 			checkIslandsDFS(grid, i, j - 1); // left
 		}
+	}
+
+	/**
+	 * Given an array of non-negative integers, you are initially positioned at
+	 * the first index of the array.
+	 * 
+	 * Each element in the array represents your maximum jump length at that
+	 * position.
+	 * 
+	 * Determine if you are able to reach the last index. <br>
+	 * For example: A = [2,3,1,1,4], return true. <br>
+	 * A = [3,2,1,0,4], return false.
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static boolean canJump(int[] nums) {
+		int currFarthest = 0;
+		// Loop through an entire array
+		for (int i = 0; i < nums.length; i++) {
+			// If current/last location is unreachable from max jump
+			// then return false
+			// Consider case --> [3,2,1,0,4]
+			if (i > currFarthest) {
+				return false;
+			}
+			// Check the max jump from current location
+			currFarthest = Math.max(currFarthest, i + nums[i]);
+		}
+		return true;
 	}
 }
