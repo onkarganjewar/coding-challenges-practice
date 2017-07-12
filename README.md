@@ -108,3 +108,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L1937)
 52. Permutations II. [Question](https://leetcode.com/problems/permutations-ii/)
 [Answer](../master/Challenges/src/Solution.java#L1967)
+53. Longest Valid Parentheses. [Question](https://leetcode.com/problems/longest-valid-parentheses/)
+[Answer](../master/Challenges/src/Solution.java#L2004)
