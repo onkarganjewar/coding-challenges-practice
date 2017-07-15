@@ -117,4 +117,6 @@ Programs implemented in Java that contains solutions to various coding challenge
 56. Matrix Reshape. [Question](https://leetcode.com/problems/reshape-the-matrix/)
 [Answer](../master/Challenges/src/Solution.java#L2125)
 56. Find All Numbers Disappeared in an Array. [Question](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
-[Answer](../master/Challenges/src/Solution.java#L2160)
+[Answer](../master/Challenges/src/Solution.java#L2159)
+57. Find All Duplicates in an Array. [Question](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
+[Answer](../master/Challenges/src/Solution.java#L2201)
