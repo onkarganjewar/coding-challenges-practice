@@ -2023,4 +2023,41 @@ public class Solution {
 		}
 		return maxCount;
 	}
+
+	/**
+	 * A sequence of number is called arithmetic if it consists of at least
+	 * three elements and if the difference between any two consecutive elements
+	 * is the same.
+	 * 
+	 * For example, these are arithmetic sequence: <br>
+	 * 1, 3, 5, 7, 9<br>
+	 * 7, 7, 7, 7 <br>
+	 * 3, -1, -5, -9 <br>
+	 * The following sequence is not arithmetic. <br>
+	 * 1, 1, 2, 5, 7 <br>
+	 * The function should return the number of arithmetic slices in the array
+	 * A. <br>
+	 * 
+	 * Example: A = [1, 2, 3, 4] <br>
+	 * return: 3, for 3 arithmetic slices in A: <br>
+	 * [1, 2, 3], <br>
+	 * [2, 3, 4] and <br>
+	 * [1, 2, 3, 4] itself.
+	 * 
+	 * @param A
+	 * @return
+	 */
+	public static int numberOfArithmeticSlices(int[] A) {
+		int curr = 0, sum = 0;
+
+		for (int i = 2; i < A.length; i++) {
+			if (A[i] - A[i - 1] == A[i - 1] - A[i - 2]) {
+				curr++;
+				sum += curr;
+			} else
+				curr = 0;
+		}
+		return sum;
+	}
+
 }
