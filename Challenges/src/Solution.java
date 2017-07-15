@@ -2093,4 +2093,53 @@ public class Solution {
 		}
 		return end - start + 1;
 	}
+
+	/**
+	 * You're given a matrix represented by a two-dimensional array, and two
+	 * positive integers r and c representing the row number and column number
+	 * of the wanted reshaped matrix, respectively. The reshaped matrix need to
+	 * be filled with all the elements of the original matrix in the same
+	 * row-traversing order as they were. <br>
+	 * If the 'reshape' operation with given parameters is possible and legal,
+	 * output the new reshaped matrix; Otherwise, output the original matrix.
+	 * <br>
+	 * <br>
+	 * <b>Input</b>: nums = [[1,2], [3,4]] <br>
+	 * r = 1, c = 4 <br>
+	 * Output: [[1,2,3,4]] <br>
+	 * Explanation: The row-traversing of nums is [1,2,3,4]. The new reshaped
+	 * matrix is a 1 * 4 matrix, fill it row by row by using the previous list.
+	 * <br>
+	 * <br>
+	 * <b>Input</b>: nums = [[1,2], [3,4]] <br>
+	 * r = 2, c = 4 <br>
+	 * Output: [[1,2], [3,4]] <br>
+	 * Explanation: There is no way to reshape a 2 * 2 matrix to a 2 * 4 matrix.
+	 * So output the original matrix.
+	 * 
+	 * @param nums
+	 * @param r
+	 * @param c
+	 * @return
+	 */
+	public int[][] matrixReshape(int[][] nums, int r, int c) {
+		int rows = nums.length;
+		int cols = nums[0].length;
+
+		if (r * c != rows * cols)
+			return nums;
+		int[][] res = new int[r][c];
+		int r1 = 0, c1 = 0;
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				res[r1][c1] = nums[i][j];
+				c1++;
+				if (c1 == c) {
+					c1 = 0;
+					r1++;
+				}
+			}
+		}
+		return res;
+	}
 }

@@ -114,3 +114,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2050)
 55. Shortest Unsorted Continuous Subarray. [Question](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/)
 [Answer](../master/Challenges/src/Solution.java#L2078)
+56. Matrix Reshape. [Question](https://leetcode.com/problems/reshape-the-matrix/)
+[Answer](../master/Challenges/src/Solution.java#L2125)
