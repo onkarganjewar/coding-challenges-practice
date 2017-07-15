@@ -112,3 +112,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2004)
 54. Arithmetic Slices. [Question](https://leetcode.com/problems/arithmetic-slices/)
 [Answer](../master/Challenges/src/Solution.java#L2050)
+55. Shortest Unsorted Continuous Subarray. [Question](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/)
+[Answer](../master/Challenges/src/Solution.java#L2078)
