@@ -2332,4 +2332,30 @@ public class Solution {
 			}
 		}
 	}
+
+	/**
+	 * Determine if a Sudoku is valid.
+	 * 
+	 * The Sudoku board could be partially filled, where empty cells are filled
+	 * with the character '.'
+	 * 
+	 * @param board
+	 * @return
+	 */
+	public static boolean isValidSudoku(char[][] board) {
+		Set<String> set = new HashSet<String>();
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				if (board[i][j] != '.') {
+					if (!set.add(board[i][j] + " row " + i) || !set.add(board[i][j] + " column " + j)
+							|| !set.add(board[i][j] + " cube " + i / 3 + "-" + j / 3))
+						// if the number is already been added in corres.
+						// row/col/block
+						return false;
+				}
+			}
+		}
+		return true;
+	}
+
 }

@@ -126,3 +126,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2287)
 60. Partition Array by Odd and Even. [Question](http://www.lintcode.com/en/problem/partition-array-by-odd-and-even/)
 [Answer](../master/Challenges/src/Solution.java#L2313)
+61. Valid Sudoku. [Question](https://leetcode.com/problems/valid-sudoku/)
+[Answer](../master/Challenges/src/Solution.java#L2345)
