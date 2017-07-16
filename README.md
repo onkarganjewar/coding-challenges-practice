@@ -120,3 +120,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2159)
 57. Find All Duplicates in an Array. [Question](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
 [Answer](../master/Challenges/src/Solution.java#L2201)
+58. Maximum Average Subarray I. [Question](https://leetcode.com/problems/maximum-average-subarray-i/)
+[Answer](../master/Challenges/src/Solution.java#L2257)

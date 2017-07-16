@@ -2214,4 +2214,61 @@ public class Solution {
 		return result;
 	}
 
+	/**
+	 * Find all distinct/unique palindromic substrings from a given string
+	 * 
+	 * @param input
+	 * @return
+	 */
+	public static Set<String> getPalindromes(final String input) {
+
+		final Set<String> result = new HashSet<>();
+
+		for (int i = 0; i < input.length(); i++) {
+			// expanding even length palindromes:
+			expandPalindromes(result, input, i, i + 1);
+			// expanding odd length palindromes:
+			expandPalindromes(result, input, i, i);
+		}
+		return result;
+	}
+
+	private static void expandPalindromes(final Set<String> result, final String s, int i, int j) {
+		while (i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j)) {
+			result.add(s.substring(i, j + 1));
+			i--;
+			j++;
+		}
+	}
+
+	/**
+	 * Given an array consisting of n integers, find the contiguous subarray of
+	 * given length k that has the maximum average value. And you need to output
+	 * the maximum average value. <br>
+	 * <br>
+	 * <b>Input</b>: [1,12,-5,-6,50,3], k = 4 <br>
+	 * <b>Output</b>: 12.75 <br>
+	 * <b>Explanation</b>: Maximum average is (12-5-6+50)/4 = 51/4 = 12.75
+	 * 
+	 * @param nums
+	 * @param k
+	 * @return
+	 */
+	public static double findMaxAverage(int[] nums, int k) {
+		int currSum = nums[0], maxSum = nums[0];
+		double avg = 0;
+		for (int j = 1; j < k; j++)
+			maxSum += nums[j];
+
+		currSum = maxSum;
+		for (int i = k; i < nums.length; i++) {
+			// slide the window
+			// add current element and remove prev first element from the window
+			currSum = currSum + nums[i] - nums[i - k];
+			maxSum = Math.max(currSum, maxSum);
+		}
+
+		avg = (double) maxSum / (double) k;
+		return avg;
+	}
 }
