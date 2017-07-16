@@ -2255,17 +2255,17 @@ public class Solution {
 	 * @return
 	 */
 	public static double findMaxAverage(int[] nums, int k) {
-		int currSum = nums[0], maxSum = nums[0];
+		int sum = nums[0];
 		double avg = 0;
 		for (int j = 1; j < k; j++)
-			maxSum += nums[j];
+			sum += nums[j];
 
-		currSum = maxSum;
+		int maxSum = sum;
 		for (int i = k; i < nums.length; i++) {
 			// slide the window
 			// add current element and remove prev first element from the window
-			currSum = currSum + nums[i] - nums[i - k];
-			maxSum = Math.max(currSum, maxSum);
+			sum = sum + nums[i] - nums[i - k];
+			maxSum = Math.max(sum, maxSum);
 		}
 
 		avg = (double) maxSum / (double) k;
