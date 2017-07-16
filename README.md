@@ -124,3 +124,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2257)
 59. Two Sum. [Question](https://leetcode.com/problems/two-sum/)
 [Answer](../master/Challenges/src/Solution.java#L2287)
+60. Partition Array by Odd and Even. [Question](http://www.lintcode.com/en/problem/partition-array-by-odd-and-even/)
+[Answer](../master/Challenges/src/Solution.java#L2313)

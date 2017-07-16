@@ -2298,4 +2298,38 @@ public class Solution {
 		}
 		return indices;
 	}
+
+	/**
+	 * Partition an integers array into odd number first and even number second.
+	 * <br>
+	 * <b>Input</b>: [12, 34, 45, 9, 8, 90, 3] <br>
+	 * <b>Output</b>: [3,9,45,34,8,90,12] <br>
+	 * <br>
+	 * <b>Input</b>: [0, 1, 2, 3, 4] <br>
+	 * <b>Output</b>: [3,1,2,0,4]
+	 * 
+	 * @param nums
+	 */
+	public static void partitionArray(int[] nums) {
+		if (nums == null)
+			return;
+
+		int left = 0, right = nums.length - 1;
+		while (left < right) {
+			// odd number
+			while (left < right && nums[left] % 2 != 0) {
+				left++;
+			}
+			// even number
+			while (left < right && nums[right] % 2 == 0) {
+				right--;
+			}
+			// swap
+			if (left < right) {
+				int temp = nums[left];
+				nums[left] = nums[right];
+				nums[right] = temp;
+			}
+		}
+	}
 }
