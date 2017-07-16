@@ -122,3 +122,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2201)
 58. Maximum Average Subarray I. [Question](https://leetcode.com/problems/maximum-average-subarray-i/)
 [Answer](../master/Challenges/src/Solution.java#L2257)
+59. Two Sum. [Question](https://leetcode.com/problems/two-sum/)
+[Answer](../master/Challenges/src/Solution.java#L2287)
