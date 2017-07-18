@@ -128,3 +128,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2313)
 61. Valid Sudoku. [Question](https://leetcode.com/problems/valid-sudoku/)
 [Answer](../master/Challenges/src/Solution.java#L2345)
+61. Contains Duplicate II. [Question](https://leetcode.com/problems/contains-duplicate-ii/)
+[Answer](../master/Challenges/src/Solution.java#L2370)
