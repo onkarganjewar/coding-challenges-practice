@@ -113,7 +113,7 @@ Programs implemented in Java that contains solutions to various coding challenge
 54. Arithmetic Slices. [Question](https://leetcode.com/problems/arithmetic-slices/)
 [Answer](../master/Challenges/src/Solution.java#L2050)
 55. Shortest Unsorted Continuous Subarray. [Question](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/)
-[Answer](../master/Challenges/src/Solution.java#L2078)
+[Answer](../master/Challenges/src/Solution.java#L2077)
 56. Matrix Reshape. [Question](https://leetcode.com/problems/reshape-the-matrix/)
 [Answer](../master/Challenges/src/Solution.java#L2125)
 56. Find All Numbers Disappeared in an Array. [Question](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
