@@ -2420,4 +2420,45 @@ public class Solution {
 		}
 		return count;
 	}
+
+	/**
+	 * Give you an integer array (index from 0 to n-1, where n is the size of
+	 * this array, value from 0 to 10000) and an query list. For each query,
+	 * give you an integer, return the number of element in the array that are
+	 * smaller than the given integer.
+	 * 
+	 * For array [1,2,7,8,5], and queries [1,8,5], <br>
+	 * return [0,4,2]
+	 * 
+	 * @param a
+	 * @param queries
+	 * @return
+	 */
+	public static ArrayList<Integer> countOfSmallerNumber(int[] a, int[] queries) {
+
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		// Sort the input array
+		Arrays.sort(a);
+
+		for (int i = 0; i < queries.length; i++) {
+			int id2 = binarySearchFirst(a, 0, a.length - 1, queries[i], a.length);
+			list.add(id2);
+		}
+
+		return list;
+	}
+
+	public static int binarySearchFirst(int arr[], int low, int high, int x, int n) {
+		if (high >= low) {
+			int mid = low + (high - low) / 2;
+			if ((mid == 0 || x > arr[mid - 1]) && arr[mid] == x)
+				return mid;
+			else if (x > arr[mid])
+				return binarySearchFirst(arr, (mid + 1), high, x, n);
+			else
+				return binarySearchFirst(arr, low, (mid - 1), x, n);
+		}
+		return low;
+	}
+
 }
