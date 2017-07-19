@@ -134,3 +134,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2404)
 63. Count of Smaller Number. [Question](http://www.lintcode.com/en/problem/count-of-smaller-number/)
 [Answer](../master/Challenges/src/Solution.java#L2437)
+64. Palindrome Number. [Question](https://leetcode.com/problems/palindrome-number/)
+[Answer](../master/Challenges/src/Solution.java#L2470)

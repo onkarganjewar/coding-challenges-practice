@@ -2461,4 +2461,24 @@ public class Solution {
 		return low;
 	}
 
+	/**
+	 * Check whether an integer is a palindrome or not.
+	 * 
+	 * @param num
+	 * @return
+	 */
+	public static boolean palindromeNumber(int num) {
+		// check for negative numbers or multiples of 10's
+		if (num < 0 || (num != 0 && num % 10 == 0))
+			return false;
+		int rev = 0;
+
+		while (num > rev) {
+			rev = rev * 10 + num % 10;
+			num /= 10;
+		}
+
+		return (num == rev || num == rev / 10);
+	}
+
 }
