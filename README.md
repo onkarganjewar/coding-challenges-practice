@@ -139,4 +139,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 65. Island Perimeter. [Question](https://leetcode.com/problems/island-perimeter/)
 [Answer](../master/Challenges/src/Solution.java#L2504)
 66. First and Last occurrences of an element in a sorted array. [Question](http://www.geeksforgeeks.org/find-first-last-occurrences-element-sorted-array/)
-[Answer](../master/Challenges/src/Solution.java#L2532)
+[Answer](../master/Challenges/src/Solution.java#L2545)

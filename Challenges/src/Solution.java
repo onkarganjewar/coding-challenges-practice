@@ -2508,14 +2508,14 @@ public class Solution {
 			for (int j = 0; j < grid[0].length; j++) {
 				if (grid[i][j] == 1) {
 					count += 4; // 4 edges of island
-					// Check for connected row island (left)
+					// Check for prev connected island in row (left)
 					if (i > 0 && grid[i - 1][j] == 1)
-						count -= 2; // remove 2 connected row internal
-					// (vertical) edges
-					// Check for connected
+						// remove 2 connected row internal (vertical) edges
+						count -= 2;
+					// Check for prev connected island in column (up)
 					if (j > 0 && grid[i][j - 1] == 1)
-						count -= 2; // remove 2 connected column internal
-					// (horizontal) edges
+						// remove 2 connected column internal (horizontal) edges
+						count -= 2;
 				}
 			}
 		}
