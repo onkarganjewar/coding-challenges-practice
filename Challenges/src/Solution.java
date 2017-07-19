@@ -2385,4 +2385,39 @@ public class Solution {
 		}
 		return false;
 	}
+
+	/**
+	 * Given an array consists of non-negative integers, your task is to count
+	 * the number of triplets chosen from the array that can make triangles if
+	 * we take them as side lengths of a triangle. <br>
+	 * <b>Input</b>: [2,2,3,4] <b>Output</b>: 3 <br>
+	 * <b>Valid combinations are</b>: <br>
+	 * 2,3,4 (using the first 2)<br>
+	 * 2,3,4 (using the second 2) <br>
+	 * 2,2,3
+	 * 
+	 * we need to find 3 number, i < j < k, and a[i] + a[j] > a[k];
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static int triangleNumber(int[] nums) {
+		int count = 0;
+		if (nums.length < 3)
+			return count;
+		Arrays.sort(nums);
+		for (int i = 2; i < nums.length; i++) {
+			int left = 0, right = i - 1;
+			while (left < right) {
+				// Found a triplet
+				if (nums[left] + nums[right] > nums[i]) {
+					// All the elements from left to right-1 are valid
+					count += right - left;
+					right--;
+				} else
+					left++;
+			}
+		}
+		return count;
+	}
 }
