@@ -2441,24 +2441,11 @@ public class Solution {
 		Arrays.sort(a);
 
 		for (int i = 0; i < queries.length; i++) {
-			int id2 = binarySearchFirst(a, 0, a.length - 1, queries[i], a.length);
+			int id2 = binarySearchFirst(a, 0, a.length - 1, queries[i]);
 			list.add(id2);
 		}
 
 		return list;
-	}
-
-	public static int binarySearchFirst(int arr[], int low, int high, int x, int n) {
-		if (high >= low) {
-			int mid = low + (high - low) / 2;
-			if ((mid == 0 || x > arr[mid - 1]) && arr[mid] == x)
-				return mid;
-			else if (x > arr[mid])
-				return binarySearchFirst(arr, (mid + 1), high, x, n);
-			else
-				return binarySearchFirst(arr, low, (mid - 1), x, n);
-		}
-		return low;
 	}
 
 	/**
@@ -2523,4 +2510,48 @@ public class Solution {
 		return count;
 	}
 
+	/**
+	 * Given a sorted array with possibly duplicate elements, the task is to
+	 * find indexes of first and last occurrences of an element x in the given
+	 * array.
+	 * 
+	 * Examples: <br>
+	 * <b>Input </b>: arr[] = {1, 3, 5, 5, 5, 5 ,67, 123, 125}, key = 5 <br>
+	 * <b>Output </b>: First Occurrence = 2 || Last Occurrence = 5<br>
+	 * <br>
+	 * <b>Input </b>: arr[] = {1, 3, 5, 5, 5, 5 ,7, 123 ,125 }, key = 7 <br>
+	 * <b>Output </b>: First Occurrence = 6 || Last Occurrence = 6<br>
+	 * 
+	 * @param a
+	 * @param low
+	 * @param high
+	 * @param key
+	 * @return
+	 */
+	@SuppressWarnings("unused")
+	private static int binarySearchIterative(int[] a, int low, int high, int key) {
+		int found = -1;
+
+		while (low <= high) {
+			int mid = (low + high) >>> 1;
+			int midVal = a[mid];
+
+			if (midVal < key) {
+				low = mid + 1;
+			} else if (midVal > key) {
+				high = mid - 1;
+			} else {
+				found = mid;
+				// For last occurrence:
+				low = mid + 1;
+				// For first occurrence:
+				// high = mid - 1;
+			}
+		}
+		// For previous index before target when target is not present (first
+		// occurrence)
+		// return Math.max(found, low);
+
+		return found; // return either first or last occurrence as requested
+	}
 }
