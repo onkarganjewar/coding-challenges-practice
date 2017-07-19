@@ -136,3 +136,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2437)
 64. Palindrome Number. [Question](https://leetcode.com/problems/palindrome-number/)
 [Answer](../master/Challenges/src/Solution.java#L2470)
+65. Island Perimeter. [Question](https://leetcode.com/problems/island-perimeter/)
+[Answer](../master/Challenges/src/Solution.java#L2504)
