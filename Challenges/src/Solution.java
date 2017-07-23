@@ -2652,4 +2652,48 @@ public class Solution {
 		Arrays.sort(dp);
 		return dp[len - 1];
 	}
+
+	private static int palindromeCount = 0;
+
+	/**
+	 * Given a string, your task is to count how many palindromic substrings in
+	 * this string. The substrings with different start indexes or end indexes
+	 * are counted as different substrings even they consist of same characters.
+	 * Find all distinct/unique palindromic substrings from a given string. <br>
+	 * <b>Input</b>: "abc" <br>
+	 * <b>Output</b>: 3 <br>
+	 * <b>Explanation</b>: Three palindromic strings: "a", "b", "c". <br>
+	 * <br>
+	 * <b>Input</b>: "aaa" <br>
+	 * <b>Output</b>: 6 <br>
+	 * <b>Explanation</b>: Six palindromic strings: "a", "a", "a", "aa", "aa",
+	 * "aaa".
+	 * 
+	 * @param input
+	 * @return
+	 */
+	public static int countSubstrings(final String input) {
+
+		// In case of finding list of palindromic substrings
+		// List<String> palindromeList = new ArrayList<String>();
+
+		// Iterate over string keeping i as the center
+		for (int i = 0; i < input.length(); i++) {
+			// expanding odd length palindromes with (i) as center:
+			expandPalindromes(input, i, i);
+			// expanding even length palindromes with (i, i+1) center:
+			expandPalindromes(input, i, i + 1);
+		}
+		// return palindromeList; // return list of unique palindromes
+		return palindromeCount;
+	}
+
+	private static void expandPalindromes(final String s, int i, int j) {
+		while (i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j)) {
+			// palindromeList.add(s.substring(i, j + 1));
+			palindromeCount++;
+			i--;
+			j++;
+		}
+	}
 }

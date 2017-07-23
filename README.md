@@ -144,3 +144,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2587)
 68. Maximum Length of Pair Chain. [Question](https://leetcode.com/problems/maximum-length-of-pair-chain/)
 [Answer](../master/Challenges/src/Solution.java#L2623)
+69. Palindromic Substrings. [Question](https://leetcode.com/problems/palindromic-substrings/)
+[Answer](../master/Challenges/src/Solution.java#L2675)
