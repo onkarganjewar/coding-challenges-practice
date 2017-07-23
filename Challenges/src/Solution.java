@@ -2598,4 +2598,58 @@ public class Solution {
 		}
 		return res;
 	}
+
+	/**
+	 * You are given n pairs of numbers. In every pair, the first number is
+	 * always smaller than the second number. Now, we define a pair (c, d) can
+	 * follow another pair (a, b) if and only if b < c. Chain of pairs can be
+	 * formed in this fashion. <br>
+	 * <br>
+	 * Given a set of pairs, find the length longest chain which can be formed.
+	 * You needn't use up all the given pairs. You can select pairs in any
+	 * order.<br>
+	 * <br>
+	 * <b>Input</b>: [[1,2], [2,3], [3,4]] <br>
+	 * <b>Output</b>: 2 <br>
+	 * <b>Explanation</b>: The longest chain is [1,2] -> [3,4]<br>
+	 * <br>
+	 * <b>Input</b>: [[5, 24],[27, 40],[39, 60], [15, 28], [50, 90]] <br>
+	 * <b>Output</b>: 3 <br>
+	 * <b>Explanation</b>: The longest chain is [5,24] -> [27,40] -> [50,90]<br>
+	 * 
+	 * @param pairs
+	 * @return
+	 */
+	public static int findLongestChain(int[][] pairs) {
+
+		if (pairs.length == 0)
+			return 0;
+		int len = pairs.length;
+		// Sort the pairs by their end values
+		Arrays.sort(pairs, (a, b) -> a[1] - b[1]);
+		// You can also sort using comparator
+		// Arrays.sort(pairs, new Comparator<int[]>() {
+		// public int compare(int[] a, int[] b) {
+		// return a[1] - b[1];
+		// }
+		// });
+		int[] dp = new int[len];
+		Arrays.fill(dp, 1);
+
+		for (int i = 1; i < pairs.length; i++) {
+			for (int j = 0; j < i; j++) {
+				int currEnd = pairs[j][1];
+				int nextBegin = pairs[i][0];
+				// Check if chain condition satisfies
+				if (currEnd < nextBegin) {
+					// Update dp table
+					if (dp[i] < dp[j] + 1)
+						dp[i] = dp[j] + 1;
+				}
+			}
+		}
+		// Return the maximum value from memoization table
+		Arrays.sort(dp);
+		return dp[len - 1];
+	}
 }

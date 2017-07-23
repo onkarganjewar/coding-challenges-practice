@@ -142,3 +142,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2545)
 67. Set Mismatch. [Question](https://leetcode.com/problems/set-mismatch/)
 [Answer](../master/Challenges/src/Solution.java#L2587)
+68. Maximum Length of Pair Chain. [Question](https://leetcode.com/problems/maximum-length-of-pair-chain/)
+[Answer](../master/Challenges/src/Solution.java#L2623)
