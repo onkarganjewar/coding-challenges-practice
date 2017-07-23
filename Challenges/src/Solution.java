@@ -2567,4 +2567,35 @@ public class Solution {
 
 		return found; // return either first or last occurrence as requested
 	}
+
+	/**
+	 * The set S originally contains numbers from 1 to n. But unfortunately, due
+	 * to the data error, one of the numbers in the set got duplicated to
+	 * another number in the set, which results in repetition of one number and
+	 * loss of another number. <br>
+	 * <br>
+	 * Given an array nums representing the data status of this set after the
+	 * error. Your task is to firstly find the number occurs twice and then find
+	 * the number that is missing. Return them in the form of an array. <br>
+	 * <br>
+	 * <b>Input</b>: [1,2,2,4] <br>
+	 * <b>Output</b>: [2,3]
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static int[] findErrorNums(int[] nums) {
+
+		int[] res = new int[2];
+		int[] count = new int[nums.length + 1];
+		for (int i = 0; i < nums.length; i++)
+			count[nums[i]]++;
+		for (int i = 1; i < count.length; i++) {
+			if (count[i] == 2)
+				res[0] = i;
+			if (count[i] == 0)
+				res[1] = i;
+		}
+		return res;
+	}
 }
