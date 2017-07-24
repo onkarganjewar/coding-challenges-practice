@@ -2739,4 +2739,30 @@ public class Solution {
 		}
 		return result.toString().trim();
 	}
+
+	/**
+	 * Given an array nums, write a function to move all 0's to the end of it
+	 * while maintaining the relative order of the non-zero elements. <br>
+	 * <b>Input</b> = [0, 1, 0, 3, 12], <br>
+	 * <b>Output</b> = [1, 3, 12, 0, 0]. <br>
+	 * <code>Note: You must do this in-place without making a copy of the array.
+	 * Minimize the total number of operations.</code>
+	 * 
+	 * @param nums
+	 */
+	public static void moveZeroes(int[] nums) {
+
+		int j = 0;
+		for (int i = 0; i < nums.length; i++) {
+			// Move all the non-zero numbers to the front of the array
+			if (nums[i] != 0) {
+				// int temp = nums[i];
+				// nums[i] = nums[j];
+				// nums[j] = temp;
+				swap(nums, i, j);
+				j++;
+			}
+		}
+		return;
+	}
 }

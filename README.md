@@ -148,3 +148,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2675)
 70. Replace words. [Question](https://leetcode.com/problems/replace-words/)
 [Answer](../master/Challenges/src/Solution.java#L2720)
+71. Move Zeroes. [Question](https://leetcode.com/problems/move-zeroes/)
+[Answer](../master/Challenges/src/Solution.java#L2753)
