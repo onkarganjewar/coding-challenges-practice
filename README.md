@@ -150,3 +150,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2720)
 71. Move Zeroes. [Question](https://leetcode.com/problems/move-zeroes/)
 [Answer](../master/Challenges/src/Solution.java#L2753)
+72. Remove Element. [Question](https://leetcode.com/problems/remove-element/)
+[Answer](../master/Challenges/src/Solution.java#L2786)
