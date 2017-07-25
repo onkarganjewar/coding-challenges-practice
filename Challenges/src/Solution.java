@@ -1262,7 +1262,7 @@ public class Solution {
 	 *            Input string
 	 * @return Longest palindromic substring
 	 */
-	public static String longestPalindrome(String s) {
+	public static String longestPalindromicSubstring(String s) {
 		String res = "";
 		int currLength = 0;
 		for (int i = 0; i < s.length(); i++) {
@@ -2791,5 +2791,40 @@ public class Solution {
 			}
 		}
 		return start;
+	}
+
+	/**
+	 * Given a string which consists of lowercase or uppercase letters, find the
+	 * length of the longest palindromes that can be built with those letters.
+	 * <br>
+	 * This is case sensitive, for example "Aa" is not considered a palindrome
+	 * here. <br>
+	 * <br>
+	 * <b>Input</b> : "abccccdd" <br>
+	 * <b>Output</b>: 7 <br>
+	 * <b>Explanation</b>: One longest palindrome that can be built is
+	 * "dccaccd", whose length is 7.
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public int longestPalindrome(String s) {
+		int len = 0;
+		Set<Character> set = new HashSet<Character>();
+
+		for (int i = 0; i < s.length(); i++) {
+			// check for repeating chars that can be used for building
+			// palindrome
+			if (set.contains(s.charAt(i))) {
+				set.remove(s.charAt(i));
+				len++;
+			} else
+				set.add(s.charAt(i));
+		}
+
+		if (!set.isEmpty()) // set is not empty
+			return len * 2 + 1; // so odd length palindrome
+
+		return len * 2; // even length palindrome
 	}
 }

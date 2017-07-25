@@ -152,3 +152,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2753)
 72. Remove Element. [Question](https://leetcode.com/problems/remove-element/)
 [Answer](../master/Challenges/src/Solution.java#L2786)
+73. Longest Palindrome. [Question](https://leetcode.com/problems/longest-palindrome/)
+[Answer](../master/Challenges/src/Solution.java#L2811)
