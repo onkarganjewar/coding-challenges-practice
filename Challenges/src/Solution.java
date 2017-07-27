@@ -2893,4 +2893,35 @@ public class Solution {
 		}
 		return tab[m - 1][n - 1];
 	}
+
+	/**
+	 * Follow up for "Remove Duplicates": What if duplicates are allowed at most
+	 * twice?
+	 * 
+	 * For example, Given sorted array A = [1,1,1,2,2,3],
+	 * 
+	 * Your function should return length = 5, and A is now [1,1,2,2,3].
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static int removeDuplicatesII(int[] nums) {
+		int j = 1;
+		int count = 1;
+		if (nums.length < 2)
+			return nums.length;
+
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i] != nums[i - 1]) {
+				nums[j++] = nums[i];
+				count = 1;
+			} else {
+				if (count < 2) {
+					nums[j++] = nums[i];
+					count++;
+				}
+			}
+		}
+		return j;
+	}
 }

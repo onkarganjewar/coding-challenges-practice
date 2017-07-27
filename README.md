@@ -158,3 +158,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2853)
 75. Unique Paths. [Question](https://leetcode.com/problems/unique-paths/)
 [Answer](../master/Challenges/src/Solution.java#L2884)
+76. Remove Duplicates from Sorted Array II. [Question](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
+[Answer](../master/Challenges/src/Solution.java#L2908)
