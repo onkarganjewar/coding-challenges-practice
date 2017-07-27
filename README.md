@@ -156,3 +156,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2811)
 74. Isomorphic Strings. [Question](https://leetcode.com/problems/isomorphic-strings/)
 [Answer](../master/Challenges/src/Solution.java#L2853)
+75. Unique Paths. [Question](https://leetcode.com/problems/unique-paths/)
+[Answer](../master/Challenges/src/Solution.java#L2884)
