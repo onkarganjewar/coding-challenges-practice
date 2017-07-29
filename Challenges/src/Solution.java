@@ -2924,4 +2924,31 @@ public class Solution {
 		}
 		return j;
 	}
+
+	/**
+	 * Given an array of size n, find the majority element. The majority element
+	 * is the element that appears more than n/2 times.
+	 * 
+	 * You may assume that the array is non-empty and the majority element
+	 * always exist in the array. Given [1, 1, 1, 1, 2, 2, 2], return 1
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public int majorityElement(int[] nums) {
+		int candidate = 0, count = 0;
+		for (int i = 0; i < nums.length; i++) {
+			// Select/change the candidate for majority element
+			if (count == 0) {
+				candidate = nums[i];
+				count++;
+			} else if (candidate == nums[i]) {
+				// If selected candidate, increment count
+				count++;
+			} else
+				// If other than candidate, decrement count
+				count--;
+		}
+		return candidate;
+	}
 }
