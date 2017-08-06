@@ -162,3 +162,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2908)
 77. Majority Element. [Question](https://leetcode.com/problems/majority-element/)
 [Answer](../master/Challenges/src/Solution.java#L2938)
+78. Two Sum II - Input array is sorted. [Question](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+[Answer](../master/Challenges/src/Solution.java#L2974)

@@ -2951,4 +2951,41 @@ public class Solution {
 		}
 		return candidate;
 	}
+
+	/**
+	 * Given an array of integers that is already sorted in ascending order,
+	 * find two numbers such that they add up to a specific target number. <br>
+	 * <br>
+	 * The function twoSum should return indices of the two numbers such that
+	 * they add up to the target, where index1 must be less than index2. Please
+	 * note that your returned answers (both index1 and index2) are not
+	 * zero-based. <br>
+	 * <br>
+	 * You may assume that each input would have exactly one solution and you
+	 * may not use the same element twice. <br>
+	 * <br>
+	 * <b>Input</b>: numbers = {2, 7, 11, 15}, target = <b>9</b> <br>
+	 * <b>Output</b>: index1 = <b>1</b>, index2 = <b>2</b>
+	 * 
+	 * @param numbers
+	 * @param target
+	 * @return
+	 */
+	public static int[] twoSumAscArr(int[] numbers, int target) {
+		int left = 0;
+		int right = numbers.length - 1;
+		int[] indices = new int[2];
+		while (left < right) {
+			int sum = numbers[left] + numbers[right];
+			if (sum == target) {
+				indices[0] = left + 1;
+				indices[1] = right + 1;
+				break;
+			} else if (sum > target) {
+				right--;
+			} else
+				left++;
+		}
+		return indices;
+	}
 }
