@@ -3076,4 +3076,49 @@ public class Solution {
 			list.remove(list.size() - 1);
 		}
 	}
+
+	/**
+	 * Given a set of candidate numbers (C) (without duplicates) and a target
+	 * number (T), find all unique combinations in C where the candidate numbers
+	 * sums to T. <br>
+	 * The <b>same repeated number </b>may be chosen from C <b>unlimited</b>
+	 * number of times. <br>
+	 * <br>
+	 * <b>Note</b>: All numbers (including target) will be positive integers.
+	 * The solution set <b>must not</b> contain duplicate combinations. <br>
+	 * <br>
+	 * <b>Input</b>: Candidate Set [2, 3, 6, 7], Target = 7<br>
+	 * <b>Output</b>: [ <br>
+	 * [7], <br>
+	 * [2, 2, 3] ]<br>
+	 * 
+	 * @param candidates
+	 * @param target
+	 * @return
+	 */
+	public List<List<Integer>> combinationSum(int[] candidates, int target) {
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		Arrays.sort(candidates);
+		combSumHelper(result, candidates, new ArrayList<Integer>(), 0, target);
+		return result;
+	}
+
+	public static void combSumHelper(List<List<Integer>> result, int nums[], ArrayList<Integer> list, int start,
+			int target) {
+		if (target < 0)
+			return;
+
+		if (target == 0) {
+			result.add(new ArrayList<Integer>(list));
+			return;
+		}
+
+		for (int i = start; i < nums.length && i < target; i++) {
+			list.add(nums[i]);
+			// pass i and not i + 1 because we can reuse same element
+			combSumHelper(result, nums, list, i, target - nums[i]);
+			// backtrack by removing last element in the set
+			list.remove(list.size() - 1);
+		}
+	}
 }
