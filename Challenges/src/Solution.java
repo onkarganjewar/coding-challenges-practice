@@ -3008,12 +3008,15 @@ public class Solution {
 	public static List<List<Integer>> combinationSum3(int k, int n) {
 		int[] nums = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
-		combSumHelper(result, nums, new TreeSet<Integer>(), 1, k, n);
+		combSum3Helper(result, nums, new TreeSet<Integer>(), 1, k, n);
 		return result;
 	}
 
-	public static void combSumHelper(List<List<Integer>> result, int nums[], TreeSet<Integer> set, int start, int k,
+	public static void combSum3Helper(List<List<Integer>> result, int nums[], TreeSet<Integer> set, int start, int k,
 			int target) {
+		if (set.size() > k)
+			return;
+
 		if ((target == 0) && set.size() == k) {
 			List<Integer> list = new ArrayList<Integer>(set);
 			result.add(list);
@@ -3022,9 +3025,55 @@ public class Solution {
 
 		for (int i = start; i < nums.length; i++) {
 			set.add(nums[i]);
-			combSumHelper(result, nums, set, i + 1, k, target - nums[i]);
+			combSum3Helper(result, nums, set, i + 1, k, target - nums[i]);
 			// backtrack by removing last element in the set
 			set.remove(set.last());
+		}
+	}
+
+	/**
+	 * Given a collection of candidate numbers (C) and a target number (T), find
+	 * all unique combinations in C where the candidate numbers sums to T. <br>
+	 * <code>Each number in C may only be used once in the combination.
+	 * </code><br>
+	 * <b>Note</b>: All numbers (including target) will be positive integers.
+	 * The solution set <b>must not</b> contain duplicate combinations. <br>
+	 * <br>
+	 * <b>Input</b>: Candidate Set = [10, 1, 2, 7, 6, 1, 5], <b>Target = 8</b>,
+	 * <br>
+	 * <b>Output</b>: [ [1, 7], <br>
+	 * [1, 2, 5], <br>
+	 * [2, 6], <br>
+	 * [1, 1, 6] ]<br>
+	 * 
+	 * @param candidates
+	 * @param target
+	 * @return
+	 */
+	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		Arrays.sort(candidates);
+		combSum2Helper(result, candidates, new ArrayList<Integer>(), 0, target);
+		return result;
+	}
+
+	public static void combSum2Helper(List<List<Integer>> result, int nums[], ArrayList<Integer> list, int start,
+			int target) {
+		if (target < 0)
+			return;
+
+		if (target == 0) {
+			result.add(new ArrayList<Integer>(list));
+			return;
+		}
+
+		for (int i = start; i < nums.length; i++) {
+			if (i > start && nums[i] == nums[i - 1])
+				continue; // skip duplicates in the result list
+			list.add(nums[i]);
+			combSum2Helper(result, nums, list, i + 1, target - nums[i]);
+			// backtrack by removing last element in the set
+			list.remove(list.size() - 1);
 		}
 	}
 }
