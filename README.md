@@ -164,3 +164,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L2938)
 78. Two Sum II - Input array is sorted. [Question](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
 [Answer](../master/Challenges/src/Solution.java#L2974)
+79. Combination Sum III. [Question](https://leetcode.com/problems/combination-sum-iii/)
+[Answer](../master/Challenges/src/Solution.java#L3009)

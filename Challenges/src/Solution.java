@@ -2988,4 +2988,43 @@ public class Solution {
 		}
 		return indices;
 	}
+
+	/**
+	 * Find all possible combinations of k numbers that add up to a number n,
+	 * given that only numbers from 1 to 9 can be used and each combination
+	 * should be a unique set of numbers. <br>
+	 * <br>
+	 * Input: k = 3, <b>n = 7</b><br>
+	 * Output: <b>[[1,2,4]] </b><br>
+	 * <br>
+	 * 
+	 * Input: k = 3, <b>n = 9</b><br>
+	 * Output: <b>[[1,2,6], [1,3,5], [2,3,4]]</b> <br>
+	 * 
+	 * @param k
+	 * @param n
+	 * @return
+	 */
+	public static List<List<Integer>> combinationSum3(int k, int n) {
+		int[] nums = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		combSumHelper(result, nums, new TreeSet<Integer>(), 1, k, n);
+		return result;
+	}
+
+	public static void combSumHelper(List<List<Integer>> result, int nums[], TreeSet<Integer> set, int start, int k,
+			int target) {
+		if ((target == 0) && set.size() == k) {
+			List<Integer> list = new ArrayList<Integer>(set);
+			result.add(list);
+			return;
+		}
+
+		for (int i = start; i < nums.length; i++) {
+			set.add(nums[i]);
+			combSumHelper(result, nums, set, i + 1, k, target - nums[i]);
+			// backtrack by removing last element in the set
+			set.remove(set.last());
+		}
+	}
 }
