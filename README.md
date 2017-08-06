@@ -170,3 +170,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L3053)
 81. Combination Sum. [Question](https://leetcode.com/problems/combination-sum/)
 [Answer](../master/Challenges/src/Solution.java#L3099)
+82. Rotate Array (right rotate). [Question](https://leetcode.com/problems/rotate-array/)
+[Answer](../master/Challenges/src/Solution.java#L3137)

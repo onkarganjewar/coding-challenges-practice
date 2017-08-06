@@ -1,6 +1,8 @@
 import java.io.*;
 import java.math.BigInteger;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Class containing solutions for various Hackerrank/GeeksForGeeks coding
@@ -3120,5 +3122,35 @@ public class Solution {
 			// backtrack by removing last element in the set
 			list.remove(list.size() - 1);
 		}
+	}
+
+	/**
+	 * Rotate an array of n elements to the right by r steps.
+	 * 
+	 * <br>
+	 * <b>Input</b>: n = 7 and <b>r = 3</b>, the array = [1,2,3,4,5,6,7] <br>
+	 * <b>Output</b>: [5,6,7,1,2,3,4].
+	 * 
+	 * @param nums
+	 * @param r
+	 */
+	public static void rotateRight(int[] nums, int r) {
+		for (int i = 0; i < r; i++) {
+			// store last element
+			int temp = nums[nums.length - 1], j = nums.length - 1, k = nums.length - 2;
+			while (j > 0) {
+				nums[j--] = nums[k--];
+			}
+			nums[j] = temp;
+		}
+		// alternative approach using array reversal
+		/*
+		 * // change the Collections.reverse with normal user-defined function
+		 * for the purpose of modifying nums array in-place // r %= nums.length;
+		 * List<Integer> list =
+		 * IntStream.of(nums).boxed().collect(Collectors.toList());
+		 * Collections.reverse(list); Collections.reverse(list.subList(0, r));
+		 * Collections.reverse(list.subList(r, nums.length));
+		 */
 	}
 }
