@@ -3153,4 +3153,45 @@ public class Solution {
 		 * Collections.reverse(list.subList(r, nums.length));
 		 */
 	}
+
+	/**
+	 * A zero-indexed array A consisting of N different integers is given.
+	 * <code>The
+	 * array contains all integers in the range [0, N - 1].</code> <br>
+	 * <br>
+	 * <code>Sets S[K] for 0 <= K < N are defined as follows: <br>
+	 * S[K] = { A[K], A[A[K]], A[A[A[K]]], ... }. </code><br>
+	 * <b>Sets S[K] are finite for each K and should NOT contain duplicates.
+	 * </b><br>
+	 * Write a function that given an array A consisting of N integers,
+	 * <b>return the size of the largest set S[K]</b> for this array. <br>
+	 * <br>
+	 * <b>Input</b>: A = [5,4,0,3,1,6,2] <b>Output: 4 </b><br>
+	 * <b>Explanation</b>: <br>
+	 * A[0] = 5, A[1] = 4, A[2] = 0, A[3] = 3, A[4] = 1, A[5] = 6, A[6] = 2.
+	 * <br>
+	 * <br>
+	 * One of the longest S[K]: <br>
+	 * <code> S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}</code>
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static int arrayNesting(int[] nums) {
+		int max = 0, count = 0;
+		for (int i = 0; i < nums.length; i++) {
+			count = 0;
+			// iterate the chain and count
+			while (nums[i] != -1) {
+				int temp = i;
+				i = nums[i];
+				// mark visited
+				nums[temp] = -1;
+				count++;
+			}
+			// i = temp;
+			max = Math.max(max, count);
+		}
+		return max;
+	}
 }

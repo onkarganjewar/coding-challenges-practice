@@ -172,3 +172,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L3099)
 82. Rotate Array (right rotate). [Question](https://leetcode.com/problems/rotate-array/)
 [Answer](../master/Challenges/src/Solution.java#L3137)
+82. Array Nesting. [Question](https://leetcode.com/problems/array-nesting/)
+[Answer](../master/Challenges/src/Solution.java#L3181)
