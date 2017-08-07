@@ -3194,4 +3194,38 @@ public class Solution {
 		}
 		return max;
 	}
+
+	/**
+	 * Given a string and an offset, rotate string by offset. (rotate from left
+	 * to right).<br>
+	 * <br>
+	 * 
+	 * <b>Input: "abcdefg" </b><br>
+	 * <br>
+	 * offset=0 => <i>"abcdefg" </i><br>
+	 * offset=1 => <i>"gabcdef" </i><br>
+	 * offset=2 => <i>"fgabcde" </i><br>
+	 * offset=3 => <i>"efgabcd" </i><br>
+	 * 
+	 * @param str
+	 * @param offset
+	 */
+	public static void rotateString(char[] str, int offset) {
+		int len = str.length;
+		offset %= len;
+		// System.out.println("Original letters = " + new String(str));
+		reverseChars(str, 0, len - offset - 1);
+		reverseChars(str, len - offset, len - 1);
+		reverseChars(str, 0, len - 1);
+		// System.out.println("Transformed letters = " + new String(str));
+		return;
+	}
+
+	private static void reverseChars(char[] chars, int beginIndex, int endIndex) {
+		while (beginIndex < endIndex) {
+			char temp = chars[beginIndex];
+			chars[beginIndex++] = chars[endIndex];
+			chars[endIndex--] = temp;
+		}
+	}
 }
