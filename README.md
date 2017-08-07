@@ -176,3 +176,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L3181)
 83. Rotate String. [Question](http://www.lintcode.com/en/problem/rotate-string/)
 [Answer](../master/Challenges/src/Solution.java#L3213)
+84. Recover Rotated Sorted Array. [Question](http://www.lintcode.com/en/problem/recover-rotated-sorted-array/)
+[Answer](../master/Challenges/src/Solution.java#L3243)

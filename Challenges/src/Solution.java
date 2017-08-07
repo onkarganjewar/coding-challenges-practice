@@ -3228,4 +3228,36 @@ public class Solution {
 			chars[endIndex--] = temp;
 		}
 	}
+
+	/**
+	 * Given a rotated sorted array, recover it to sorted array in-place. <br>
+	 * <br>
+	 * For example, the orginal array is <code>[1,2,3,4],</code> <br>
+	 * The rotated array of it can be
+	 * <code>[1,2,3,4], [2,3,4,1], [3,4,1,2], [4,1,2,3]</code> <br>
+	 * <br>
+	 * Example {@code [4, 5, 1, 2, 3] -> [1, 2, 3, 4, 5]}<br>
+	 * 
+	 * @param nums
+	 */
+	public static void recoverRotatedSortedArray(List<Integer> nums) {
+		if (nums.isEmpty() || nums == null)
+			return;
+
+		int temp = nums.get(0);
+
+		for (int i = 0; i < nums.size(); i++) {
+			if (temp > nums.get(i)) {
+				temp = i;
+				// System.out.println("Break point = "+temp);
+				break;
+			}
+			temp = nums.get(i);
+		}
+		int len = nums.size();
+		Collections.reverse(nums.subList(0, temp));
+		Collections.reverse(nums.subList(temp, len));
+		Collections.reverse(nums.subList(0, len));
+		return;
+	}
 }
