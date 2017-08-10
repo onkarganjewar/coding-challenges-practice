@@ -178,3 +178,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L3213)
 84. Recover Rotated Sorted Array. [Question](http://www.lintcode.com/en/problem/recover-rotated-sorted-array/)
 [Answer](../master/Challenges/src/Solution.java#L3243)
+85. Maximum Gap. [Question](https://leetcode.com/problems/maximum-gap/)
+[Answer](../master/Challenges/src/Solution.java#L3273)

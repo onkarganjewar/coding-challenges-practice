@@ -1,8 +1,6 @@
 import java.io.*;
 import java.math.BigInteger;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * Class containing solutions for various Hackerrank/GeeksForGeeks coding
@@ -3144,14 +3142,16 @@ public class Solution {
 			nums[j] = temp;
 		}
 		// alternative approach using array reversal
-		/*
-		 * // change the Collections.reverse with normal user-defined function
-		 * for the purpose of modifying nums array in-place // r %= nums.length;
-		 * List<Integer> list =
-		 * IntStream.of(nums).boxed().collect(Collectors.toList());
-		 * Collections.reverse(list); Collections.reverse(list.subList(0, r));
-		 * Collections.reverse(list.subList(r, nums.length));
-		 */
+
+		// change the Collections.reverse with normal user-defined function
+		// for the purpose of modifying nums array in-place
+		// r %= nums.length;
+		// List<Integer> list =
+		// IntStream.of(nums).boxed().collect(Collectors.toList());
+		// Collections.reverse(list);
+		// Collections.reverse(list.subList(0, r));
+		// Collections.reverse(list.subList(r, nums.length));
+
 	}
 
 	/**
@@ -3259,5 +3259,78 @@ public class Solution {
 		Collections.reverse(nums.subList(temp, len));
 		Collections.reverse(nums.subList(0, len));
 		return;
+	}
+
+	/**
+	 * Given an unsorted array, find the maximum difference between the
+	 * successive elements in its sorted form.
+	 * 
+	 * Return 0 if the array contains less than 2 elements.
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static int maximumGap(int[] nums) {
+		if (nums == null || nums.length < 2) {
+			return 0;
+		}
+		int max = nums[0], mGap = 0;
+		// Arrays.sort(nums);
+
+		for (int i = 1; i < nums.length; i++) {
+			max = Math.max(nums[i], max);
+		}
+
+		int exp = 1; // power 1, 10, 100, 1000....
+		int radix = 10; // base 10 system
+
+		int[] sorted = new int[nums.length];
+
+		// sort the array using radix sort in O(n) time
+		while (max / exp > 0) {
+			int[] count = new int[radix];
+
+			// start from the LSD (least significant digit)
+			// counting sort
+			for (int i = 0; i < nums.length; i++) {
+				// count[(nums[i] / exp) % 10]++;
+				count[getDigit(nums[i], exp)]++;
+			}
+
+			// linear sum the bucket count as per the number of elements inside
+			// each bucket
+			for (int i = 1; i < count.length; i++) {
+				count[i] += count[i - 1];
+			}
+
+			// fill auxiliary array with the sorted results per lsd / digit
+			for (int i = nums.length - 1; i >= 0; i--) {
+				// sorted[--count[(nums[i] / exp) % 10]] = nums[i];
+				// get the digit place for the current nums[i] element
+				int digit = getDigit(nums[i], exp);
+
+				// fill the aux array with the current element and
+				// remove the element from that digits' bucket
+				sorted[--count[digit]] = nums[i];
+			}
+
+			// update the original array with the sorted results
+			for (int i = 0; i < nums.length; i++) {
+				nums[i] = sorted[i];
+			}
+
+			// iterate the digit from right to left
+			// 1 --> 10 --> 100 ...
+			exp *= 10;
+		}
+
+		for (int i = 0; i < nums.length - 1; i++) {
+			mGap = Math.max(nums[i + 1] - nums[i], mGap);
+		}
+		return mGap;
+	}
+
+	private static int getDigit(int value, int digitPlace) {
+		return ((value / digitPlace) % 10);
 	}
 }
