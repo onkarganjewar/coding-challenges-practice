@@ -3431,4 +3431,23 @@ public class Solution {
 		result.addAll(map.values());
 		return result;
 	}
+
+	public static int[] plusOne(int[] digits) {
+		for (int i = digits.length - 1; i >= 0; i--) {
+			// start from the last digit (LSB) of the number
+			if (digits[i] < 9) {
+				// if the last digit is < 9 then
+				// return the number adding one to last digit
+				// 1, 2, 3 --> 1, 2, 4
+				digits[i]++;
+				return digits;
+			}
+			// if the digit is 9 then replace it with 0
+			// 9, 9 --> 0, 0
+			digits[i] = 0;
+		}
+		int[] res = new int[digits.length + 1];
+		res[0] = 1;
+		return res;
+	}
 }

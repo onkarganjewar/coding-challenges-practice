@@ -94,3 +94,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 89 | [Maximum Gap](../master/Challenges/src/Solution.java#L3273) | [LeetCode](https://leetcode.com/problems/maximum-gap/)
 | 90 | [Longest Common Prefix](../master/Challenges/src/Solution.java#L3356) | [LintCode](http://www.lintcode.com/en/problem/longest-common-prefix/)
 | 91 | [Group Anagrams](../master/Challenges/src/Solution.java#L3410) | [LeetCode](https://leetcode.com/problems/group-anagrams/description/)
+| 92 | [Plus One](../master/Challenges/src/Solution.java#L3435) | [LintCode](http://www.lintcode.com/en/problem/plus-one/)
