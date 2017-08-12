@@ -3333,4 +3333,64 @@ public class Solution {
 	private static int getDigit(int value, int digitPlace) {
 		return ((value / digitPlace) % 10);
 	}
+
+	/**
+	 * Given k strings, find the longest common prefix (LCP). <br>
+	 * <br>
+	 * Example <br>
+	 * For strings "ABCD", "ABEF" and "ACEF", <br>
+	 * the LCP is "A"<br>
+	 * <br>
+	 * For strings "ABCDEFG", "ABCEFG" and "ABCEFA", <br>
+	 * the LCP is "ABC"<br>
+	 * <br>
+	 * For strings ["ca","a"]<br>
+	 * the LCP is "" <br>
+	 * <br>
+	 * For strings "aca","cba" <br>
+	 * the LCP is ""
+	 * 
+	 * @param strs
+	 * @return
+	 */
+	public static String longestCommonPrefix(String[] strs) {
+		if (strs == null || strs.length == 0)
+			return "";
+
+		StringBuffer lcp = new StringBuffer();
+		int minLen = strs[0].length(), strIndex = 0;
+		for (int i = 0; i < strs.length; i++) {
+			if (strs[i].length() < minLen) {
+				minLen = strs[i].length();
+				strIndex = i;
+			}
+		}
+
+		// If all strings are of same size then don't shift
+		if (strs[0].length() != minLen) {
+			// Shift the smallest string to the first position
+			String temp = strs[0];
+			strs[0] = strs[strIndex];
+			strs[strIndex] = temp;
+		}
+
+		for (int i = 0; i < minLen; i++) {
+			// Iterate the letters of first string through entire array of
+			// strings by keeping it as prefix
+			char pre = strs[0].charAt(i);
+			lcp.append(pre);
+			for (int j = 1; j < strs.length; j++) {
+				if ((strs[j].charAt(i)) != pre) {
+					lcp.deleteCharAt(lcp.length() - 1);
+					// If lcp becomes zero then do not continue to check rest of
+					// the strings. ex --> [acad, cban] == equal lengths &&
+					// second last char is same
+					if (lcp.length() == 0)
+						return "";
+					break;
+				}
+			}
+		}
+		return lcp.toString();
+	}
 }

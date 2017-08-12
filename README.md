@@ -180,3 +180,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 [Answer](../master/Challenges/src/Solution.java#L3243)
 85. Maximum Gap. [Question](https://leetcode.com/problems/maximum-gap/)
 [Answer](../master/Challenges/src/Solution.java#L3273)
+86. Longest Common Prefix. [Question](http://www.lintcode.com/en/problem/longest-common-prefix/)
+[Answer](../master/Challenges/src/Solution.java#L3356)
