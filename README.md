@@ -1,11 +1,9 @@
 # Coding Challenges
 Programs implemented in Java that contains solutions to various coding challenges on Hackerrank/GeeksForGeeks.
 
-## List
-
 |No | Question/Answer  | Source  |
 |:-:|:-------------:   | -----:  |
-| 1 | [Find largest possible difference between two elements within an array?](../master/Challenges/src/Solution.java#L68) | $1600 |
+| 1 | [Find largest possible difference between two elements within an array?](../master/Challenges/src/Solution.java#L68) |  |
 | 2 | [Find largest possible difference between two elements within an array such that larger element always appear after the smallest?](../master/Challenges/src/Solution.java#L88)  | [GeeksForGeeks](http://www.geeksforgeeks.org/maximum-difference-between-two-elements/) |
 | 3 | [Merge given two sorted arrays?](../master/Challenges/src/Solution.java#L107)      |    $1 |
 | 4 | [Java 1-D Array (part 2) game](../master/Challenges/src/Solution.java#L158) | [Hackerrank](https://www.hackerrank.com/challenges/java-1d-array) |
