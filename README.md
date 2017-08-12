@@ -97,3 +97,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 92 | [Plus One](../master/Challenges/src/Solution.java#L3452) | [LintCode](http://www.lintcode.com/en/problem/plus-one/)
 | 93 | [Reverse Integer](../master/Challenges/src/Solution.java#L3482) | [LintCode](http://www.lintcode.com/en/problem/plus-one/)
 | 94 | [Climbing Stairs](../master/Challenges/src/Solution.java#L3506) | [LintCode](http://www.lintcode.com/en/problem/climbing-stairs/)
+| 95 | [Partition Array](../master/Challenges/src/Solution.java#L3545) | [LintCode](http://www.lintcode.com/en/problem/partition-array/)

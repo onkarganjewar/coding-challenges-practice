@@ -3526,4 +3526,42 @@ public class Solution {
 		return dp[n];
 		// return second;
 	}
+
+	/**
+	 * Given an array nums of integers and an int k, partition the array (i.e
+	 * move the elements in "nums") such that: <br>
+	 * <br>
+	 * All elements < k are moved to the left <br>
+	 * All elements >= k are moved to the right <br>
+	 * Return the partitioning index, i.e the first index i nums[i] >= k. <br>
+	 * <br>
+	 * If nums = [3,2,2,1] and k=2, <br>
+	 * a valid answer is <b>1</b> --> (array index after partitioning).
+	 * 
+	 * @param nums
+	 * @param k
+	 * @return
+	 */
+	public static int partitionArray(int[] nums, int k) {
+		int left = 0, right = nums.length - 1;
+		// perform cyclic arrangements
+		while (left <= right) {
+			// lower numbers
+			while (left <= right && nums[left] < k) {
+				left++;
+			}
+			// higher numbers
+			while (left <= right && nums[right] >= k) {
+				right--;
+			}
+			// swap
+			if (left <= right) {
+				int temp = nums[left];
+				nums[left] = nums[right];
+				nums[right] = temp;
+			}
+		}
+		// partitioning index
+		return left;
+	}
 }
