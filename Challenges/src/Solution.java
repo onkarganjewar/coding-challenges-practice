@@ -3481,7 +3481,7 @@ public class Solution {
 	 */
 	public int reverseInteger(int n) {
 		long rev = 0;
-		// check if x is not 0 and not for > 0 condition
+		// check for x is not 0 condition and not for x > 0 condition
 		// because number can also be negative
 		while (n != 0) {
 			rev = rev * 10 + n % 10;
