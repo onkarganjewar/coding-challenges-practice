@@ -3432,6 +3432,23 @@ public class Solution {
 		return result;
 	}
 
+	/**
+	 * Given a non-negative number represented as an array of digits, plus one
+	 * to the number. <br>
+	 * <br>
+	 * The digits are stored such that the most significant digit is at the head
+	 * of the list. <br>
+	 * <br>
+	 * Given [1,2,3] which represents 123, <br>
+	 * return [1,2,4].<br>
+	 * <br>
+	 * 
+	 * Given [9,9,9] which represents 999, <br>
+	 * return [1,0,0,0].
+	 * 
+	 * @param digits
+	 * @return
+	 */
 	public static int[] plusOne(int[] digits) {
 		for (int i = digits.length - 1; i >= 0; i--) {
 			// start from the last digit (LSB) of the number
@@ -3449,5 +3466,31 @@ public class Solution {
 		int[] res = new int[digits.length + 1];
 		res[0] = 1;
 		return res;
+	}
+
+	/**
+	 * Reverse digits of an integer.<br>
+	 * {@code Returns 0 when the reversed integer overflows (signed 32-bit integer).}
+	 * <br>
+	 * <br>
+	 * Given x = <b>123</b>, return <b>321</b> <br>
+	 * Given x = <b>-123</b>, return <b>-321</b>
+	 * 
+	 * @param n
+	 * @return
+	 */
+	public int reverseInteger(int n) {
+		long rev = 0;
+		// check if x is not 0 and not for > 0 condition
+		// because number can also be negative
+		while (n != 0) {
+			rev = rev * 10 + n % 10;
+			if (rev > Integer.MAX_VALUE) {
+				// handle the integer overflows error (signed 32-bit integer)
+				return 0;
+			}
+			n = n / 10;
+		}
+		return (int) rev;
 	}
 }
