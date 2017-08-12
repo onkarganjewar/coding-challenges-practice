@@ -1,6 +1,42 @@
 # Coding Challenges
 Programs implemented in Java that contains solutions to various coding challenges on Hackerrank/GeeksForGeeks.
 
+## List
+
+|No | Question/Answer  | Source  |
+|:-:|:-------------:   | -----:  |
+| 1 | [Find largest possible difference between two elements within an array?](../master/Challenges/src/Solution.java#L68) | $1600 |
+| 2 | [Find largest possible difference between two elements within an array such that larger element always appear after the smallest?](../master/Challenges/src/Solution.java#L88)  | [GeeksForGeeks](http://www.geeksforgeeks.org/maximum-difference-between-two-elements/) |
+| 3 | [Merge given two sorted arrays?](../master/Challenges/src/Solution.java#L107)      |    $1 |
+| 4 | [Java 1-D Array (part 2) game](../master/Challenges/src/Solution.java#L158) | [Hackerrank](https://www.hackerrank.com/challenges/java-1d-array) |
+| 5 | [Find the number occurring odd number of times?](../master/Challenges/src/Solution.java#L181) | [GeeksForGeeks](http://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/) |
+| 6 | [Find all distinct palindromic sub-strings of a given string?](../master/Challenges/src/Solution.java#L201) | [GeeksForGeeks](http://www.geeksforgeeks.org/find-number-distinct-palindromic-sub-strings-given-string/)
+| 7 | [Sort an array using only two operations](../master/Challenges/src/Solution.java#L252) | [Hackerrank](https://www.hackerrank.com/challenges/almost-sorted) |
+| 8 | [Angry professor](../master/Challenges/src/Solution.java#L315) |[Hackerrank](https://www.hackerrank.com/challenges/angry-professor)|
+| 9 | [Utopian Tree](../master/Challenges/src/Solution.java#L340) | [Hackerrank](https://www.hackerrank.com/challenges/utopian-tree)|
+| 10 | [Get all the possible combinations of words from a given string](../master/Challenges/src/Solution.java#L367) |
+| 11 | [Cavity Map](../master/Challenges/src/Solution.java#L410) | [Hackerrank](https://www.hackerrank.com/challenges/cavity-map) |
+| 12 | [Time In Words](../master/Challenges/src/Solution.java#L470) | [Hackerrank](https://www.hackerrank.com/challenges/the-time-in-words) |
+| 13 | [Convert the given number to its readable English text in the range of 1-1000](../master/Challenges/src/Solution.java#L533) |
+| 14 | [Counting sort](../master/Challenges/src/Solution.java#L584) |
+| 15 | [Gaming array](../master/Challenges/src/Solution.java#L628) | [Hackerrank](https://www.hackerrank.com/challenges/an-interesting-game-1) |
+| 16 | [New year chaos](../master/Challenges/src/Solution.java#L667) | [Hackerrank](https://www.hackerrank.com/challenges/new-year-chaos) |
+| 17 | [Binary Gap](../master/Challenges/src/Solution.java#L733) | [Codility](https://codility.com/programmers/lxessons/1-iterations/binary_gap/) |
+| 18 | [Extra Long Factorials](../master/Challenges/src/Solution.java#L756) | [Question](https://www.hackerrank.com/challenges/extra-long-factorials) |
+| 19 | [Equalize Array](../master/Challenges/src/Solution.java#L773) | [Hackerrank](https://www.hackerrank.com/challenges/equality-in-a-array) |
+| 20 | [Run Length Encoding](../master/Challenges/src/Solution.java#L803) |[GeeksForGeeks](http://practice.geeksforgeeks.org/problems/run-length-encoding/1) |
+| 21 | [Bigger is greater](../master/Challenges/src/Solution.java#L837) |[Hackerrank](https://www.hackerrank.com/challenges/bigger-is-greater) |
+| 22 | [Reverse words in a string and capitalize the first letter](../master/Challenges/src/Solution.java#L893) | [Hackerrank](https://www.hackerrank.com/contests/codejam/challenges/reverse-words)|
+| 23 | [Sherlock and the Valid String](../master/Challenges/src/Solution.java#L950) | [Hackerrank](https://www.hackerrank.com/challenges/sherlock-and-valid-string)  |
+| 24 | [Balanced Brackets](../master/Challenges/src/Solution.java#L991) |[Hackerrank](https://www.hackerrank.com/challenges/balanced-brackets) |
+| 25 | [Maximum Element of Stack](../master/Challenges/src/Solution.java#L1037) | [Hackerrank](https://www.hackerrank.com/challenges/maximum-element) |
+| 26 | [Anagrams](../master/Challenges/src/Solution.java#L1086) |[Hackerrank](https://www.hackerrank.com/challenges/anagram) |
+| 27 | [Arrays: Left Rotation](../master/Challenges/src/Solution.java#L1128) | [Hackerrank](https://www.hackerrank.com/challenges/ctci-array-left-rotation)
+| 28 | [Two Strings](../master/Challenges/src/Solution.java#L1158) | [Hackerrank](https://www.hackerrank.com/challenges/two-strings)
+| 29 | [Time Complexity: Primality](../master/Challenges/src/Solution.java#L1191) | [Hackerrank](https://www.hackerrank.com/challenges/ctci-big-o)
+| 30 | [Making Anagrams](../master/Challenges/src/Solution.java#L1211) |[Hackerrank](https://www.hackerrank.com/challenges/making-anagrams)
+| 31 | [Longest substring w/o repeating chars](../master/Challenges/src/Solution.java#L1235) | [LeetCode](https://leetcode.com/problems/longest-substring-without-repeating-characters)
+
 ## Questions
 1. Find largest possible difference between two elements within an array?
   [Answer](../master/Challenges/src/Solution.java#L68)
