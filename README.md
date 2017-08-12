@@ -5,7 +5,7 @@ Programs implemented in Java that contains solutions to various coding challenge
 |:-:|:-------------:   | -----:  |
 | 1 | [Find largest possible difference between two elements within an array?](../master/Challenges/src/Solution.java#L68) |  |
 | 2 | [Find largest possible difference between two elements within an array such that larger element always appear after the smallest?](../master/Challenges/src/Solution.java#L88)  | [GeeksForGeeks](http://www.geeksforgeeks.org/maximum-difference-between-two-elements/) |
-| 3 | [Merge given two sorted arrays?](../master/Challenges/src/Solution.java#L107)      |    $1 |
+| 3 | [Merge given two sorted arrays?](../master/Challenges/src/Solution.java#L107) |
 | 4 | [Java 1-D Array (part 2) game](../master/Challenges/src/Solution.java#L158) | [Hackerrank](https://www.hackerrank.com/challenges/java-1d-array) |
 | 5 | [Find the number occurring odd number of times?](../master/Challenges/src/Solution.java#L181) | [GeeksForGeeks](http://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/) |
 | 6 | [Find all distinct palindromic sub-strings of a given string?](../master/Challenges/src/Solution.java#L201) | [GeeksForGeeks](http://www.geeksforgeeks.org/find-number-distinct-palindromic-sub-strings-given-string/)
