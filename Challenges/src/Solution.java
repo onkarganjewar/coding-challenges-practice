@@ -3393,4 +3393,42 @@ public class Solution {
 		}
 		return lcp.toString();
 	}
+
+	/**
+	 * Given an array of strings, group anagrams together. <br>
+	 * <br>
+	 * For example, given: ["eat", "tea", "tan", "ate", "nat", "bat"], <br>
+	 * Return:
+	 * 
+	 * [ ["ate", "eat","tea"], <br>
+	 * ["nat","tan"], <br>
+	 * ["bat"] ]
+	 * 
+	 * @param strs
+	 * @return
+	 */
+	public static List<List<String>> groupAnagrams(String[] strs) {
+		List<List<String>> result = new ArrayList<List<String>>();
+		if (strs == null || strs.length == 0)
+			return result;
+
+		Map<String, List<String>> map = new HashMap<String, List<String>>();
+
+		// To get anagrams, sort the characters inside a string
+		// for ex. --> dab, adb --> both are anagrams --> abd , abd
+		for (String word : strs) {
+			char[] letters = word.toCharArray();
+			Arrays.sort(letters);
+			String keyStr = String.valueOf(letters);
+			// Check if map has the chars then put the current string in a new
+			// list
+			if (!map.containsKey(keyStr))
+				map.put(keyStr, new ArrayList<String>());
+			// add the current word to the list
+			map.get(keyStr).add(word);
+		}
+
+		result.addAll(map.values());
+		return result;
+	}
 }
