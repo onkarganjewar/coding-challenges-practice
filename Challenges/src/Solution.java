@@ -3493,4 +3493,37 @@ public class Solution {
 		}
 		return (int) rev;
 	}
+
+	/**
+	 * You are climbing a stair case. It takes n steps to reach to the top.
+	 * 
+	 * Each time you can either climb 1 or 2 steps. In how many distinct ways
+	 * can you climb to the top?
+	 * 
+	 * @param n
+	 * @return
+	 */
+	public int climbStairs(int n) {
+
+		// this problem is related to the fibonacci series problem
+		// return climbStairs (n-1) + climbStairs(n - 2); // TLE --> Time Limit
+		// Exceeded
+		if (n < 2)
+			return 1;
+
+		int dp[] = new int[n + 1]; // O(n) linear space
+		// int first = 1, second = 2; // O(1) constant space
+		dp[1] = 1;
+		dp[2] = 2;
+		// you can get to the i'th step from (i - 1)th last step or (i - 2)th
+		// step -- second to last step --> just like in a fibonacci series
+		for (int i = 3; i <= n; i++) {
+			dp[i] = dp[i - 1] + dp[i - 2];
+			// int third = first + second;
+			// first = second;
+			// second = third;
+		}
+		return dp[n];
+		// return second;
+	}
 }
