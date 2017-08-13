@@ -3587,7 +3587,7 @@ public class Solution {
 		if (arr.size() < 2 || arr == null)
 			return arr;
 		// sort the input array in asc order
-//		Collections.sort(arr); // array is already given in sorted order
+		// Collections.sort(arr); // array is already given in sorted order
 
 		// binary search the element x
 		int index = getClosestIndex(arr, x);
@@ -3693,5 +3693,39 @@ public class Solution {
 		}
 		// lo == hi + 1
 		return (a[lo] - value) < (value - a[hi]) ? lo : hi;
+	}
+
+	/**
+	 * Initially, there is a Robot at position (0, 0). Given a sequence of its
+	 * moves, judge if this robot makes a circle, which means it moves back to
+	 * the original place. <br>
+	 * The move sequence is represented by a string. And each move is represent
+	 * by a character. The valid robot moves are R (Right), L (Left), U (Up) and
+	 * D (down). The output should be true or false representing whether the
+	 * robot makes a circle. <br>
+	 * <br>
+	 * Input: "UD" Output: <b>TRUE</b> <br>
+	 * <br>
+	 * Input: "LL" Output: <b>FALSE</b>
+	 * 
+	 * @param moves
+	 * @return
+	 */
+	public static boolean judgeCircle(String moves) {
+		int lc = 0, uc = 0;
+
+		for (int i = 0; i < moves.length(); i++) {
+			Character c = moves.charAt(i);
+			if (c == 'L') {
+				lc++;
+			} else if (c == 'U') {
+				uc++;
+			} else if (c == 'R') {
+				lc--;
+			} else if (c == 'D') {
+				uc--;
+			}
+		}
+		return (lc == 0 && uc == 0);
 	}
 }
