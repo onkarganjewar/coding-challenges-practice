@@ -3564,4 +3564,134 @@ public class Solution {
 		// partitioning index
 		return left;
 	}
+
+	/**
+	 * Given a sorted array, two integers k and x, find the k closest elements
+	 * to x in the array. The result should also be sorted in ascending order.
+	 * If there is a tie, the smaller elements are always preferred. <br>
+	 * <br>
+	 * Input: [1,2,3,4,5], k=4, x=3 <br>
+	 * Output: [1,2,3,4] <br>
+	 * <br>
+	 * Input: [1,2,3,4,5], k=4, x=-1 <br>
+	 * Output: [1,2,3,4]
+	 * 
+	 * @param arr
+	 * @param k
+	 * @param x
+	 * @return
+	 */
+	public static List<Integer> findClosestElements(List<Integer> arr, int k, int x) {
+		List<Integer> result = new ArrayList<Integer>();
+		// validations check
+		if (arr.size() < 2 || arr == null)
+			return arr;
+		// sort the input array in asc order
+//		Collections.sort(arr); // array is already given in sorted order
+
+		// binary search the element x
+		int index = getClosestIndex(arr, x);
+		// int index = search(x, arr.stream().mapToInt(i -> i).toArray());
+
+		int left = index;
+		int right = left + 1;
+
+		// if element is found in input array then add that to the result array
+		if (x == arr.get(index)) {
+			left--;
+			result.add(x);
+			k--;
+		}
+		// explore elements from the found index
+		while (left >= 0 && right < arr.size() && k > 0) {
+			int ld = Math.abs((x - arr.get(left)));
+			int rd = Math.abs((x - arr.get(right)));
+			if (ld <= rd)
+				result.add(arr.get(left--));
+			else
+				result.add(arr.get(right++));
+			k--;
+		}
+		// add remaining elements from the left
+		while (k > 0 && left >= 0) {
+			result.add(arr.get(left--));
+			k--;
+		}
+		// add the remaining elements from the right
+		while (k > 0 && right < arr.size()) {
+			result.add(arr.get(right++));
+			k--;
+		}
+		// sort the result in asc order
+		Collections.sort(result);
+		return result;
+	}
+
+	/**
+	 * Returns the index of closest value to given input value in an arraylist.
+	 * 
+	 * @param arr
+	 * @param key
+	 * @return
+	 */
+	private static int getClosestIndex(List<Integer> arr, int key) {
+		if (key < arr.get(0)) {
+			return arr.get(0);
+		} // lower boundary
+		if (key > arr.get(arr.size() - 1)) {
+			return arr.get(arr.size() - 1);
+		} // upper boundary
+		int pos = Collections.binarySearch(arr, key);
+		if (pos >= 0) {
+			// we found an exact match
+			return pos;
+		}
+		// we didn't find an exact match, now we have two candidates:
+		// insertion point and insertion point-1 (we excluded the trivial
+		// case before)
+		// pos = -ip-1 | +ip -pos => ip = -pos-1
+		int insertionP = -pos - 1;
+		int closest;
+		if (arr.get(insertionP) - key < key - arr.get(insertionP - 1)) {
+			closest = insertionP;
+		} // < can be <= if smaller value is preferred
+		else {
+			closest = insertionP - 1;
+		}
+		return closest;
+	}
+
+	/**
+	 * Returns the index of closest value to given input value in an array.
+	 * 
+	 * @param value
+	 * @param a
+	 * @return
+	 */
+	private static int search(int value, int[] a) {
+
+		if (value < a[0]) {
+			return a[0];
+		}
+		if (value > a[a.length - 1]) {
+			return a[a.length - 1];
+		}
+
+		int lo = 0;
+		int hi = a.length - 1;
+
+		while (lo <= hi) {
+			int mid = (hi + lo) / 2;
+
+			if (value < a[mid]) {
+				hi = mid - 1;
+			} else if (value > a[mid]) {
+				lo = mid + 1;
+			} else {
+				return mid;
+			}
+		}
+		// lo == hi + 1
+		return (a[lo] - value) < (value - a[hi]) ? lo : hi;
+	}
 }
