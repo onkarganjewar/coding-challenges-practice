@@ -3728,4 +3728,37 @@ public class Solution {
 		}
 		return (lc == 0 && uc == 0);
 	}
+
+	/**
+	 * Start from integer 1, remove any integer that contains 9 such as 9, 19,
+	 * 29... <br>
+	 * <br>
+	 * So now, you will have a new integer sequence: 1, 2, 3, 4, 5, 6, 7, 8, 10,
+	 * 11, ... <br>
+	 * <br>
+	 * Given a positive integer n, you need to return the n-th integer after
+	 * removing. <br>
+	 * {@code Note that 1 will be the first integer. }<br>
+	 * <br>
+	 * <b>Input: 9 Output: 10</b>
+	 * 
+	 * @param n
+	 * @return
+	 */
+	public int newInteger(int n) {
+		// one liner solution
+		// instead of base 10, select the radix as 9 in toString representation
+		// return Integer.parseInt(Integer.toString(n, 9));
+		int rv = 0;
+		int base = 1;
+
+		while (n > 0) {
+			int remainder = n % 9;
+			rv += remainder * base;
+			n = n / 9;
+			base = base * 10;
+		}
+
+		return rv;
+	}
 }
