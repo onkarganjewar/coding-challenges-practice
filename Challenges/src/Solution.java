@@ -3761,4 +3761,39 @@ public class Solution {
 
 		return rv;
 	}
+
+	/**
+	 * Say you have an array for which the ith element is the price of a given
+	 * stock on day i.<br>
+	 * <br>
+	 * 
+	 * If you were only permitted to complete at most one transaction (ie, buy
+	 * one and sell one share of the stock), design an algorithm to find the
+	 * maximum profit.<br>
+	 * <br>
+	 * Input: [7, 1, 5, 3, 6, 4] Output: 5 <br>
+	 * max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be
+	 * larger than buying price) <br>
+	 * <br>
+	 * Input: [7, 6, 4, 3, 1] Output: 0 <br>
+	 * In this case, no transaction is done, i.e. max profit = 0.
+	 * 
+	 * @param prices
+	 * @return
+	 */
+	public int maxProfit(int[] prices) {
+		if (prices == null || prices.length < 2)
+			return 0;
+
+		int maxProf = 0, currProf = 0, minPrice = prices[0];
+
+		for (int i = 1; i < prices.length; i++) {
+			minPrice = Math.min(prices[i], minPrice);
+
+			currProf = prices[i] - minPrice;
+			maxProf = Math.max(currProf, maxProf);
+		}
+
+		return maxProf;
+	}
 }
