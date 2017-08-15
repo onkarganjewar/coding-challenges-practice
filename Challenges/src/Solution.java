@@ -1734,7 +1734,7 @@ public class Solution {
 		for (int i = 1; i < nums.length; i++) {
 			// carry on previous max product
 			prevMax = currMax;
-			currMax = Math.max(Math.max(prevMax * nums[i], currMin * nums[i]), nums[i]);
+			currMax = Math.max(Math.max(currMin * nums[i], prevMax * nums[i]), nums[i]);
 
 			// product of previous max and current number can be minimum when
 			// negative integers are present
@@ -3823,5 +3823,42 @@ public class Solution {
 				maxProf += prices[i] - prices[i - 1];
 		}
 		return maxProf;
+	}
+
+	/**
+	 * Given a non-empty string s and a dictionary wordDict containing a list of
+	 * non-empty words, determine if s can be segmented into a space-separated
+	 * sequence of one or more dictionary words. You may assume the dictionary
+	 * does not contain duplicate words. <br>
+	 * <br>
+	 * <b>Input:</b> s = "leetcode", dict = ["leet", "code"]. <br>
+	 * <b>Output:</b> Return <b>true</b> because "leetcode" can be segmented as
+	 * "leet code".
+	 * 
+	 * @param s
+	 * @param dict
+	 * @return
+	 */
+	public boolean wordBreak(String s, Set<String> dict) {
+
+		boolean dp[] = new boolean[s.length() + 1];
+		dp[0] = true; // set the intial index as true
+
+		for (int i = 1; i <= s.length(); i++) {
+			// check for each char/substring in the given word if it exists
+			// in the dict until last char
+			for (int j = 0; j < i; j++) {
+				// iterate for the whole word starting from j to last index as i
+				if (dp[j] != false) {
+					// check if the prev char/prefix was present in the dict
+					if (dict.contains(s.substring(j, i))) {
+						dp[i] = true;
+						break;
+					}
+				}
+			}
+		}
+		// if last char is present/true in the dp[] then return true
+		return dp[s.length()];
 	}
 }
