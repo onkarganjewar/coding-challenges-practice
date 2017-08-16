@@ -104,3 +104,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 99 | [Best Time to Buy and Sell Stock](../master/Challenges/src/Solution.java#L3784) | [LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 | 100 | [Best Time to Buy and Sell Stock II](../master/Challenges/src/Solution.java#L3816) | [LintCode](http://www.lintcode.com/en/problem/best-time-to-buy-and-sell-stock-ii/)
 | 101 | [Word Break](../master/Challenges/src/Solution.java#L3842) | [LeetCode](https://leetcode.com/problems/word-break/description/)
+| 102 | [Merge Sorted Array](../master/Challenges/src/Solution.java#L3885) | [LintCode](http://www.lintcode.com/en/problem/merge-sorted-array/)

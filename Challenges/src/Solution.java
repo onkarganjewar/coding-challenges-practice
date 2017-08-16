@@ -3861,4 +3861,38 @@ public class Solution {
 		// if last char is present/true in the dp[] then return true
 		return dp[s.length()];
 	}
+
+	/**
+	 * Given two sorted integer arrays A and B, merge B into A as one sorted
+	 * array. <br>
+	 * <br>
+	 * You may assume that A has enough space (size that is greater or equal to
+	 * m + n) to hold additional elements from B. The number of elements
+	 * initialized in A and B are m and n respectively. <br>
+	 * <br>
+	 * <b>Input</b>: A = [1, 2, 3, empty, empty], B = [4, 5] <br>
+	 * <b>Output</b>: After merge, A will be filled as [1, 2, 3, 4, 5]
+	 * 
+	 * @param A
+	 *            Input array 1
+	 * @param m
+	 *            no of integers in array A
+	 * @param B
+	 *            Inpute array 2
+	 * @param n
+	 *            no of integers in array B
+	 */
+	public static void mergeSortedArray(int[] A, int m, int[] B, int n) {
+		int i = m - 1, j = n - 1, k = m + n - 1;
+
+		// start filling the array from back
+		while (i >= 0 && j >= 0) {
+			A[k--] = (A[i] > B[j]) ? A[i--] : B[j--];
+		}
+
+		// fill the remaining elements
+		while (j >= 0) {
+			A[k--] = B[j--];
+		}
+	}
 }
