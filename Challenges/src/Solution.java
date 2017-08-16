@@ -3895,4 +3895,42 @@ public class Solution {
 			A[k--] = B[j--];
 		}
 	}
+
+	/**
+	 * Suppose a sorted array is rotated at some pivot unknown to you
+	 * beforehand.
+	 * 
+	 * (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+	 * 
+	 * You are given a target value to search. If found in the array return its
+	 * index, otherwise return -1.
+	 * 
+	 * You may assume no duplicate exists in the array. For [4, 5, 1, 2, 3] and
+	 * target=1, return 2.
+	 * 
+	 * For [4, 5, 1, 2, 3] and target=0, return -1.
+	 * 
+	 * @param arr
+	 * @param low
+	 * @param high
+	 * @param x
+	 * @return
+	 */
+	public static int binSearchRotatedArrIterative(int[] arr, int low, int high, int x) {
+		// return binSearchRotatedArrIterative(nums, 0, nums.length - 1,
+		// target);
+		while (low <= high) {
+			int mid = low + (high - low) / 2;
+			if (arr[mid] == x)
+				return mid;
+			// lower(left) half is not rotated
+			if (arr[low] <= arr[mid] && x <= arr[mid] && arr[low] <= x ||
+			// OR lower(left) half is rotated
+					(arr[low] > arr[mid] && (arr[low] <= x || x <= arr[mid]))) {
+				high = mid - 1; // shift the high pointer
+			} else // search right
+				low = mid + 1;
+		}
+		return -1;
+	}
 }
