@@ -3933,4 +3933,38 @@ public class Solution {
 		}
 		return -1;
 	}
+
+	/**
+	 * You are going to receive payments in the upcoming month. The payments are
+	 * numbered from to and denotes the amount of money in dollars that will be
+	 * paid in connection with the -th payment. Before receiving the payments,
+	 * you have two banking options to consider: <br>
+	 * <br>
+	 * 1. You can receive all the payments on your current bank account
+	 * remembering that the bank charges you for each payment i ==> max(k, x %
+	 * of p[i]), where k and x are given. <br>
+	 * 2. You can pay the bank dollars upfront to open a new special account for
+	 * which the bank doesn't charge you for any of the upcoming transactions.
+	 * <br>
+	 * <br>
+	 * Your task is to decide which of the above two options is more profitable
+	 * to you. If both ways are equally profitable, then you prefer to be
+	 * charged for each transaction.
+	 * 
+	 * @param n
+	 * @param k
+	 * @param x
+	 * @param d
+	 * @param p
+	 * @return
+	 */
+	public static String feeOrUpfront(int n, int k, int x, int d, int[] p) {
+		double totalCharges = 0;
+		for (int i = 0; i < p.length; i++) {
+			totalCharges += Math.max(k, x * p[i] / 100.0);
+		}
+		if (totalCharges == d)
+			return "fee";
+		return (totalCharges < d) ? "fee" : "upfront";
+	}
 }

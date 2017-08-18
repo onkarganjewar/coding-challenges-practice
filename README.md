@@ -105,3 +105,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 100 | [Best Time to Buy and Sell Stock II](../master/Challenges/src/Solution.java#L3816) | [LintCode](http://www.lintcode.com/en/problem/best-time-to-buy-and-sell-stock-ii/)
 | 101 | [Word Break](../master/Challenges/src/Solution.java#L3842) | [LeetCode](https://leetcode.com/problems/word-break/description/)
 | 102 | [Merge Sorted Array](../master/Challenges/src/Solution.java#L3885) | [LintCode](http://www.lintcode.com/en/problem/merge-sorted-array/)
+| 103 | [Goldman Sachs CodeSprint - Bank Accounts](../master/Challenges/src/Solution.java#L3961) | [HackerRank](https://www.hackerrank.com/contests/gs-codesprint/challenges/bank-accounts/problem)
