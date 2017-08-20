@@ -3967,4 +3967,58 @@ public class Solution {
 			return "fee";
 		return (totalCharges < d) ? "fee" : "upfront";
 	}
+
+	/**
+	 * Given an array S of n integers, are there elements a, b, c in S such that
+	 * a + b + c = 0? Find all unique triplets in the array which gives the sum
+	 * of zero. <br>
+	 * <br>
+	 * <code>Note: The solution set must not contain duplicate triplets. </code><br>
+	 * <br>
+	 * <b>Input</b>: [-1, 0, 1, 2, -1, -4], <br>
+	 * <b>Output</b>:<br>
+	 * [ [-1, 0, 1], <br>
+	 * [-1, -1, 2] ]
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public List<List<Integer>> threeSum(int[] nums) {
+		Arrays.sort(nums);
+		List<List<Integer>> res = new LinkedList<>();
+		int sum, low, high;
+		// [-1,0,1,2,-1,-4]
+		// [-2,0,1,1,2]
+		for (int i = 0; i < nums.length - 2; i++) {
+			// don't iterate over the repeated elements
+			if (i == 0 || (i > 0 && nums[i] != nums[i - 1])) {
+				int key = -nums[i]; // compare the sum with negating the curr
+									// element
+				low = i + 1;
+				high = nums.length - 1; // keep indices of two elements
+				// binary search for the two elements
+				while (low < high) {
+					sum = nums[low] + nums[high];
+					if (sum == key) {
+						// found the triplet
+						res.add(Arrays.asList(nums[i], nums[low], nums[high]));
+						// avoid the duplicate elements in the list
+						low++;
+						high--;
+						// increment the index by skipping the same elements
+						while (low < high && nums[low] == nums[low - 1])
+							low++;
+						// skip duplicate pairs with the same high
+						while (low < high && nums[high] == nums[high + 1])
+							high--;
+					} else if (sum < key) {
+						// search in the right half
+						low++;
+					} else
+						high--;
+				}
+			}
+		}
+		return res;
+	}
 }
