@@ -4143,4 +4143,36 @@ public class Solution {
 		// return dp[A.length()][B.length()];
 		return maxLen;
 	}
+
+	/**
+	 * Given a dictionary, find all of the longest words in the dictionary. <br>
+	 * <br>
+	 * <b>Input</b>: { "dog", "google", "facebook", "internationalization",
+	 * "blabla" } <br>
+	 * <b>Output</b>: Longest words are(is) ["internationalization"].
+	 * 
+	 * <br>
+	 * <br>
+	 * <b>Input</b>: { "like", "love", "hate", "yes" } <br>
+	 * <b>Output</b>: Longest words are ["like", "love", "hate"].
+	 * 
+	 * @param dictionary
+	 * @return
+	 */
+	static ArrayList<String> longestWords(String[] dictionary) {
+		ArrayList<String> result = new ArrayList<>();
+		int maxLen = 0;
+
+		for (int i = 0; i < dictionary.length; i++) {
+			if (dictionary[i].length() >= maxLen) {
+				maxLen = dictionary[i].length();
+				if (!result.isEmpty() && (result.get(0).length() < maxLen)) {
+					result.clear();
+					result.add(dictionary[i]);
+				} else
+					result.add(dictionary[i]);
+			}
+		}
+		return result;
+	}
 }

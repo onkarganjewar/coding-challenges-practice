@@ -111,3 +111,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 106 | [Sort Letters](../master/Challenges/src/Solution.java#L4072) | [LintCode](http://www.lintcode.com/en/problem/sort-letters-by-case/)
 | 107 | [Sort Colors](../master/Challenges/src/Solution.java#L4101) | [LintCode](http://www.lintcode.com/en/problem/sort-colors/)
 | 108 | [Longest Common Substring](../master/Challenges/src/Solution.java#L4126) | [LintCode](http://www.lintcode.com/en/problem/longest-common-substring/)
+| 109 | [Longest Words](../master/Challenges/src/Solution.java#L4162) | [LintCode](http://www.lintcode.com/en/problem/longest-words/)
