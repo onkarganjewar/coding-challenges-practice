@@ -109,3 +109,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 104 | [3Sum](../master/Challenges/src/Solution.java#L3986) | [LeetCode](https://leetcode.com/problems/3sum/)
 | 105 | [Word Break](../master/Challenges/src/Solution.java#L4039) | [LeetCode](https://leetcode.com/problems/3sum-closest/)
 | 106 | [Sort Letters](../master/Challenges/src/Solution.java#L4072) | [LintCode](http://www.lintcode.com/en/problem/sort-letters-by-case/)
+| 107 | [Sort Colors](../master/Challenges/src/Solution.java#L4101) | [LintCode](http://www.lintcode.com/en/problem/sort-colors/)
