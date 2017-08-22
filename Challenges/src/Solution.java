@@ -4175,4 +4175,51 @@ public class Solution {
 		}
 		return result;
 	}
+
+	/**
+	 * Given two strings S and T, determine if they are both one edit distance
+	 * apart. <br>
+	 * <br>
+	 * <b>Input</b>: s = "aDb", t = "adb" <br>
+	 * <b>Output</b>: true <br>
+	 * <br>
+	 * <b>Input</b>: s = "a", t = "ab" <br>
+	 * <b>Output</b>: true <br>
+	 * <br>
+	 * <b>Input</b>: s = "bcde", t = "abcde" <br>
+	 * <b>Output</b>: true
+	 * 
+	 * @param s
+	 * @param t
+	 * @return
+	 */
+	public static boolean isOneEditDistance(String s, String t) {
+		if (s == null || t == null)
+			return false;
+
+		if (Math.abs(s.length() - t.length()) > 1 || s.equals(t))
+			return false;
+
+		// make t always shorter than s
+		if (s.length() > t.length()) {
+			return isOneEditDistance(t, s);
+		}
+
+		// check if two chars are same
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) != t.charAt(i)) {
+				// delete char from String s
+				// "ab" && "a"
+				boolean isDel = s.substring(i + 1).equals(t.substring(i + 1));
+				// consider "bcde" && "abcde"
+				boolean isIns = s.substring(i).equals(t.substring(i + 1));
+				return isDel || isIns;
+			}
+		}
+
+		// if all the letters are same
+		// then compare differences in lengths of the string
+		// both strings must be one length apart
+		return Math.abs(s.length() - t.length()) == 1;
+	}
 }
