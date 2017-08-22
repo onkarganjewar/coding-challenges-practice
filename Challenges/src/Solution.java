@@ -4057,4 +4057,32 @@ public class Solution {
 		}
 		return result;
 	}
+
+	/**
+	 * Given a string which contains only letters. Sort it by lower case first
+	 * and upper case second. <br>
+	 * <br>
+	 * It's NOT necessary to keep the original order of lower-case letters and
+	 * upper case letters. <br>
+	 * <br>
+	 * For "abAcD", a reasonable answer is "acbAD"
+	 * 
+	 * @param chars
+	 */
+	public void sortLetters(char[] chars) {
+		int l = 0, r = chars.length - 1;
+		while (l < r) {
+			while (l < r && Character.isLowerCase(chars[l]))
+				l++;
+			while (l < r && Character.isUpperCase(chars[r]))
+				r--;
+			// swap
+			char temp = chars[l];
+			chars[l] = chars[r];
+			chars[r] = temp;
+			// iterate
+			l++;
+			r--;
+		}
+	}
 }
