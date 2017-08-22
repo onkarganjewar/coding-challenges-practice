@@ -4110,4 +4110,37 @@ public class Solution {
 		}
 	}
 
+	/**
+	 * Given two strings, find the longest common substring. Return the length
+	 * of it. <br>
+	 * <br>
+	 * The characters in substring should occur continuously in original string.
+	 * This is different with subsequence. <br>
+	 * <br>
+	 * Given A = "ABCD", B = "CBCE", return 2.
+	 * 
+	 * @param A
+	 * @param B
+	 * @return
+	 */
+	public static int longestCommonSubstring(String A, String B) {
+		int dp[][] = new int[A.length() + 1][B.length() + 1];
+		int maxLen = 0;
+
+		for (int i = 0; i <= A.length(); i++) {
+			for (int j = 0; j <= B.length(); j++) {
+				if (i == 0 || j == 0) {
+					dp[i][j] = 0;
+				} else if (A.charAt(i - 1) == B.charAt(j - 1)) {
+					// found match increment pointer
+					dp[i][j] = dp[i - 1][j - 1] + 1;
+					maxLen = Math.max(dp[i][j], maxLen);
+				} else // if it's not a match then reinitialize the cell
+					dp[i][j] = 0;
+				// dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+			}
+		}
+		// return dp[A.length()][B.length()];
+		return maxLen;
+	}
 }

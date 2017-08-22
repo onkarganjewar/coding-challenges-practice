@@ -110,3 +110,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 105 | [Word Break](../master/Challenges/src/Solution.java#L4039) | [LeetCode](https://leetcode.com/problems/3sum-closest/)
 | 106 | [Sort Letters](../master/Challenges/src/Solution.java#L4072) | [LintCode](http://www.lintcode.com/en/problem/sort-letters-by-case/)
 | 107 | [Sort Colors](../master/Challenges/src/Solution.java#L4101) | [LintCode](http://www.lintcode.com/en/problem/sort-colors/)
+| 108 | [Longest Common Substring](../master/Challenges/src/Solution.java#L4126) | [LintCode](http://www.lintcode.com/en/problem/longest-common-substring/)
