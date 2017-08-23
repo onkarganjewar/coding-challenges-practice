@@ -113,3 +113,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 108 | [Longest Common Substring](../master/Challenges/src/Solution.java#L4126) | [LintCode](http://www.lintcode.com/en/problem/longest-common-substring/)
 | 109 | [Longest Words](../master/Challenges/src/Solution.java#L4162) | [LintCode](http://www.lintcode.com/en/problem/longest-words/)
 | 110 | [Edit Distance II](../master/Challenges/src/Solution.java#L4196) | [LintCode](http://www.lintcode.com/en/problem/edit-distance-ii/)
+| 111 | [Rotate Image](../master/Challenges/src/Solution.java#L4242) | [LintCode](http://www.lintcode.com/en/problem/rotate-image/)

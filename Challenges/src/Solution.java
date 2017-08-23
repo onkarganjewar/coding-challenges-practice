@@ -4222,4 +4222,74 @@ public class Solution {
 		// both strings must be one length apart
 		return Math.abs(s.length() - t.length()) == 1;
 	}
+
+	/**
+	 * You are given an n x n 2D matrix representing an image.
+	 * 
+	 * Rotate the image by 90 degrees (clockwise). <br>
+	 * <br>
+	 * <b>Input</b>:<br>
+	 * 1 2 3<br>
+	 * 4 5 6<br>
+	 * 7 8 9<br>
+	 * <b>Output</b>: <br>
+	 * 7 4 1<br>
+	 * 8 5 2<br>
+	 * 9 6 3<br>
+	 * 
+	 * @param matrix
+	 */
+	public void rotate(int[][] matrix) {
+		// find the transpose of matrix
+		transpose(matrix);
+		// reverse the rows of the matrix
+		reverseRows(matrix);
+	}
+
+	/**
+	 * Modifies the matrix to its transpose <br>
+	 * <br>
+	 * <br>
+	 * <b>Input Matrix</b>:<br>
+	 * 1 2 3<br>
+	 * 4 5 6<br>
+	 * 7 8 9<br>
+	 * <br>
+	 * <b>Modified Matrix</b>: <br>
+	 * 1 4 7<br>
+	 * 2 5 8<br>
+	 * 3 6 9<br>
+	 * 
+	 * @param mat
+	 */
+	private void transpose(int[][] mat) {
+		for (int i = 0; i < mat.length; i++) { // rows
+			for (int j = i; j < mat[0].length; j++) { // columns
+				// swap(mat[i][j], mat[j][i]);
+				int temp = mat[i][j];
+				mat[i][j] = mat[j][i];
+				mat[j][i] = temp;
+			}
+		}
+	}
+
+	// reverse the rows of the matrix
+	// 1 4 7 ==> 7 4 1
+	private void reverseRows(int[][] mat) {
+		// int rows = mat.length;
+		// int cols = mat[0].length;
+
+		// for(int i = 0; i < mat.length; i++){
+		// ArrayUtils.reverse(mat[i]);
+		// }
+
+		for (int i = 0; i < mat.length; i++) {
+			for (int j = 0; j < mat[i].length / 2; j++) {
+				// swap(mat[i][j], [i][j - n]);
+				int temp = mat[i][j];
+				mat[i][j] = mat[i][mat[i].length - j - 1];
+				mat[i][mat[i].length - j - 1] = temp;
+			}
+		}
+	}
 }
