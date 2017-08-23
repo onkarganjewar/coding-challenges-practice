@@ -4292,4 +4292,58 @@ public class Solution {
 			}
 		}
 	}
+
+	/**
+	 * Given an array of integers, the majority number is the number that occurs
+	 * more than 1/3 of the size of the array. <br>
+	 * <br>
+	 * <code> There is only one majority number in the array.
+	 * </code> <br>
+	 * <br>
+	 * <b>Input</b>: {@code [1, 2, 1, 2, 1, 3, 3]}, <b>Output</b>: 1. <br>
+	 * <br>
+	 * <b>Input</b>: {@code [99, 2, 99, 2, 99, 3, 3]}, <b>Output</b>: 99. <br>
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static int majorityNumber(ArrayList<Integer> nums) {
+		if (nums == null || nums.size() == 0)
+			return 0;
+		// since we have to find majority occurring [1/3] of array
+		// we need two contenders for comparison
+		int candidate1 = 0, candidate2 = 0, count1 = 0, count2 = 0;
+
+		for (int i = 0; i < nums.size(); i++) {
+			if (candidate1 == nums.get(i)) {
+				count1++;
+			} else if (candidate2 == nums.get(i)) {
+				count2++;
+			} else if (count1 == 0) {
+				candidate1 = nums.get(i);
+				count1 = 1;
+			} else if (count2 == 0) {
+				candidate2 = nums.get(i);
+				count2 = 1;
+			} else {
+				count1--;
+				count2--;
+			}
+		}
+		// consider test case
+		// [1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 4]
+		// at the end ===> count1 == 2 with candidate1 == 1
+		// count2 == 3 with candidate2 == 4
+		// i.e. count2 > count1 which is wrong in our case
+		// so, again tally the occurrences of both these candidates
+		count1 = count2 = 0;
+		for (int i = 0; i < nums.size(); i++) {
+			if (nums.get(i) == candidate1) {
+				count1++;
+			} else if (nums.get(i) == candidate2) {
+				count2++;
+			}
+		}
+		return (count1 > count2) ? candidate1 : candidate2;
+	}
 }
