@@ -115,3 +115,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 110 | [Edit Distance II](../master/Challenges/src/Solution.java#L4196) | [LintCode](http://www.lintcode.com/en/problem/edit-distance-ii/)
 | 111 | [Rotate Image](../master/Challenges/src/Solution.java#L4242) | [LintCode](http://www.lintcode.com/en/problem/rotate-image/)
 | 112 | [Majority Number](../master/Challenges/src/Solution.java#L4310) | [LintCode](http://www.lintcode.com/en/problem/majority-number-ii/)
+| 113 | [Decode Ways](../master/Challenges/src/Solution.java#L4370) | [LintCode](http://www.lintcode.com/en/problem/decode-ways/)

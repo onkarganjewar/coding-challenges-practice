@@ -4206,6 +4206,7 @@ public class Solution {
 		}
 
 		// check if two chars are same
+		// check if two strings are whether one modify apart or one delete apart
 		for (int i = 0; i < s.length(); i++) {
 			if (s.charAt(i) != t.charAt(i)) {
 				// delete char from String s
@@ -4345,5 +4346,51 @@ public class Solution {
 			}
 		}
 		return (count1 > count2) ? candidate1 : candidate2;
+	}
+
+	/**
+	 * Given an encoded message containing digits, determine the total number of
+	 * ways to decode it. <br>
+	 * <br>
+	 * A message containing letters from A-Z is being encoded to numbers using
+	 * the following mapping: <br>
+	 * 'A' -> 1 <br>
+	 * 'B' -> 2 <br>
+	 * ...<br>
+	 * 'Z' -> 26 <br>
+	 * <b>Input</b>: Given encoded message <b>12</b>, <br>
+	 * <b>Output</b>: It could be decoded as <b>AB (1 2) </b>or <b>L
+	 * (12)</b>.<br>
+	 * <br>
+	 * {@code The number of ways for decoding 12 is 2.}
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public static int numDecodings(String s) {
+		if (s == null || s.length() == 0) {
+			return 0;
+		}
+
+		int dp[] = new int[s.length() + 1];
+		dp[0] = 1;
+
+		// check for the zero at the beginning of the string
+		dp[1] = (s.charAt(0) != '0') ? 1 : 0;
+
+		for (int i = 2; i <= s.length(); i++) {
+			// check for the single digits
+			// exclude the search for the zero
+			int one = Integer.valueOf(s.substring(i - 1, i));
+			if (one >= 1 && one <= 9) {
+				dp[i] += dp[i - 1];
+			}
+			// check for only two letter words
+			int two = Integer.valueOf(s.substring(i - 2, i));
+			if (two >= 10 && two <= 26) {
+				dp[i] += dp[i - 2];
+			}
+		}
+		return dp[s.length()];
 	}
 }
