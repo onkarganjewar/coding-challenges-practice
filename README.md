@@ -116,3 +116,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 111 | [Rotate Image](../master/Challenges/src/Solution.java#L4242) | [LintCode](http://www.lintcode.com/en/problem/rotate-image/)
 | 112 | [Majority Number](../master/Challenges/src/Solution.java#L4310) | [LintCode](http://www.lintcode.com/en/problem/majority-number-ii/)
 | 113 | [Decode Ways](../master/Challenges/src/Solution.java#L4370) | [LintCode](http://www.lintcode.com/en/problem/decode-ways/)
+| 114 | [Unique Characters](../master/Challenges/src/Solution.java#L4404) | [LintCode](http://www.lintcode.com/en/problem/unique-characters/)

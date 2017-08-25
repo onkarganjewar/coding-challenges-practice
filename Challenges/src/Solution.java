@@ -4393,4 +4393,22 @@ public class Solution {
 		}
 		return dp[s.length()];
 	}
+
+	/**
+	 * Implement an algorithm to determine if a string has all unique
+	 * characters. (w/o the use of extra data structure)
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static boolean isUnique(String str) {
+		// O(n^2) solution --> w/o using any additional data structure
+		for (char c : str.toCharArray()) { // takes O(n) time
+			if (str.indexOf(c) != str.lastIndexOf(c)) {
+				// indexOf() ==> takes O(n) time
+				return false;
+			}
+		}
+		return true;
+	}
 }
