@@ -4398,6 +4398,8 @@ public class Solution {
 	 * Implement an algorithm to determine if a string has all unique
 	 * characters. (w/o the use of extra data structure)
 	 * 
+	 * https://stackoverflow.com/questions/19484406/detecting-if-a-string-has-unique-characters-comparing-my-solution-to-cracking/19484495#19484495
+	 * 
 	 * @param str
 	 * @return
 	 */
