@@ -4413,4 +4413,54 @@ public class Solution {
 		}
 		return true;
 	}
+
+	/**
+	 * Given a pattern and a string str, find if str follows the same pattern.
+	 * <br>
+	 * <br>
+	 * Here follow means a full match, such that there is a bijection between a
+	 * letter in pattern and a non-empty word in str. <br>
+	 * <br>
+	 * Examples:<br>
+	 * <b>pattern</b> = "{@code abba}", str = "{@code dog cat cat dog}" should
+	 * return <b>true</b>.<br>
+	 * <b>pattern</b> = "{@code abba}", str = "{@code dog cat cat fish}" should
+	 * return <b>false</b>. <br>
+	 * <b>pattern</b> = "{@code aaaa}", str = "{@code dog cat cat dog}" should
+	 * return <b>false</b>. <br>
+	 * <b>pattern</b> = "{@code abba}", str = "{@code dog dog dog dog}" should
+	 * return <b>false</b>. <br>
+	 * <br>
+	 * Notes: You may assume pattern contains only lowercase letters, and str
+	 * contains lowercase letters separated by a single space.
+	 * 
+	 * @param pattern
+	 * @param str
+	 * @return
+	 */
+	public static boolean wordPattern(String pattern, String str) {
+		// Store a hashmap for mapping values of patterns to its counterparts in
+		// its resp. string
+		if (pattern == null || str == null)
+			return false;
+
+		Map<Character, String> map = new HashMap<Character, String>();
+		String[] words = str.split(" ");
+		if (words.length != pattern.length())
+			return false;
+
+		for (int i = 0; i < pattern.length(); i++) {
+			if (!map.containsKey(pattern.charAt(i))) {
+				// check if the value has already been assigned to another key
+				if (map.containsValue(words[i]))
+					return false;
+				map.put(pattern.charAt(i), words[i]);
+			} else {
+				if (!words[i].equalsIgnoreCase(map.get(pattern.charAt(i)))) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 }
