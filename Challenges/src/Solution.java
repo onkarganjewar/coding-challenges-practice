@@ -4463,4 +4463,72 @@ public class Solution {
 		}
 		return true;
 	}
+
+	/**
+	 * Implement next permutation, which rearranges numbers into the
+	 * lexicographically next greater permutation of numbers. <br>
+	 * {@code If such arrangement is not possible, it must rearrange it as the lowest
+	 * possible order (ie, sorted in ascending order). }<br>
+	 * The replacement must be <b>in-place, do not allocate extra memory.
+	 * </b><br>
+	 * <br>
+	 * <b>Inputs</b> ---- <b>Outputs</b> <br>
+	 * {@code 1,2,3 --> 1,3,2} <br>
+	 * {@code 3,2,1 --> 1,2,3} <br>
+	 * {@code 1,1,5 --> 1,5,1}
+	 * 
+	 * @param nums
+	 */
+	public static void nextPermutation(int[] nums) {
+		if (nums.length < 2 || nums == null)
+			return;
+
+		// find the violating number which is not in order from the back of the
+		// array
+		int decreasingNumber = 0, i = 0;
+		// consider sequence [1, 2, 3, 5, 4]
+		// 4 < 5 && 3 < 2 < 1 but 5 !< 3
+		// hence, 3 is the number breaking increasing order from the back
+		for (i = nums.length - 2; i >= 0; i--) {
+			if (nums[i] < nums[i + 1]) {
+				decreasingNumber = nums[i];
+				break;
+			}
+		}
+		// store the index where the order breaks i.e. 2
+		int revIndex = i;
+		if (revIndex >= 0) {
+			// reiterate the array from back to find the first number
+			// larger than the decreasingNumber
+			i = nums.length - 1;
+			while (i >= 0 && nums[i] <= decreasingNumber) {
+				i--;
+			}
+			// [1, 2, 3, 5, 4]
+			// swap the found number(4) at index i=4 with the decreasingNumber 3
+			int swapIndex = i;
+			// swap index 4(num = 4) and index 2(num = 3)
+			swap(nums, revIndex, swapIndex);
+			// [1, 2, 4, 5, 3]
+		}
+		// reverse the array after breaking index viz., 2
+		reverseIntArray(nums, revIndex + 1);
+		// next permutation --> [1, 2, 4, 3, 5]
+	}
+
+	/**
+	 * Reverses the integer array starting from the given index
+	 * 
+	 * @param nums
+	 * @param index
+	 */
+	private static void reverseIntArray(int[] nums, int index) {
+		// array == [1, 2, 4, 5, 3]
+		// index == 3
+		// [1, 2, 4, 3, 5]
+		int i = index, j = nums.length - 1;
+		while (i < j) {
+			swap(nums, i++, j--);
+		}
+	}
 }
