@@ -120,3 +120,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 115 | [Word Pattern](../master/Challenges/src/Solution.java#L4441) | [LeetCode](https://leetcode.com/problems/word-pattern/)
 | 116 | [Next Permutation](../master/Challenges/src/Solution.java#L4482) | [LeetCode](https://leetcode.com/problems/next-permutation/)
 | 117 | [Non-decreasing Array](../master/Challenges/src/Solution.java#L4557) | [LeetCode](https://leetcode.com/problems/non-decreasing-array/)
+| 118 | [Count The Repetitions](../master/Challenges/src/Solution.java#L4600) | [LeetCode](https://leetcode.com/problems/count-the-repetitions/)

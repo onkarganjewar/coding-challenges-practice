@@ -4569,4 +4569,57 @@ public class Solution {
 		}
 		return true;
 	}
+
+	/**
+	 * Define S = [s,n] as the string S which consists of n connected strings s.
+	 * For example, ["abc", 3] ="abcabcabc". <br>
+	 * <br>
+	 * On the other hand, we define that string s1 can be obtained from string
+	 * s2 if we can remove some characters from s2 such that it becomes s1. For
+	 * example, “abc” can be obtained from “abdbec” based on our definition, but
+	 * it can not be obtained from “acbbe”. <br>
+	 * <br>
+	 * You are given two non-empty strings s1 and s2 (each at most 100
+	 * characters long) and two integers 0 <= n1 <= 106 and 1 <= n2 <= 106. Now
+	 * consider the strings S1 and S2, where S1=[s1,n1] and S2=[s2,n2]. Find the
+	 * maximum integer M such that [S2,M] can be obtained from S1. <br>
+	 * <br>
+	 * 
+	 * <b>Input</b>: s1="acb", <br>
+	 * n1=4 <br>
+	 * s2="ab", <br>
+	 * n2=2 <br>
+	 * <b>Output</b>: 2
+	 * 
+	 * @param s1
+	 * @param n1
+	 * @param s2
+	 * @param n2
+	 * @return
+	 */
+	public int getMaxRepetitions(String s1, int n1, String s2, int n2) {
+		// using brute-force approach for this problem
+		char[] chars1 = s1.toCharArray();
+		char[] chars2 = s2.toCharArray();
+		int c1 = 0, c2 = 0, i = 0, j = 0;
+		// we need to find a pattern of s2 that matches in s1
+		while (c1 < n1) {
+			// s2 character matches with s1
+			if (chars1[i] == chars2[j]) {
+				j++; // increment s2 pointer
+				if (j == s2.length()) { // reached the end of s2
+					j = 0; // reinitialize s2 pointer
+					c2++; // found one match for string s2 in s1
+				}
+			}
+			i++; // increment the s1 pointer for next comparison
+			if (i == s1.length()) {
+				// end of first repetition of string s1
+				i = 0; // reset the pointer
+				c1++; // increment the repetition counter
+			}
+		} // end of string s1 including its repetitions
+
+		return c2 / n2;
+	}
 }
