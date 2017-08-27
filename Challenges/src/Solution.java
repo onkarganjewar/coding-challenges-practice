@@ -4531,4 +4531,42 @@ public class Solution {
 			swap(nums, i++, j--);
 		}
 	}
+
+	/**
+	 * Given an array with n integers, your task is to check if it could become
+	 * non-decreasing by modifying at most 1 element. <br>
+	 * <br>
+	 * {@code We define an array is non-decreasing if array[i] <= array[i + 1] holds
+	 * for every i (1 <= i < n)}. <br>
+	 * <br>
+	 * <b>Input</b>: {@code [4, 2, 3]}<br>
+	 * <b>Output</b>: <b>True</b> <br>
+	 * Explanation: You could modify the first 4 to 1 to get a non-decreasing
+	 * array. <br>
+	 * <br>
+	 * <b>Input</b>: {@code [4, 2, 1]}<br>
+	 * <b>Output</b>: <b>False</b> <br>
+	 * Explanation: You can't get a non-decreasing array by modify at most one
+	 * element.<br>
+	 * <br>
+	 * Note: The n belongs to [1, 10,000].
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static boolean checkPossibility(int[] nums) {
+		int count = 0;
+		for (int i = 0; i < nums.length - 1; i++) {
+			if (nums[i] > nums[i + 1]) {
+				// rule violated, increment count
+				count++;
+				// check both left and right neighbors of violating number/index
+				// to see if they satisfies the ascending order criteria
+				// i.e. a[i] < a[i+1] < a[i+2] < .... < a[n]
+				if (count >= 2 || i > 0 && nums[i - 1] > nums[i + 1] && i + 2 < nums.length && nums[i + 2] < nums[i])
+					return false;
+			}
+		}
+		return true;
+	}
 }

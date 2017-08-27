@@ -117,5 +117,6 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 112 | [Majority Number](../master/Challenges/src/Solution.java#L4310) | [LintCode](http://www.lintcode.com/en/problem/majority-number-ii/)
 | 113 | [Decode Ways](../master/Challenges/src/Solution.java#L4370) | [LintCode](http://www.lintcode.com/en/problem/decode-ways/)
 | 114 | [Unique Characters](../master/Challenges/src/Solution.java#L4404) | [LintCode](http://www.lintcode.com/en/problem/unique-characters/)
-| 115 | [Word Pattern](../master/Challenges/src/Solution.java#L4441) | [LeetCode](https://leetcode.com/problems/word-pattern/description/)
-| 116 | [Next Permutation](../master/Challenges/src/Solution.java#L4482) | [LeetCode](https://leetcode.com/problems/next-permutation/description/)
+| 115 | [Word Pattern](../master/Challenges/src/Solution.java#L4441) | [LeetCode](https://leetcode.com/problems/word-pattern/)
+| 116 | [Next Permutation](../master/Challenges/src/Solution.java#L4482) | [LeetCode](https://leetcode.com/problems/next-permutation/)
+| 117 | [Non-decreasing Array](../master/Challenges/src/Solution.java#L4557) | [LeetCode](https://leetcode.com/problems/non-decreasing-array/)
