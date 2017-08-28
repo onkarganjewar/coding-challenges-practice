@@ -4622,4 +4622,46 @@ public class Solution {
 
 		return c2 / n2;
 	}
+
+	/**
+	 * There is an integer array which has the following features: <br>
+	 * The numbers in adjacent positions are different. <br>
+	 * {@code A[0] < A[1] &&
+	 * A[A.length - 2] > A[A.length - 1]}. <br>
+	 * We define a position P is a peek if: <br>
+	 * {@code A[P] > A[P-1] && A[P] > A[P+1]} <br>
+	 * <br>
+	 * Find a peak element in this array. Return the index of the peak. <br>
+	 * <b> Note: The array may contains multiple peeks, find any of them. </b>
+	 * <br>
+	 * <br>
+	 * <b>Input</b>: [1, 2, 1, 3, 4, 5, 7, 6] <br>
+	 * Return index 1 (which is number 2) or 6 (which is number 7)
+	 * 
+	 * @param A
+	 * @return
+	 */
+	public int findPeak(int[] A) {
+		// consider 3 test cases
+		// 1. Array elements in asc order
+		// 2. Array elements in desc order
+		// 3. Neither of 1 or 2
+
+		int l = 0, h = A.length - 1;
+
+		while (l < h) {
+			int mid = l + (h - l) / 2;
+			// 1, 2, 3, 4, 5
+			// 5, 4, 3, 2, 1
+			// since its guaranteed to exist at least one peak element
+			if (A[mid] > A[mid + 1]) {
+				// then if a[mid] is > arr[mid+1],
+				// other pair must be in the lower half
+				h = mid;
+			} else
+				// search for the upper half of the array
+				l = mid + 1;
+		}
+		return l;
+	}
 }
