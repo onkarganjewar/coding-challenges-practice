@@ -4664,4 +4664,44 @@ public class Solution {
 		}
 		return l;
 	}
+
+	/**
+	 * Returns a index to the first occurrence of target in source, or -1 if
+	 * target is not part of source. <br>
+	 * <br>
+	 * <b>Input</b>: source = "source" and target = "target", <br>
+	 * <b>Output</b>: return -1. <br>
+	 * <br>
+	 * <b>Input</b>: source = "abcdabcdefg" and target = "bcd", <br>
+	 * <b>Output</b>: return 1.
+	 * 
+	 * @param source
+	 *            string to be scanned.
+	 * @param target
+	 *            string containing the sequence of characters to match.
+	 */
+	public int strStr(String source, String target) {
+		// using brute-force approach O(n^2)
+		if (source == null || target == null)
+			return -1;
+
+		int l1 = source.length(), l2 = target.length();
+		if (l1 < l2) {
+			return -1;
+		} else if (l2 == 0) {
+			return 0;
+		}
+		// no need to scan through entire source string
+		int threshold = l1 - l2;
+
+		// check for the pattern in source string till threshold
+		for (int i = 0; i <= threshold; i++) {
+			// i+l2 will parse the last part of the source string after the
+			// threshold
+			if (source.substring(i, i + l2).equals(target)) {
+				return i;
+			}
+		}
+		return -1;
+	}
 }
