@@ -4831,4 +4831,55 @@ public class Solution {
 			// high will give next smaller
 		}
 	}
+
+	/**
+	 * Given n non-negative integers representing an elevation map where the
+	 * width of each bar is 1, compute how much water it is able to trap after
+	 * raining.
+	 * 
+	 * For example, Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
+	 * 
+	 * @param heights
+	 *            a list of integers
+	 * @return a integer
+	 */
+	public int trap(int[] heights) {
+		if (heights == null || heights.length < 2)
+			return 0;
+		int len = heights.length;
+		int ans = 0;
+
+		// using dynamic programming approach
+		// time complexity = O(3n) ~ O(n)
+		// space complexity = O(2n) ~ O(n)
+
+		// water trapped can be measured by calculating the
+		// left and right boundary walls between cells
+
+		// store max left and max right walls sizes/heights for each i
+		int[] max_left = new int[len + 1];
+		int[] max_right = new int[len + 1];
+
+		// iterate the given array from start to end
+		// and update max_left wall size for each i
+
+		max_left[0] = heights[0]; // initialize the first element
+		for (int i = 1; i < len; i++) {
+			max_left[i] = Math.max(max_left[i - 1], heights[i]);
+		}
+
+		// do the same and update right end wall sizes
+		max_right[len - 1] = heights[len - 1];
+		for (int i = len - 2; i >= 0; i--) {
+			max_right[i] = Math.max(max_right[i + 1], heights[i]);
+		}
+
+		// total water trapped at i will be the difference between
+		// it's left and right boundary walls sizes
+		for (int i = 0; i < len; i++) {
+			ans += Math.min(max_left[i], max_right[i]) - heights[i];
+		}
+
+		return ans;
+	}
 }
