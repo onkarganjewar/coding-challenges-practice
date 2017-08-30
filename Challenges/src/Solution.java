@@ -4704,4 +4704,131 @@ public class Solution {
 		}
 		return -1;
 	}
+
+	/**
+	 * Give you an integer array (index from 0 to n-1, where n is the size of
+	 * this array, data value from 0 to 10000) . For each element Ai in the
+	 * array, count the number of element before this element Ai is smaller than
+	 * it and return count number array. <br>
+	 * <br>
+	 * <b>Input</b>: {@code [1,2,7,8,5],} <br>
+	 * <b>Output</b>: {@code [0,1,2,3,2]}
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static List<Integer> countOfSmallerNumberII(int[] nums) {
+		// List<Integer> A =
+		// IntStream.of(nums).boxed().collect(Collectors.toList());
+
+		List<Integer> A = convertToList(nums);
+		List<Integer> result = new ArrayList<Integer>();
+		if (A.isEmpty() || A == null || A.size() < 2)
+			return result;
+		result.add(0);
+
+		for (int ii = 1; ii < A.size(); ii++) {
+			// in order to get the elements appearing before self
+			// that are smaller than the current element
+			List<Integer> tempList = A.subList(0, ii);
+			// sort the elements before current element
+			Collections.sort(tempList);
+			// search for the index of the element viz.,
+			// just smaller than the current element
+			// in the previous subList
+			// int num = searchKey(tempList.stream().mapToInt(i -> i).toArray(),
+			// (int) (A.get(ii)));
+			int num = findIndex(tempList, (int) (A.get(ii)));
+			result.add((num == -1) ? tempList.size() : num);
+		}
+		return result;
+	}
+
+	/**
+	 * Converts the int[] to ArrayList<Integer>
+	 * 
+	 * @param nums
+	 *            primitive int array
+	 * @return List of integers
+	 */
+	private static List<Integer> convertToList(int[] ints) {
+		List<Integer> intList = new ArrayList<Integer>();
+		for (int index = 0; index < ints.length; index++) {
+			intList.add(ints[index]);
+		}
+		return intList;
+	}
+
+	/**
+	 * Returns the index of element just smaller than the target key, if target
+	 * is not found. (Count the number of elements smaller than the target)
+	 * 
+	 * @param sorted
+	 *            List of sorted integers
+	 * @param target
+	 *            Target key
+	 * @return index, target key index, if found. <br>
+	 *         else, index of element just smaller than the target key
+	 */
+	private static int findIndex(List<Integer> sorted, int target) {
+		if (sorted.size() == 0)
+			return 0;
+		int start = 0;
+		int end = sorted.size() - 1;
+		if (sorted.get(end) < target)
+			return end + 1;
+		if (sorted.get(start) >= target)
+			return 0;
+		while (start + 1 < end) {
+			int mid = start + (end - start) / 2;
+			if (sorted.get(mid) < target) {
+				start = mid + 1;
+			} else {
+				end = mid;
+			}
+		}
+		if (sorted.get(start) >= target)
+			return start;
+		return end;
+	}
+
+	/**
+	 * Returns the index of the element just smaller than the target element, -1
+	 * if such element does not exists.
+	 * 
+	 * @param arr
+	 *            Input array
+	 * @param key
+	 *            Target element
+	 * @return <b>-1</b>, if key doesn't exist && no element smaller than key
+	 *         found<br>
+	 *         <b>index</b>, if element just smaller than the key is found <br>
+	 *         <b>index - 1</b>, index of previous element, if target key is
+	 *         found
+	 */
+	public static int searchKey(int arr[], int key) {
+		int low = 0, high = arr.length, mid = -1;
+		boolean flag = false;
+
+		while (low < high) {
+			mid = low + (high - low) / 2;
+			if (arr[mid] == key) {
+				flag = true;
+				break;
+			} else if (arr[mid] < key) {
+				low = mid + 1;
+			} else {
+				high = mid;
+			}
+		}
+		if (flag) {
+			return mid - 1;
+		} else {
+			if (low >= arr.length)
+				return -1;
+			else
+				return low;
+			// high will give next smaller
+		}
+	}
 }

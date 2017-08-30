@@ -123,3 +123,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 118 | [Count The Repetitions](../master/Challenges/src/Solution.java#L4600) | [LeetCode](https://leetcode.com/problems/count-the-repetitions/)
 | 119 | [Find Peak Element](../master/Challenges/src/Solution.java#L4644) | [LeetCode](https://leetcode.com/problems/find-peak-element/)
 | 120 | [Implement strStr()](../master/Challenges/src/Solution.java#L4683) | [LeetCode](https://leetcode.com/problems/implement-strstr/)
+| 121 | [Count of Smaller Number before itself](../master/Challenges/src/Solution.java#L4720) | [LintCode](http://www.lintcode.com/en/problem/count-of-smaller-number-before-itself)
