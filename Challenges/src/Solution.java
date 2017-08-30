@@ -4875,11 +4875,10 @@ public class Solution {
 		}
 
 		// total water trapped at i will be the difference between
-		// it's left and right boundary walls sizes
+		// it's min(left, right) boundary walls sizes
 		for (int i = 0; i < len; i++) {
 			ans += Math.min(max_left[i], max_right[i]) - heights[i];
 		}
-
 		return ans;
 	}
 }
