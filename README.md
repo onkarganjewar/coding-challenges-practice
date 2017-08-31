@@ -126,3 +126,4 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 121 | [Count of Smaller Number before itself](../master/Challenges/src/Solution.java#L4720) | [LintCode](http://www.lintcode.com/en/problem/count-of-smaller-number-before-itself)
 | 122 | [Trapping Rain Water](../master/Challenges/src/Solution.java#L4846) | [LeetCode](https://leetcode.com/problems/trapping-rain-water)
 | 123 | [Evaluate Reverse Polish Notation](../master/Challenges/src/Solution.java#L4899) | [LeetCode](https://leetcode.com/problems/evaluate-reverse-polish-notation)
+| 124 | [Expression Expand](../master/Challenges/src/Solution.java#L4954) | [LintCode](http://www.lintcode.com/en/problem/expression-expand)

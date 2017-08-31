@@ -4929,4 +4929,78 @@ public class Solution {
 		}
 		return (stack.isEmpty()) ? ans : Integer.parseInt(stack.peek());
 	}
+
+	/**
+	 * Given an expression s includes numbers, letters and brackets. Number
+	 * represents the number of repetitions inside the brackets(can be a string
+	 * or another expression). Please expand expression to be a string. <br>
+	 * <br>
+	 * <b>Input</b>: {@code s = abc3[a]},<br>
+	 * <b>Output</b>: {@code abcaaa}<br>
+	 * <br>
+	 * <b>Input</b>: {@code s = 3[abc]},<br>
+	 * <b>Output</b>: {@code abcabcabc}<br>
+	 * <br>
+	 * <b>Input</b>: {@code s = 4[ac]dy},<br>
+	 * <b>Output</b>: {@code acacacacdy}<br>
+	 * <br>
+	 * <b>Input</b>: {@code s = 3[2[ad]3[pf]]xyz}, <br>
+	 * <b>Output</b>: {@code adadpfpfpfadadpfpfpfadadpfpfpfxyz}<br>
+	 * 
+	 * @param s
+	 *            an expression includes numbers, letters and brackets
+	 * @return a string
+	 */
+	public static String expressionExpand(String s) {
+		Stack<Object> stack = new Stack<Object>();
+		int number = 0;
+
+		for (char ch : s.toCharArray()) {
+			if (Character.isDigit(ch)) {
+				// number = Character.getNumericValue(ch);
+				number *= 10; // multiply by 10 to form multiple digit number
+				number += (ch - '0'); // like 12, 21, 499, 30, etc.
+			} else if (ch == '[') {
+				// store the count of repetitions
+				stack.push(Integer.valueOf(number));
+				number = 0; // reset the count number
+			} else if (ch == ']') {
+				String temp = getStackContents(stack);
+				Integer count = (Integer) stack.pop();
+				while (count > 0) {
+					stack.push(temp);
+					count--;
+				}
+			} else {
+				stack.push(String.valueOf(ch));
+			}
+		}
+		// retrieve the string in a reverse format from original stack
+		return getStackContents(stack);
+	}
+
+	/**
+	 * Returns the strings present in a stack in order of their insertion. <br>
+	 * <br>
+	 * Example: Original Stack == (top/peek) c > b > a (bottom) <br>
+	 * returns "abc"
+	 * 
+	 * @param stack
+	 *            Original stack
+	 * @return Strings in order of insertion
+	 */
+	private static String getStackContents(Stack<Object> stack) {
+		Stack<String> s = new Stack<String>();
+		// check if the top of the stack is indeed a String
+		while (!stack.isEmpty() && (stack.peek() instanceof String)) {
+			s.push((String) stack.pop());
+		}
+		// no need to reverse the contents of original stack
+		// since we are unloading elements from one stack to another
+		StringBuffer sb = new StringBuffer();
+		while (!s.isEmpty()) {
+			sb.append(s.pop());
+		}
+		return sb.toString();
+	}
 }
