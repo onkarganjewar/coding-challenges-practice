@@ -128,4 +128,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 123 | [Evaluate Reverse Polish Notation](../master/Challenges/src/Solution.java#L4899) | [LeetCode](https://leetcode.com/problems/evaluate-reverse-polish-notation)
 | 124 | [Expression Expand](../master/Challenges/src/Solution.java#L4954) | [LintCode](http://www.lintcode.com/en/problem/expression-expand)
 | 125 | [Happy Number](../master/Challenges/src/Solution.java#L5031) | [LeetCode](https://leetcode.com/problems/happy-number)
+| 126 | [Word Ladder](../master/Challenges/src/Solution.java#L5089) | [LintCode](http://www.lintcode.com/en/problem/word-ladder)
 

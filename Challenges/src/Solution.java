@@ -5060,4 +5060,71 @@ public class Solution {
 		}
 		return sum;
 	}
+
+	/**
+	 * 
+	 * Given two words (start and end), and a dictionary, find the length of
+	 * shortest transformation sequence from start to end, such that: <br>
+	 * Only one letter can be changed at a time. Each intermediate word must
+	 * exist in the dictionary. <br>
+	 * <br>
+	 * Return 0 if there is no such transformation sequence. <br>
+	 * <br>
+	 * Given: <br>
+	 * start = "hit" <br>
+	 * end = "cog" <br>
+	 * dict = ["hot","dot","dog","lot","log"] <br>
+	 * As one shortest transformation is <br>
+	 * "hit" -> "hot" -> "dot" -> "dog" -> "cog", <br>
+	 * return its length 5.
+	 * 
+	 * @param start,
+	 *            a string
+	 * @param end,
+	 *            a string
+	 * @param dict,
+	 *            a set of string
+	 * @return an integer
+	 */
+	public static int ladderLength(String start, String end, Set<String> dict) {
+		Queue<String> queue = new LinkedList<String>();
+		if (start.equals(end))
+			return 1;
+
+		Set<String> visited = new HashSet<String>();
+		visited.add(start);
+		queue.add(start);
+		int level = 1;
+
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			for (int i = 0; i < size; i++) {
+				String str = queue.poll();
+				for (int j = 0; j < str.length(); j++) {
+					// change each letter of given string and
+					// match with the words in the dict
+					char[] chars = str.toCharArray();
+
+					// alter each letter of the word one at a time
+					// this way the edit distance will be 1
+					for (char k = 'a'; k <= 'z'; k++) {
+						// str.charAt(j) = k;
+						chars[j] = k;
+						String word = new String(chars);
+						// check if its the end word even when it's not present
+						// in the dict
+						if (word.equals(end))
+							return level + 1;
+						// add the next word to the queue and visited list
+						if (dict.contains(word) && !visited.contains(word)) {
+							queue.add(word);
+							visited.add(word);
+						}
+					}
+				}
+			}
+			level++;
+		}
+		return 0;
+	}
 }
