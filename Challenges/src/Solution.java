@@ -4881,4 +4881,52 @@ public class Solution {
 		}
 		return ans;
 	}
+
+	/**
+	 * Evaluate the value of an arithmetic expression in Reverse Polish
+	 * Notation. Valid operators are {@code +, -, *, /}. Each operand may be an
+	 * integer or another expression. <br>
+	 * <br>
+	 * <b>Example</b>: {@code ["2", "1", "+", "3", "*"] }-> ((2 + 1) * 3) -> 9
+	 * <br>
+	 * <b>Example</b>: {@code ["4", "13", "5", "/", "+"]} -> (4 + (13 / 5)) -> 6
+	 * 
+	 * @param tokens
+	 *            The Reverse Polish Notation
+	 * 
+	 * @return the value
+	 */
+	public static int evalRPN(String[] tokens) {
+		Stack<String> stack = new Stack<String>();
+		int ans = 0;
+
+		for (int i = 0; i < tokens.length; i++) {
+			if (Character.isDigit(tokens[i].charAt(0)) || tokens[i].matches("-?[1-9]\\d*|0")) {
+				stack.push(tokens[i]);
+			} else {
+				int num1 = Integer.parseInt(stack.pop());
+				int num2 = Integer.parseInt(stack.pop());
+
+				String op = tokens[i];
+				Integer res = 0;
+				switch (op.charAt(0)) {
+				case '+':
+					res = num2 + num1;
+					break;
+				case '-':
+					res = num2 - num1;
+					break;
+				case '*':
+					res = num2 * num1;
+					break;
+				case '/':
+					res = num2 / num1;
+					break;
+				}
+				// push the result back onto the stack
+				stack.push(res.toString());
+			}
+		}
+		return (stack.isEmpty()) ? ans : Integer.parseInt(stack.peek());
+	}
 }
