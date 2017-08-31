@@ -11,7 +11,7 @@ import java.util.*;
 public class Solution {
 
 	public static void main(String[] args) throws Exception {
-		System.out.println(isHappy1(100));
+		hackerRankStdInput();
 	}
 
 	/**
