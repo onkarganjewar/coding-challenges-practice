@@ -11,7 +11,7 @@ import java.util.*;
 public class Solution {
 
 	public static void main(String[] args) throws Exception {
-		hackerRankStdInput();
+		System.out.println(isHappy1(100));
 	}
 
 	/**
@@ -5002,5 +5002,62 @@ public class Solution {
 			sb.append(s.pop());
 		}
 		return sb.toString();
+	}
+
+	/**
+	 * Write an algorithm to determine if a number is happy. <br>
+	 * <br>
+	 * A happy number is a number defined by the following process:<br>
+	 * Starting with any positive integer, replace the number by the sum of the
+	 * squares of its digits, and repeat the process until the number equals 1
+	 * (where it will stay), or it loops endlessly in a cycle which does not
+	 * include 1. Those numbers for which this process ends in 1 are happy
+	 * numbers.
+	 * 
+	 * <br>
+	 * <br>
+	 * <b>Input</b>: 19 <br>
+	 * <b>Output</b>: true <br>
+	 * <b>Explanation</b>:<br>
+	 * {@code 1^2 + 9^2 = 82}<br>
+	 * {@code 8^2 + 2^2 = 68}<br>
+	 * {@code 6^2 + 8^2 = 100}<br>
+	 * {@code 1^2 + 0^2 + 0^2 = 1}<br>
+	 * 
+	 * @param n
+	 *            An integer
+	 * @return true, if this is a happy number or false
+	 */
+	public static boolean isHappy(int n) {
+		// take double pointers
+		int slow, fast;
+		slow = fast = n;
+		// detect the cycle
+		do {
+			// reiterate the values of squares sum
+			slow = getSquaresSum(slow);
+			fast = getSquaresSum(fast);
+			// if there's a loop then both values will be the same
+			fast = getSquaresSum(fast);
+		} while (slow != fast);
+		// check if either of the pointers point to 1
+		return (fast == 1) ? true : false;
+	}
+
+	/**
+	 * Returns the sum of squares of all the digits in the given number.
+	 * 
+	 * @param n
+	 *            Input number
+	 * @return
+	 */
+	private static int getSquaresSum(int n) {
+		int sum = 0, tmp;
+		while (n > 0) {
+			tmp = n % 10;
+			sum += tmp * tmp;
+			n /= 10;
+		}
+		return sum;
 	}
 }
