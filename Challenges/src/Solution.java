@@ -5236,4 +5236,54 @@ public class Solution {
 		}
 		return result;
 	}
+
+	/**
+	 * Given an array of integers and an integer k, you need to find the number
+	 * of unique k-diff pairs in the array. Here a k-diff pair is defined as an
+	 * integer pair (i, j), where i and j are both numbers in the array and
+	 * their absolute difference is k. <br>
+	 * <br>
+	 * <b>Input</b>: {@code [3, 1, 4, 1, 5], k = 2 }<br>
+	 * <b>Output</b>: 2 <br>
+	 * <b>Explanation</b>: There are two 2-diff pairs in the array,
+	 * {@code (1, 3) and (3, 5)}. Although we have two 1s ((3, 1)) in the input,
+	 * we should only return the number of unique pairs.<br>
+	 * <br>
+	 * <b>Input</b>:{@code [1, 2, 3, 4, 5], k = 1 }<br>
+	 * <b>Output</b>: 4 <br>
+	 * <b>Explanation</b>: There are four 1-diff pairs in the array,
+	 * {@code (1, 2), (2, 3), (3, 4) and (4, 5)}. <br>
+	 * <br>
+	 * <b>Input</b>: {@code [1, 3, 1, 5, 4], k = 0 }<br>
+	 * <b>Output</b>: 1 <br>
+	 * <b>Explanation</b>: There is one 0-diff pair in the array,
+	 * {@code (1, 1)}.
+	 * 
+	 * @param nums
+	 * @param k
+	 * @return
+	 */
+	public static int findPairs(int[] nums, int k) {
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		int count = 0;
+		if (k < 0)
+			return count;
+
+		for (int i = 0; i < nums.length; i++) {
+			map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+		}
+		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+			// special case
+			// find pairs of same integer keys
+			if (k == 0) {
+				// check if this entry key occurred multiple times in an
+				// array
+				if (entry.getValue() >= 2)
+					count++;
+			} else if (map.containsKey(entry.getKey() + k)) {
+				count++;
+			}
+		}
+		return count;
+	}
 }
