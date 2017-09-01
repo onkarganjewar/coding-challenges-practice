@@ -5203,4 +5203,37 @@ public class Solution {
 		}
 		return maxArea;
 	}
+
+	/**
+	 * Given numRows, generate the first numRows of Pascal's triangle. <br>
+	 * <br>
+	 * <b>Input</b>: numRows = 5,<br>
+	 * <b>Output</b>:<br>
+	 * {@code [}<br>
+	 * {@code [1],} <br>
+	 * {@code [1,1],} <br>
+	 * {@code [1,2,1],} <br>
+	 * {@code [1,3,3,1],} <br>
+	 * {@code [1,4,6,4,1]} <br>
+	 * {@code ]}
+	 * 
+	 * @param numRows
+	 * @return
+	 */
+	public static List<List<Integer>> generate(int numRows) {
+		List<List<Integer>> result = new ArrayList<>();
+		if (numRows <= 0)
+			return result;
+		for (int i = 0; i < numRows; i++) {
+			List<Integer> temp = new ArrayList<Integer>();
+			for (int j = 0; j <= i; j++) {
+				if (j == 0 || j == i)
+					temp.add(1);
+				else
+					temp.add(result.get(i - 1).get(j - 1) + result.get(i - 1).get(j));
+			}
+			result.add(temp);
+		}
+		return result;
+	}
 }
