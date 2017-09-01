@@ -5127,4 +5127,45 @@ public class Solution {
 		}
 		return 0;
 	}
+
+	/**
+	 * Given a string s and a string t, check if s is a subsequence of t. <br>
+	 * <br>
+	 * You may assume that there is only lower case English letters in both s
+	 * and t. t is potentially a very long (length ~= 500,000) string, and s is
+	 * a short string (<=100). <br>
+	 * <br>
+	 * A subsequence of a string is a new string which is formed from the
+	 * original string by deleting some (can be none) of the characters without
+	 * disturbing the relative positions of the remaining characters. (ie, "ace"
+	 * is a subsequence of "abcde" while "aec" is not). <br>
+	 * <br>
+	 * <b>Input</b>: {@code s = "abc", t = "ahbgdc" }<br>
+	 * <b>Output</b>: <b>true</b>. <br>
+	 * <br>
+	 * <b>Input</b>: {@code s = "axc", t = "ahbgdc" }<br>
+	 * <b>Output</b>: <b>false</b>.
+	 * 
+	 * @param s
+	 *            String pattern (matcher)
+	 * @param t
+	 *            Text string (text)
+	 * @return
+	 */
+	public static boolean isSubsequence(String s, String t) {
+		int i = 0, j = 0, m = s.length(), n = t.length();
+		// iterate through the whole text string to find a match
+		while (i < n && j < m) {
+			// enter the loop if first char of pattern(S) matches with the
+			// current text character
+			if (t.charAt(i) == s.charAt(j)) {
+				j++;
+			}
+			i++; // increment the text string pointer/iterator
+		}
+		// // check if whole pattern(S) string has been matched
+		// if (j == m) return true;
+		return (j == m); // if the complete pattern(String s) is matched then
+							// return true
+	}
 }
