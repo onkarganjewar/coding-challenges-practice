@@ -5354,6 +5354,7 @@ public class Solution {
 
 	/**
 	 * Returns the second smallest element in an array in O(n) time.
+	 * 
 	 * @param arr
 	 * @return
 	 */
@@ -5369,5 +5370,91 @@ public class Solution {
 			}
 		}
 		return secondSmallest;
+	}
+
+	/**
+	 * Given a collection of distinct numbers, return all possible permutations.
+	 * <br>
+	 * <br>
+	 * <b>Input</b>:<br>
+	 * [1,2,3] would have the following <b>six</b> permutations:<br>
+	 * {@code [}<br>
+	 * {@code [1,2,3],}<br>
+	 * {@code [1,3,2],}<br>
+	 * {@code [2,1,3],}<br>
+	 * {@code [2,3,1],}<br>
+	 * {@code [3,1,2],}<br>
+	 * {@code [3,2,1]}<br>
+	 * ]
+	 * 
+	 * @param nums
+	 *            A list of integers.
+	 * @return A list of permutations.
+	 */
+	public static List<List<Integer>> permute(int[] nums) {
+		return permuteIterative(nums);
+		// ArrayList<List<Integer>> result = new ArrayList<List<Integer>>();
+		// permuteDFS(nums, result, new ArrayList<Integer>());
+		// return result;
+	}
+
+	/**
+	 * Iterative solution for getting all the possible permutations of the given
+	 * array elements.
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static List<List<Integer>> permuteIterative(int[] nums) {
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		// start from an empty list
+		result.add(new ArrayList<Integer>());
+		if (nums.length == 0)
+			return result;
+
+		for (int i = 0; i < nums.length; i++) {
+			List<List<Integer>> tempRes = new ArrayList<List<Integer>>();
+			// iterate current result and alter lists
+			for (List<Integer> list : result) {
+				// fix the index j to add the new elements
+				for (int j = 0; j <= i; j++) {
+					// copy the list from result to new list
+					List<Integer> tempList = new ArrayList<Integer>(list);
+					// add the element to the list at index j
+					tempList.add(j, nums[i]);
+					// move the tempList to result
+					tempRes.add(tempList);
+				}
+			}
+			// transfer the temp results to main results list
+			result = tempRes;
+		}
+
+		return result;
+	}
+
+	/**
+	 * Recursive method to get all the possible permutations of the given
+	 * numbers present in an array.
+	 * 
+	 * @param nums
+	 *            Input array
+	 * @param result
+	 *            Output list
+	 * @param tempList
+	 *            Intermediate results
+	 */
+	public static void permuteDFS(int[] nums, List<List<Integer>> result, List<Integer> tempList) {
+		if (tempList.size() == nums.length) {
+			result.add(new ArrayList<>(tempList));
+			return;
+		}
+		for (int i = 0; i < nums.length; i++) {
+			if (tempList.contains(nums[i]))
+				continue; // element already exists, skip
+			tempList.add(nums[i]);
+			permuteDFS(nums, result, tempList);
+			tempList.remove(tempList.size() - 1);
+		}
 	}
 }

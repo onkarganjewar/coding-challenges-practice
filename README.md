@@ -134,4 +134,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 129 | [Pascal's Triangle](../master/Challenges/src/Solution.java#L5223) | [LeetCode](https://leetcode.com/problems/pascals-triangle/)
 | 130 | [K-diff Pairs in an Array](../master/Challenges/src/Solution.java#L5266) | [LeetCode](https://leetcode.com/problems/k-diff-pairs-in-an-array)
 | 131 | [Maximum Swap](../master/Challenges/src/Solution.java#L5306) | [LeetCode](https://leetcode.com/problems/maximum-swap)
+| 132 | [Permutations](../master/Challenges/src/Solution.java#L5394) | [LintCode](http://www.lintcode.com/en/problem/permutations)
 
