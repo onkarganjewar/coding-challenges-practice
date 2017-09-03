@@ -5457,4 +5457,44 @@ public class Solution {
 			tempList.remove(tempList.size() - 1);
 		}
 	}
+
+	/**
+	 * Given a set of distinct integers, return all possible subsets. <br>
+	 * <br>
+	 * Elements in a subset <b>must be in non-descending order</b>. <br>
+	 * The solution set must not contain duplicate subsets.<br>
+	 * <br>
+	 * <b>Input</b>: If S = [1,2,3], <br>
+	 * <b>Output</b>: <br>
+	 * [<br>
+	 * [3], <br>
+	 * [1], <br>
+	 * [2], <br>
+	 * [1,2,3], <br>
+	 * [1,3], <br>
+	 * [2,3], <br>
+	 * [1,2], <br>
+	 * [] <br>
+	 * ]
+	 * 
+	 * @param nums
+	 *            A set of numbers
+	 * @return A list of lists
+	 */
+	public static List<List<Integer>> subsets(int[] nums) {
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		// Elements should be in NON-desc i.e. in ascending order
+		Arrays.sort(nums);
+		backtrack(result, nums, 0, new ArrayList<Integer>());
+		return result;
+	}
+
+	private static void backtrack(List<List<Integer>> result, int[] nums, int start, ArrayList<Integer> tempList) {
+		result.add(new ArrayList<Integer>(tempList));
+		for (int i = start; i < nums.length; i++) {
+			tempList.add(nums[i]);
+			backtrack(result, nums, i + 1, tempList);
+			tempList.remove(tempList.size() - 1);
+		}
+	}
 }
