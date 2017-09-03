@@ -136,3 +136,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 131 | [Maximum Swap](../master/Challenges/src/Solution.java#L5306) | [LeetCode](https://leetcode.com/problems/maximum-swap)
 | 132 | [Permutations](../master/Challenges/src/Solution.java#L5394) | [LintCode](http://www.lintcode.com/en/problem/permutations)
 | 133 | [Subsets](../master/Challenges/src/Solution.java#L5484) | [LintCode](http://www.lintcode.com/en/problem/subsets/)
+| 134 | [Subsets II](../master/Challenges/src/Solution.java#L5523) | [LintCode](http://www.lintcode.com/en/problem/subsets-ii/)
+

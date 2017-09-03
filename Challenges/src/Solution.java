@@ -5497,4 +5497,46 @@ public class Solution {
 			tempList.remove(tempList.size() - 1);
 		}
 	}
+
+	/**
+	 * Given a list of numbers that may has duplicate numbers, return all
+	 * possible subsets. <br>
+	 * <br>
+	 * Elements in a subset <b>must be in non-descending order</b>. <br>
+	 * The solution set must not contain duplicate subsets.<br>
+	 * <br>
+	 * <b>Input</b>: If S = [1,2,2], <br>
+	 * <b>Output</b>: <br>
+	 * [<br>
+	 * [2], <br>
+	 * [1], <br>
+	 * [1,2,2], <br>
+	 * [2,2], <br>
+	 * [1,2], <br>
+	 * [] <br>
+	 * ]
+	 * 
+	 * @param nums
+	 *            A set of numbers
+	 * @return A list of lists. All valid subsets.
+	 */
+	public List<List<Integer>> subsetsWithDup(int[] nums) {
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		// Elements should be in NON-desc i.e. in ascending order
+		Arrays.sort(nums);
+		backtrackWithDup(result, nums, 0, new ArrayList<Integer>());
+		return result;
+	}
+
+	private static void backtrackWithDup(List<List<Integer>> result, int[] nums, int start,
+			ArrayList<Integer> tempList) {
+		result.add(new ArrayList<Integer>(tempList));
+		for (int i = start; i < nums.length; i++) {
+			if (i > start && nums[i] == nums[i - 1])
+				continue; // skip duplicates
+			tempList.add(nums[i]);
+			backtrackWithDup(result, nums, i + 1, tempList);
+			tempList.remove(tempList.size() - 1);
+		}
+	}
 }
