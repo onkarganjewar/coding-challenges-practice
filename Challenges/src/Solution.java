@@ -5577,4 +5577,42 @@ public class Solution {
 		}
 		return maxLen;
 	}
+
+	/**
+	 * Given an unsorted array of integers, find the length of the longest
+	 * consecutive elements sequence. <br>
+	 * <b>Your algorithm should run in O(n) complexity.</b><br>
+	 * <br>
+	 * <b>Input</b>: {@code [100, 4, 200, 1, 3, 2]},<br>
+	 * <b>Output</b>: {@code Return length 4,} because the longest consecutive
+	 * elements sequence is {@code [1, 2, 3, 4]}.<br>
+	 * 
+	 * @param nums
+	 *            A list of integers
+	 * @return An integer
+	 */
+	public static int longestConsecutive(int[] nums) {
+		int maxLen = 0;
+		if (nums.length <= 1)
+			return nums.length;
+		Set<Integer> set = new HashSet<Integer>();
+
+		// add all the elements in the hashset
+		for (int el : nums)
+			set.add(el);
+
+		for (int i = 0; i < nums.length; i++) {
+			int count = 0;
+			// compare only the beginnings of the trails
+			if (!set.contains(nums[i] - 1)) {
+				// check if this element has any right neighbours
+				while (set.contains(nums[i]++))
+					count++;
+
+				maxLen = Math.max(count, maxLen);
+			}
+		}
+
+		return maxLen;
+	}
 }
