@@ -5286,4 +5286,70 @@ public class Solution {
 		}
 		return count;
 	}
+
+	/**
+	 * Given a non-negative integer, you could swap two digits at most once to
+	 * get the maximum valued number. Return the maximum valued number you could
+	 * get. <br>
+	 * <br>
+	 * <b>Input</b>: 2736 <br>
+	 * <b>Output</b>: 7236 <br>
+	 * <b>Explanation</b>: Swap the number 2 and the number 7. <br>
+	 * <br>
+	 * <b>Input</b>: 9973 <br>
+	 * <b>Output</b>: 9973 <br>
+	 * <b>Explanation</b>: No swap.
+	 * 
+	 * @param num
+	 * @return
+	 */
+	public static int maximumSwap(int num) {
+		String str = new String(Integer.toString(num));
+		// Consider input == 9937
+		char[] originalDigits = str.toCharArray();
+		char[] sortedDigits = str.toCharArray();
+
+		Arrays.sort(sortedDigits);
+		// sort the digits in descending order
+		sortedDigits = new StringBuilder(new String(sortedDigits)).reverse().toString().toCharArray();
+		// digits = 9973
+		int ind = 0;
+		// compare the digits w/ the sorted digits
+		for (ind = 0; ind < originalDigits.length; ind++) {
+			// if not same --> swap
+			// 9 9 3 7
+			// 9 9 7 3
+			if (originalDigits[ind] != sortedDigits[ind])
+				break; // 3 != 7
+		}
+
+		// if reached end of the string, return
+		if (ind == str.length()) // index == 2 --> (not the end)
+			return num;
+
+		// find the last position of the mismatching digit
+		char replace = sortedDigits[ind]; // replace = 7
+		// in the original string viz., str
+		int swpInd = str.lastIndexOf(replace); // last index = 3
+
+		// swap the digits
+		// 9937, 2, 3
+		swapDigits(originalDigits, ind, swpInd);
+		// 9973
+		return Integer.parseInt(new String(originalDigits));
+	}
+
+	/**
+	 * Swaps the digits/chars present at index i && j.
+	 * 
+	 * @param arr
+	 * @param i
+	 * @param j
+	 */
+	static void swapDigits(char[] arr, int i, int j) {
+		char temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+
 }
