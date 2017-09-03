@@ -5539,4 +5539,42 @@ public class Solution {
 			tempList.remove(tempList.size() - 1);
 		}
 	}
+
+	/**
+	 * Given a sequence of integers, find the longest increasing subsequence
+	 * (LIS). Return the length of the LIS. <br>
+	 * <br>
+	 * <b>Input</b>: [5, 4, 1, 2, 3], <br>
+	 * <b>Output</b>: Return 3, because the LIS is [1, 2, 3]<br>
+	 * <br>
+	 * <b>Input</b>: [4, 2, 4, 5, 3, 7], <br>
+	 * <b>Output</b>: Return 4, because the LIS is [2, 4, 5, 7]<br>
+	 * 
+	 * @param nums
+	 *            The integer array
+	 * @return The length of LIS (longest increasing subsequence)
+	 */
+	public static int longestIncreasingSubsequence(int[] nums) {
+		// base case
+		if (nums.length < 2)
+			return nums.length;
+
+		// using dynamic programming approach
+		// time complexity = O(n^2)
+		int dp[] = new int[nums.length];
+		int maxLen = 0;
+		// if not filled manually, then by default 0's will be added,
+		// instead of 1's
+		Arrays.fill(dp, 1);
+		for (int i = 0; i < nums.length; i++) {
+			for (int j = 0; j < i; j++) {
+				if (nums[j] < nums[i]) {
+					dp[i] = Math.max(dp[j] + 1, dp[i]);
+				}
+			}
+			// recalculate maxLen at the end of each iteration
+			maxLen = Math.max(maxLen, dp[i]);
+		}
+		return maxLen;
+	}
 }
