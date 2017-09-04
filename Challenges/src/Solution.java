@@ -5662,7 +5662,6 @@ public class Solution {
 			} else
 				len = 0; // reset
 		}
-
 		return maxLen + 1;
 	}
 }
