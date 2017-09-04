@@ -139,4 +139,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 134 | [Subsets II](../master/Challenges/src/Solution.java#L5523) | [LintCode](http://www.lintcode.com/en/problem/subsets-ii/)
 | 135 | [Longest Increasing Subsequence](../master/Challenges/src/Solution.java#L5557) | [LeetCode](https://leetcode.com/problems/longest-increasing-subsequence/)
 | 136 | [Longest Consecutive Sequence](../master/Challenges/src/Solution.java#L5594) | [LeetCode](https://leetcode.com/problems/longest-consecutive-sequence)
+| 137 | [Longest Increasing Continuous Subsequence](../master/Challenges/src/Solution.java#L5638) | [LintCode](http://www.lintcode.com/en/problem/longest-increasing-continuous-subsequence/)
 

@@ -5615,4 +5615,54 @@ public class Solution {
 
 		return maxLen;
 	}
+
+	/**
+	 * Give an integer array, find the longest increasing continuous subsequence
+	 * in this array. <br>
+	 * <br>
+	 * An increasing continuous subsequence: <br>
+	 * Can be from right to left or from left to right. <br>
+	 * Indices of the integers in the subsequence <b>should be
+	 * continuous.</b><br>
+	 * <br>
+	 * <b>Input</b>: {@code [5, 4, 2, 1, 3]}, <br>
+	 * <b>Output</b>: Return 4, because the LICS is {@code [5, 4, 2, 1]}.<br>
+	 * <br>
+	 * <b>Input</b> {@code [5, 1, 2, 3, 4]}, <br>
+	 * <b>Output</b>: Return 4, because the LICS is {@code [1, 2, 3, 4]}.
+	 * 
+	 * @param nums
+	 *            An array of Integer
+	 * @return an integer
+	 */
+	public static int longestIncreasingContinuousSubsequence(int[] nums) {
+		int maxLen = 0, len = 0;
+		// base case
+		if (nums == null || nums.length < 1)
+			return 0;
+
+		// get the LICS from left to right
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i] > nums[i - 1]) {
+				len++; // increasing element found
+				maxLen = Math.max(len, maxLen);
+			} else
+				// Indices of the integers in the subsequence should be
+				// continuous.
+				len = 0; // reset
+		}
+
+		len = 0; // reset the length
+
+		// get the LICS from right to left
+		for (int i = nums.length - 1; i > 0; i--) {
+			if (nums[i] < nums[i - 1]) {
+				len++; // increasing element found
+				maxLen = Math.max(len, maxLen);
+			} else
+				len = 0; // reset
+		}
+
+		return maxLen + 1;
+	}
 }
