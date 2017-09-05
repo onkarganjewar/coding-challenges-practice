@@ -140,4 +140,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 135 | [Longest Increasing Subsequence](../master/Challenges/src/Solution.java#L5557) | [LeetCode](https://leetcode.com/problems/longest-increasing-subsequence/)
 | 136 | [Longest Consecutive Sequence](../master/Challenges/src/Solution.java#L5594) | [LeetCode](https://leetcode.com/problems/longest-consecutive-sequence)
 | 137 | [Longest Increasing Continuous Subsequence](../master/Challenges/src/Solution.java#L5638) | [LintCode](http://www.lintcode.com/en/problem/longest-increasing-continuous-subsequence/)
+| 138 | [Basic Calculator](../master/Challenges/src/Solution.java#L5684) | [LeetCode](https://leetcode.com/problems/basic-calculator)
 

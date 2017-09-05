@@ -5664,4 +5664,68 @@ public class Solution {
 		}
 		return maxLen + 1;
 	}
+
+	/**
+	 * Implement a basic calculator to evaluate a simple expression string. The
+	 * expression string may contain open ( and closing parentheses ), the plus
+	 * + or minus sign -, non-negative integers and empty spaces . <br>
+	 * <b>You may assume that the given expression is always valid. </b><br>
+	 * <br>
+	 * <b>Input</b>: "1 + 1"<br>
+	 * <b>Output</b> = 2<br>
+	 * <b>Input</b>" 2-1 + 2 "<br>
+	 * <b>Output</b> = 3 <br>
+	 * <b>Input</b>: "(1+(4+5+2)-3)+(6+8)" <br>
+	 * <b>Output</b> = 23
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public static int calculate(String s) {
+		Stack<Integer> stack = new Stack<Integer>();
+		int sign = 1; // sign flag
+		int res = 0; // prev carry result
+		int digit = 0; // digit
+
+		// we only have to consider addition/subtraction/brackets
+		for (int i = 0; i < s.length(); i++) {
+			char ch = s.charAt(i);
+			if (Character.isDigit(ch)) {
+				// add the current digit to previous digit
+				digit = digit * 10 + Character.getNumericValue(ch);
+				// for number 12 ==>
+				// 1.) 0 * 10 + 1 = 1
+				// 2.) 1 * 10 + 2 = 12
+			} else if (ch == '+') {
+				// pop the previous result
+				res += sign * digit;
+				digit = 0; // reset the digit
+				sign = 1;
+			} else if (ch == '-') {
+				res += sign * digit;
+				digit = 0; // reset the digit
+				sign = -1; // set the sign to negative
+			} else if (ch == '(') {
+				// push the previous result with its sign
+				stack.push(res);
+				stack.push(sign);
+				// reset the result and sign
+				res = 0;
+				sign = 1;
+			} else if (ch == ')') {
+				res += sign * digit; // calculate the result till now
+				// reset the digit
+				digit = 0;
+				// pop the previous results sign
+				res *= stack.pop();
+				// pop the previous stored stack results
+				// and add it to the result
+				res += stack.pop();
+			}
+		}
+		// add any remaining stored sum
+		if (digit != 0)
+			res += digit * sign;
+		return res;
+	}
 }
