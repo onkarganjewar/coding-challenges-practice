@@ -5728,4 +5728,37 @@ public class Solution {
 			res += digit * sign;
 		return res;
 	}
+
+	/**
+	 * Given an unsorted array of integers, find the length of longest
+	 * <b>continuous</b> increasing subsequence. <br>
+	 * <br>
+	 * <b>Input</b>: {@code [1, 3, 5, 4, 7]}, <br>
+	 * <b>Output</b>: <b>3</b>, because the LICS is {@code [1, 3, 5]}. <br>
+	 * Even though {@code [1, 3, 5, 7]} is also an increasing subsequence, it's
+	 * not a continuous one where 5 and 7 are separated by 4.<br>
+	 * <br>
+	 * <b>Input</b> {@code [2, 2, 2, 2, 2]}, <br>
+	 * <b>Output</b>: <b>1</b>, because the LICS is {@code [2]}.
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static int findLengthOfLCIS(int[] nums) {
+		int dp[] = new int[nums.length + 1];
+		int maxLen = 1;
+		if (nums == null || nums.length < 1)
+			return 0;
+		// if not filled manually, then by default 0's will be added,
+		Arrays.fill(dp, 1);
+
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i - 1] < nums[i]) {
+				dp[i] = dp[i - 1] + 1;
+			}
+			// recalculate maxLen at the end of each iteration
+			maxLen = Math.max(maxLen, dp[i]);
+		}
+		return maxLen;
+	}
 }
