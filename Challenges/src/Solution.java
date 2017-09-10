@@ -5761,4 +5761,66 @@ public class Solution {
 		}
 		return maxLen;
 	}
+
+	/**
+	 * Given an unsorted array of integers, find the number of longest
+	 * increasing subsequence. <br>
+	 * <br>
+	 * <b>Input</b>: {@code [1, 3, 5, 4, 7]}, <br>
+	 * <b>Output</b>: <b>2</b> <br>
+	 * <b>Explanation</b>: The two longest increasing subsequence are
+	 * {@code [1, 3, 4, 7]} and {@code [1, 3, 5, 7]}. <br>
+	 * <br>
+	 * <b>Input</b> {@code [2, 2, 2, 2, 2]}, <br>
+	 * <b>Output</b>: <b>5</b> <br>
+	 * <b>Explanation</b>: The length of longest continuous increasing
+	 * subsequence is 1, and there are 5 subsequences' length is 1, so output 5.
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static int findNumberOfLIS(int[] nums) {
+		int count = 0, maxLen = 0;
+		if (nums == null || nums.length < 1)
+			return count;
+
+		// using the DP approach O(n^2)
+		// take two memo arrays each for length and count till nums[i]
+		int len[] = new int[nums.length];
+		int cnt[] = new int[nums.length];
+		Arrays.fill(len, 1);
+		Arrays.fill(cnt, 1);
+
+		for (int i = 0; i < nums.length; i++) {
+			for (int j = 0; j < i; j++) {
+				// fill the len array keeping track of no of elements in the
+				// current sequence
+				if (nums[j] < nums[i]) {
+					// check if there already exists increasing sequence
+					if (len[i] == len[j] + 1)
+						cnt[i] += cnt[j]; // increment the count of sequences
+					if (len[i] < len[j] + 1) {
+						len[i] = len[j] + 1;
+						cnt[i] = cnt[j]; // keep track of count
+					}
+				}
+			}
+			// if reached max length then increment count
+			if (maxLen == len[i])
+				count += cnt[i]; // increment from cnt array
+
+			// recalculate maxLen at the end of each iteration
+			else if (maxLen < len[i]) {
+				// recompute the max length of sequence
+				maxLen = len[i];
+				// reset the count
+				count = cnt[i];
+			}
+		}
+		// num = [1, 3, 5, 4, 7]
+		// final memo arrays
+		// len = [1, 2, 3, 3, 4]
+		// cnt = [1, 1, 1, 1, 2]
+		return count;
+	}
 }
