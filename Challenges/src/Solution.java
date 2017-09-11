@@ -5823,4 +5823,49 @@ public class Solution {
 		// cnt = [1, 1, 1, 1, 2]
 		return count;
 	}
+
+	/**
+	 * Given a 2D binary matrix filled with 0's and 1's, find the largest square
+	 * containing only 1's and return its area. <br>
+	 * <br>
+	 * For example, given the following matrix: <br>
+	 * 1 0 1 0 0<br>
+	 * 1 0 <b>1 1</b> 1<br>
+	 * 1 1 <b>1 1</b> 1<br>
+	 * 1 0 0 1 0<br>
+	 * <br>
+	 * Return 4.<br>
+	 * 
+	 * @param matrix
+	 * @return
+	 */
+	public static int maximalSquare(char[][] matrix) {
+		// using the DP approach
+		// Time complexity = O(m*n)
+		// Space complexity = O(m*n)
+		if (matrix == null || matrix.length < 1)
+			return 0;
+		int maxSide = 0, rows = matrix.length, cols = matrix[0].length;
+		int[][] dp = new int[rows + 1][cols + 1];
+		for (int i = 1; i <= rows; i++) {
+			for (int j = 1; j <= cols; j++) {
+				if (matrix[i - 1][j - 1] == '1') {
+					// Get the min(dp(i-1, j), dp(i-1, j-1), dp(i, j-1))
+					// dp[i][j] = Math.min(Math.min(dp[i - 1][j], dp[i][j - 1]),
+					// dp[i - 1][j - 1]) + 1;
+					dp[i][j] = getMinOfThree((dp[i - 1][j]), (dp[i][j - 1]), (dp[i - 1][j - 1])) + 1;
+					// keep track of max square side length
+					maxSide = Math.max(maxSide, dp[i][j]);
+				}
+			}
+		}
+		return maxSide * maxSide;
+	}
+
+	/**
+	 * Returns the minimum among three integers
+	 */
+	private static int getMinOfThree(int i, int j, int k) {
+		return (i < j) ? Math.min(i, k) : Math.min(j, k);
+	}
 }
