@@ -5868,4 +5868,35 @@ public class Solution {
 	private static int getMinOfThree(int i, int j, int k) {
 		return (i < j) ? Math.min(i, k) : Math.min(j, k);
 	}
+
+	/**
+	 * You are a professional robber planning to rob houses along a street. Each
+	 * house has a certain amount of money stashed, the only constraint stopping
+	 * you from robbing each of them is that adjacent houses have security
+	 * system connected and it will automatically contact the police if two
+	 * adjacent houses were broken into on the same night. <br>
+	 * <br>
+	 * Given a list of non-negative integers representing the amount of money of
+	 * each house, determine the maximum amount of money you can rob tonight
+	 * without alerting the police.
+	 * 
+	 * @param nums
+	 *            An array of non-negative integers
+	 * 
+	 * @return The maximum amount of money you can rob tonight
+	 */
+	public int rob(int[] nums) {
+		int rob = 0, notRob = 0, currRob = 0;
+		for (int i = 0; i < nums.length; i++) {
+			// rob the current house viz., nums[i]
+			// rob this house + money robbed excluding the previous house
+			currRob = notRob + nums[i];
+			// find max robbery for not robbing this house
+			// max of previous robbery and current robbery so far
+			notRob = Math.max(notRob, rob);
+			// carry forward the current robbery
+			rob = currRob;
+		}
+		return Math.max(rob, notRob);
+	}
 }
