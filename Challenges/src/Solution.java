@@ -5899,4 +5899,68 @@ public class Solution {
 		}
 		return Math.max(rob, notRob);
 	}
+
+	/**
+	 * Given a non-empty array containing only positive integers, find if the
+	 * array can be partitioned into two subsets such that the sum of elements
+	 * in both subsets is equal. <br>
+	 * <br>
+	 * Each of the array element will not exceed 100. The array size will not
+	 * exceed 200. <br>
+	 * <b>Input</b>: Given nums = {@code [1, 5, 11, 5], }<br>
+	 * <b>Output</b>: return <b>true</b><br>
+	 * <b>Explanation</b>: two subsets = {@code [1, 5, 5], [11]}<br>
+	 * <br>
+	 * <b>Input</b>: Given nums = {@code [1, 2, 3, 9], }<br>
+	 * <b>Output</b>: return false
+	 * 
+	 * @param nums
+	 *            a non-empty array only positive integers
+	 * @return true if can partition or false
+	 */
+	public static boolean canPartition(int[] nums) {
+		int sum = 0;
+		// base case
+		if (nums == null || nums.length < 2) {
+			return false;
+		}
+
+		// compute the sum of all the elements
+		for (int num : nums) {
+			sum += num;
+		}
+
+		// check if the sum of all elements is even
+		if (sum % 2 != 0) {
+			return false; // sum cannot be partitioned into two equal halves
+		}
+
+		// only take the half of the sum for comparison
+		sum /= 2;
+		boolean dp[][] = new boolean[nums.length][sum + 1];
+		for (int i = 0; i < nums.length; i++) {
+			dp[i][0] = true; // set first column to true
+		}
+
+		// take care of the first row
+		// set true only if the element <= sum
+		// if(nums[0] <= sum) dp[0][nums[0]] = true;
+
+		dp[0][0] = true; // 0 numbers make 0 sum
+
+		for (int i = 1; i < nums.length; i++) {
+			for (int j = 1; j < sum + 1; j++) {
+				// if current sum is less than the current number
+				if (j < nums[i]) {
+					// if the number before has made it to sum == j
+					// then the current number can also make up the sum j
+					dp[i][j] = dp[i - 1][j];
+				} else // either take value from above or
+						// travel back to the sum - current no (nums[i])
+					dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i]];
+			}
+		}
+
+		return dp[nums.length - 1][sum];
+	}
 }
