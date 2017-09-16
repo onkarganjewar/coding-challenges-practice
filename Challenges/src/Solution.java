@@ -5908,11 +5908,14 @@ public class Solution {
 	 * Each of the array element will not exceed 100. The array size will not
 	 * exceed 200. <br>
 	 * <b>Input</b>: Given nums = {@code [1, 5, 11, 5], }<br>
-	 * <b>Output</b>: return <b>true</b><br>
-	 * <b>Explanation</b>: two subsets = {@code [1, 5, 5], [11]}<br>
+	 * <b>Output</b>: <b>true</b><br>
+	 * <b>Explanation</b>: The array can be partitioned as {@code [1, 5, 5]} and
+	 * {@code [11]}.<br>
 	 * <br>
 	 * <b>Input</b>: Given nums = {@code [1, 2, 3, 9], }<br>
-	 * <b>Output</b>: return false
+	 * <b>Output</b>: <b>false</b> <br>
+	 * <b>Explanation</b>: The array cannot be partitioned into equal sum
+	 * subsets.
 	 * 
 	 * @param nums
 	 *            a non-empty array only positive integers
