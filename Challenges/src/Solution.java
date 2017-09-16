@@ -5963,7 +5963,48 @@ public class Solution {
 					dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i]];
 			}
 		}
-
 		return dp[nums.length - 1][sum];
+	}
+
+	/**
+	 * Given an integer array, your task is to find all the different possible
+	 * increasing subsequences of the given array, and the length of an
+	 * increasing subsequence should be at least 2. <br>
+	 * <br>
+	 * 
+	 * <b>Input</b>: {@code [4, 6, 7, 7]} <br>
+	 * <b>Output</b>:
+	 * {@code [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7,
+	 * 7], [7,7], [4,7,7]] }<br>
+	 * <br>
+	 * <b>Note</b>: <br>
+	 * The length of the given array will not exceed 15. <br>
+	 * The range of integer in the given array is {@code [-100,100]}. <br>
+	 * The given array may contain duplicates, and two equal integers should
+	 * also be considered as a special case of increasing sequence.<br>
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public static List<List<Integer>> findSubsequences(int[] nums) {
+		Set<List<Integer>> res = new HashSet<List<Integer>>();
+		backtrackSeq(res, new ArrayList<Integer>(), nums, 0);
+		return new ArrayList<>(res);
+	}
+
+	public static void backtrackSeq(Set<List<Integer>> res, List<Integer> temp, int[] arr, int start) {
+		if (temp.size() >= 2) {
+			res.add(new ArrayList<>(temp));
+			// return; // DO NOT RETURN
+		}
+
+		for (int i = start; i < arr.length; i++) {
+			// check if the current element is greater than the last
+			if (temp.size() == 0 || arr[i] >= temp.get(temp.size() - 1)) {
+				temp.add(arr[i]);
+				backtrackSeq(res, temp, arr, i + 1);
+				temp.remove(temp.size() - 1);
+			}
+		}
 	}
 }

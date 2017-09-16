@@ -146,4 +146,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 141 | [Maximal Square](../master/Challenges/src/Solution.java#L5842) | [LeetCode](https://leetcode.com/problems/maximal-square/)
 | 142 | [House Robber](../master/Challenges/src/Solution.java#L5888) | [LeetCode](https://leetcode.com/problems/house-robber/)
 | 143 | [Partition Equal Subset Sum](../master/Challenges/src/Solution.java#L5924) | [LeetCode](https://leetcode.com/problems/partition-equal-subset-sum/)
+| 144 | [Increasing Subsequences](../master/Challenges/src/Solution.java#L5989) | [LeetCode](https://leetcode.com/problems/increasing-subsequences/)
 
