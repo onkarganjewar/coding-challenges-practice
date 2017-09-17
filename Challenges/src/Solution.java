@@ -6007,4 +6007,29 @@ public class Solution {
 			}
 		}
 	}
+
+	/**
+	 * Count the number of prime numbers less than a non-negative number, n.
+	 * 
+	 * @param n
+	 * @return
+	 */
+	public int countPrimes(int n) {
+		boolean isPrime[] = new boolean[n];
+		int count = 0;
+
+		// boolean[] is false by default
+		Arrays.fill(isPrime, true);
+
+		for (int i = 2; i < n; i++) {
+			if (isPrime[i]) {
+				count++;
+				for (int j = 2; i * j < n; j++) {
+					// mark all the multiples of current number as not prime
+					isPrime[i * j] = false;
+				}
+			}
+		}
+		return count;
+	}
 }
