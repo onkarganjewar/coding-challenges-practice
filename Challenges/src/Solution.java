@@ -6032,4 +6032,37 @@ public class Solution {
 		}
 		return count;
 	}
+
+	/**
+	 * Given a non-empty string s, you may delete <b>at most</b> {@code one}
+	 * character. Judge whether you can make it a palindrome. <br>
+	 * <br>
+	 * <b>Input</b>: "aba" <br>
+	 * <b>Output</b>: True <br>
+	 * <br>
+	 * <b>Input</b>: "abca" <br>
+	 * <b>Output</b>: True <br>
+	 * <b>Explanation</b>: You could delete the character 'c'.<br>
+	 * <br>
+	 * <b>Input</b>: "tebbem" <br>
+	 * <b>Output</b>: False
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public static boolean validPalindrome(String s) {
+		if (s == null || s.length() == 0)
+			return false;
+
+		// abcbe
+		for (int i = 0; i < s.length() / 2; i++) {
+			// if a mismatch occurred
+			if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
+				// check whether the rest of the substring is palindrome or not
+				return isPalindrome(s, i + 1, s.length() - i - 1) || isPalindrome(s, i, s.length() - i - 2);
+				// either delete the left end char || delete the right end char
+			}
+		}
+		return true;
+	}
 }
