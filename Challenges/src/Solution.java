@@ -6117,42 +6117,28 @@ public class Solution {
 			return 0;
 
 		int total = 0;
-		Stack<Integer> stack = new Stack<Integer>();
-
+		List<Integer> list = new ArrayList<Integer>();
 		for (String s : ops) {
-			if (isInteger(s)) { // normal score
-				stack.push(Integer.parseInt(s)); // push onto stack
-			} else if (s.equalsIgnoreCase("+")) {
-				// if action is '+' then look up the prev two numbers and push
-				// their sum onto the stack
-				Integer num1 = 0, num2 = 0, sum = 0, i = 0;
-				if (!stack.isEmpty()) {
-					num2 = stack.pop();
-					if (!stack.isEmpty()) {
-						num1 = stack.peek(); // no need to pop this number
-					}
-					sum = num1 + num2;
-					// stack.push(num1); // didn't pop this number to push
-					stack.push(num2);
-					stack.push(sum);
-				}
+			if (s.equals("+")) {
+				// if action is '+' then look up the prev two numbers
+				// and append their sum into the list
+				int num1 = list.get(list.size() - 1);
+				int num2 = list.get(list.size() - 2);
+				list.add(num1 + num2);
 			} else if (s.equals("C")) {
 				// if 'C' then last valid round score is invalid
-				if (!stack.isEmpty()) {
-					stack.pop(); // discard the last stored score
-				}
-			} else if (s.equals("D")) {
-				// double the last valid round's points
-				if (!stack.isEmpty()) {
-					// take only the last valid round
-					stack.push(2 * stack.peek()); // no need to pop
-				}
+				list.remove(list.size() - 1); // discard the last stored score
+			} else if (s.equals("D")) { // double the last valid round's points
+				// take only the last valid round
+				int num = list.get(list.size() - 1);
+				list.add(num * 2);
+			} else { // normal score
+				list.add(Integer.parseInt(s));
 			}
 		}
-
-		// iterate the stack and count the final scores
-		while (!stack.isEmpty()) {
-			total += stack.pop();
+		// compute the sum
+		for (Integer i : list) {
+			total += i;
 		}
 
 		return total;
@@ -6165,7 +6151,7 @@ public class Solution {
 	 *            Input string
 	 * @return true, if the string is an integer
 	 */
-	public static boolean isInteger(String s) {
+	private static boolean isInteger(String s) {
 		try {
 			Integer.parseInt(s);
 		} catch (NumberFormatException e) {
