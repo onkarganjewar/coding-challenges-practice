@@ -149,4 +149,5 @@ Programs implemented in Java that contains solutions to various coding challenge
 | 144 | [Increasing Subsequences](../master/Challenges/src/Solution.java#L5989) | [LeetCode](https://leetcode.com/problems/increasing-subsequences/)
 | 145 | [Count Primes](../master/Challenges/src/Solution.java#L6017) | [LeetCode](https://leetcode.com/problems/count-primes/)
 | 146 | [Valid Palindrome II](../master/Challenges/src/Solution.java#L6053) | [LeetCode](https://leetcode.com/problems/valid-palindrome-ii/)
+| 147 | [Baseball Game](../master/Challenges/src/Solution.java#L6114) | [LeetCode](https://leetcode.com/problems/baseball-game/)
 

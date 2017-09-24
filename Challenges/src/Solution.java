@@ -6065,4 +6065,115 @@ public class Solution {
 		}
 		return true;
 	}
+
+	/**
+	 * You're now a baseball game point recorder. <br>
+	 * Given a list of strings, each string can be one of the 4 following types:
+	 * <br>
+	 * <br>
+	 * <b>Integer</b> (one round's score): Directly represents the number of
+	 * points you get in this round. <br>
+	 * <b>"+"</b> (one round's score): Represents that the points you get in
+	 * this round are the sum of the last two valid round's points.<br>
+	 * <b>"D"</b> (one round's score): Represents that the points you get in
+	 * this round are the doubled data of the last valid round's points. <br>
+	 * <b>"C"</b> (an operation, which isn't a round's score): Represents the
+	 * last valid round's points you get were invalid and should be removed.
+	 * Each round's operation is permanent and could have an impact on the round
+	 * before and the round after.<br>
+	 * You need to return the sum of the points you could get in all the rounds.
+	 * <br>
+	 * <br>
+	 * 
+	 * <b>Input</b>:{@code ["5","2","C","D","+"]} <br>
+	 * <b>Output</b>: 15 <br>
+	 * <b>Explanation</b>: <br>
+	 * Round 1: You could get 5 points. The sum is: 5. <br>
+	 * Round 2: You could get 2 points. The sum is: 7. <br>
+	 * Operation 1: The round 2's data was invalid. The sum is: 5. <br>
+	 * Round 3: You could get 10 points (the round 2's data has been removed).
+	 * The sum is: 15. <br>
+	 * Round 4: You could get 5 + 10 = 15 points. The sum is: 30. <br>
+	 * <br>
+	 * <b>Input</b>: ["5","-2","4","C","D","9","+","+"] <br>
+	 * <b>Output</b>: 27 <br>
+	 * <b>Explanation</b>: <br>
+	 * Round 1: You could get 5 points. The sum is: 5. <br>
+	 * Round 2: You could get -2 points. The sum is: 3. <br>
+	 * Round 3: You could get 4 points. The sum is: 7. <br>
+	 * Operation 1: The round 3's data is invalid. The sum is: 3. <br>
+	 * Round 4: You could get -4 points (the round 3's data has been removed).
+	 * The sum is: -1. <br>
+	 * Round 5: You could get 9 points. The sum is: 8. <br>
+	 * Round 6: You could get -4 + 9 = 5 points. The sum is 13. <br>
+	 * Round 7: You could get 9 + 5 = 14 points. The sum is 27.
+	 * 
+	 * @param ops
+	 * @return
+	 */
+	public static int calPoints(String[] ops) {
+		// base case
+		if (ops == null || ops.length < 1)
+			return 0;
+
+		int total = 0;
+		Stack<Integer> stack = new Stack<Integer>();
+
+		for (String s : ops) {
+			if (isInteger(s)) { // normal score
+				stack.push(Integer.parseInt(s)); // push onto stack
+			} else if (s.equalsIgnoreCase("+")) {
+				// if action is '+' then look up the prev two numbers and push
+				// their sum onto the stack
+				Integer num1 = 0, num2 = 0, sum = 0, i = 0;
+				if (!stack.isEmpty()) {
+					num2 = stack.pop();
+					if (!stack.isEmpty()) {
+						num1 = stack.peek(); // no need to pop this number
+					}
+					sum = num1 + num2;
+					// stack.push(num1); // didn't pop this number to push
+					stack.push(num2);
+					stack.push(sum);
+				}
+			} else if (s.equals("C")) {
+				// if 'C' then last valid round score is invalid
+				if (!stack.isEmpty()) {
+					stack.pop(); // discard the last stored score
+				}
+			} else if (s.equals("D")) {
+				// double the last valid round's points
+				if (!stack.isEmpty()) {
+					// take only the last valid round
+					stack.push(2 * stack.peek()); // no need to pop
+				}
+			}
+		}
+
+		// iterate the stack and count the final scores
+		while (!stack.isEmpty()) {
+			total += stack.pop();
+		}
+
+		return total;
+	}
+
+	/**
+	 * Check if the given string is an integer
+	 * 
+	 * @param s
+	 *            Input string
+	 * @return true, if the string is an integer
+	 */
+	public static boolean isInteger(String s) {
+		try {
+			Integer.parseInt(s);
+		} catch (NumberFormatException e) {
+			return false;
+		} catch (NullPointerException e) {
+			return false;
+		}
+		// only got here if we didn't return false
+		return true;
+	}
 }
